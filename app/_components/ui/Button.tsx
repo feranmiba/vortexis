@@ -1,9 +1,17 @@
-export default function Button({ children, type = "primary" }: any) {
+import "@/app/globals.css";
+
+export default function Button({
+  children,
+  type = "primary",
+  className = "",
+}: any) {
   return (
     <button
-      className={`${
-        type === "primary" ? "bg-primary" : "bg-secondary"
-      } rounded-2xl px-4 py-2 font-bold text-white`}
+      className={` ${
+        type === "primary"
+          ? "bg-btn-primary text-white"
+          : "text-btn-primary bg-white"
+      } ${className} min-w-full cursor-pointer rounded-2xl px-4 py-2 font-bold`}
       type="button"
     >
       {children}

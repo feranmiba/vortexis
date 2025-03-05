@@ -8,7 +8,7 @@ export default function Input({
     <input
       className={`${
         icon !== "one" ? "pr-10" : ""
-      } pl-10 min-w-[99%] mt-1 py-0.75 shadow-primary-50 rounded-2xl border-2 border-primary-50 focus:border-primary-50`}
+      } input-border focus:input-border mt-1 min-w-[99%] rounded-2xl border-2 py-1 pl-10 outline-none`}
       type={type}
       placeholder={placeholder}
       id={id}

@@ -4,26 +4,12 @@ import { useState } from "react";
 import Button from "./ui/Button";
 import { Mail, Lock, Eye, EyeOff, X } from "lucide-react";
 import Input from "./ui/Input";
+import Link from "next/link";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    // <div className="flex items-center justify-center bg-gray-50 p-4">
-    //   <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-sm">
-    // <div>
-    //   <div>
-    /* <div className="flex justify-end">
-          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
-            <X className="h-4 w-4 text-gray-500" />
-          </Button>
-        </div>
-
-        <div className="mb-6 text-center">
-          <h1 className="text-2xl font-bold text-gray-900">Welcome Back</h1>
-          <p className="text-sm text-gray-500">Sign in to your account</p>
-        // </div> */
-
     <form className="mt-5 space-y-4">
       <div className="space-y-2">
         <label htmlFor="email" className="text-sm font-medium text-gray-700">
@@ -31,7 +17,7 @@ export default function LoginForm() {
         </label>
         <div className="relative">
           <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
-            <Mail className="h-4 w-4 text-gray-400" />
+            <Mail className="mt-2 h-4 w-4 text-gray-400" />
           </div>
           <Input id="email" type="email" placeholder="donnalee@example.com" />
         </div>
@@ -50,11 +36,10 @@ export default function LoginForm() {
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
             icon="two"
-            // className="pl-10 pr-10 rounded-lg border-gray-200"
           />
           <button
             type="button"
-            className="absolute inset-y-0 right-0 flex items-center px-3"
+            className="absolute inset-y-0 right-0 flex cursor-pointer items-center px-3"
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? (
@@ -76,20 +61,15 @@ export default function LoginForm() {
             Remember me
           </label>
         </div>
-        <a
+        <Link
           href="#"
           className="text-sm font-medium text-blue-500 hover:text-blue-600"
         >
           Forgot Password
-        </a>
+        </Link>
       </div>
 
-      <Button
-        type="submit"
-        className="w-full rounded-lg bg-blue-500 py-2.5 text-white hover:bg-blue-600"
-      >
-        Sign In
-      </Button>
+      <Button type="primary">Sign In</Button>
 
       <div className="relative my-2">
         <div className="absolute inset-0 flex items-center">
@@ -98,13 +78,13 @@ export default function LoginForm() {
       </div>
 
       <Button
-        type="primary"
-        // className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 py-2.5"
+        type="secondary"
+        className="relative flex w-full items-center justify-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          className="h-5 w-5"
+          className="absolute left-3 h-5 w-5"
         >
           <path
             fill="#4285F4"
@@ -129,9 +109,9 @@ export default function LoginForm() {
 
       <div className="text-center text-sm text-gray-500">
         Don't have an account?{" "}
-        <a href="#" className="font-medium text-blue-500 hover:text-blue-600">
+        <Link href="#" className="font-medium text-[#009AFF]">
           Sign up
-        </a>
+        </Link>
       </div>
     </form>
     //   </div>
