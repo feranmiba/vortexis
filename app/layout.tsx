@@ -1,6 +1,8 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import OTP from "../public/OTP.jpg";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex flex-wrap content-center justify-center h-[95vh]">
-          {children}
+          <div className="flex justify-between">
+            <Image src={OTP} alt="Logo" />
+            {children}
+          </div>
         </div>
       </body>
     </html>
