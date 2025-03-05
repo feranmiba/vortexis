@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-// import { Checkbox } from "@/components/ui/checkbox";
-// import { Input } from "@/components/ui/input";
+import Button from "./Button";
 import { Mail, Lock, Eye, EyeOff, X } from "lucide-react";
 
 export default function LoginForm() {
@@ -35,7 +33,7 @@ export default function LoginForm() {
               <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
                 <Mail className="h-4 w-4 text-gray-400" />
               </div>
-              <Input
+              <input
                 id="email"
                 type="email"
                 placeholder="donnalee@example.com"
@@ -55,7 +53,7 @@ export default function LoginForm() {
               <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
                 <Lock className="h-4 w-4 text-gray-400" />
               </div>
-              <Input
+              <input
                 id="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
@@ -79,7 +77,7 @@ export default function LoginForm() {
 
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Checkbox id="remember" />
+              <input type="checkbox" />
               <label
                 htmlFor="remember"
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
