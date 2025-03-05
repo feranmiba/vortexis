@@ -1,11 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  compilerOptions: {
-    paths: {
-      "@/*": ["./*"],
-    },
-  },
+  /* config options here */
 };
 
 export default nextConfig;

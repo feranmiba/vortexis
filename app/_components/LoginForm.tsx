@@ -98,9 +98,8 @@ export default function LoginForm() {
       </div>
 
       <Button
-        type="button"
-        variant="outline"
-        className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 py-2.5"
+        type="primary"
+        // className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 py-2.5"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
