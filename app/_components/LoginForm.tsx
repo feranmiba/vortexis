@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Button from "./ui/Button";
 import { Mail, Lock, Eye, EyeOff, X } from "lucide-react";
-import Input from "./ui/Input";
 import Link from "next/link";
+import Input from "./ui/Input";
+import Divider from "./ui/Divider";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -51,7 +52,7 @@ export default function LoginForm() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between">
+      <div className="mb-8 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <input type="checkbox" />
           <label
@@ -71,11 +72,7 @@ export default function LoginForm() {
 
       <Button type="primary">Sign In</Button>
 
-      <div className="relative my-2">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-200"></div>
-        </div>
-      </div>
+      <Divider>or</Divider>
 
       <Button
         type="secondary"
@@ -113,7 +110,9 @@ export default function LoginForm() {
           Sign up
         </Link>
       </div>
+      <div className="bg-try">Heyyy</div>
     </form>
+
     //   </div>
     // </div>
   );
