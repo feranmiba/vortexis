@@ -30,8 +30,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex flex-wrap content-center justify-center h-[95vh]">
-          <div className="flex justify-between">
-            <Image src={OTP} alt="Logo" />
+          <div className="flex justify-between relative">
+            <Image src={OTP} className="object-contain" alt="Logo" />
             {children}
           </div>
         </div>
