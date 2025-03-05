@@ -24,13 +24,13 @@ export default function LoginForm() {
           <p className="text-sm text-gray-500">Sign in to your account</p>
         // </div> */
 
-    <form className="space-y-4 mt-5">
+    <form className="mt-5 space-y-4">
       <div className="space-y-2">
         <label htmlFor="email" className="text-sm font-medium text-gray-700">
           Email
         </label>
         <div className="relative">
-          <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
             <Mail className="h-4 w-4 text-gray-400" />
           </div>
           <Input id="email" type="email" placeholder="donnalee@example.com" />
@@ -42,19 +42,18 @@ export default function LoginForm() {
           Password
         </label>
         <div className="relative">
-          <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+          <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center">
             <Lock className="h-4 w-4 text-gray-400" />
           </div>
-          <input
+          <Input
             id="password"
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
-            className="pl-10 pr-10 rounded-lg border-gray-200"
+            icon="two"
+            // className="pl-10 pr-10 rounded-lg border-gray-200"
           />
-          <Button
+          <button
             type="button"
-            variant="ghost"
-            size="icon"
             className="absolute inset-y-0 right-0 flex items-center px-3"
             onClick={() => setShowPassword(!showPassword)}
           >
@@ -63,7 +62,7 @@ export default function LoginForm() {
             ) : (
               <Eye className="h-4 w-4 text-gray-400" />
             )}
-          </Button>
+          </button>
         </div>
       </div>
 
@@ -72,7 +71,7 @@ export default function LoginForm() {
           <input type="checkbox" />
           <label
             htmlFor="remember"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             Remember me
           </label>
@@ -87,7 +86,7 @@ export default function LoginForm() {
 
       <Button
         type="submit"
-        className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-2.5"
+        className="w-full rounded-lg bg-blue-500 py-2.5 text-white hover:bg-blue-600"
       >
         Sign In
       </Button>
@@ -101,7 +100,7 @@ export default function LoginForm() {
       <Button
         type="button"
         variant="outline"
-        className="w-full flex items-center justify-center gap-2 rounded-lg border border-gray-200 py-2.5"
+        className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 py-2.5"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
