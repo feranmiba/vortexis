@@ -6,7 +6,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   
   return (
     <>
-      <Component {...pageProps} />
+    The project uses app router not pages router
+
+You don't have to create app.tsx or use index.tsx you need to use page.tsx as your entry point and layout.tsx as main project entry point
+
+
     </>
   );
 }
