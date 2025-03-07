@@ -1,9 +1,10 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import Navbar from "../components/Navbar/main-navbar";
 
-import "./globals.css";
+import Hackathon_Navbar from "@/components/Navbar/hackathon-navbar";
+import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,18 +20,20 @@ export const metadata: Metadata = {
   title: "VORTEXIS",
   description: "Vortexis by Web3bridge",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+  
 
 
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
+        
+        <Hackathon_Navbar /> 
         {children}
       </body>
     </html>
