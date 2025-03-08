@@ -2,15 +2,15 @@
 
 import React, { useState } from 'react';
 import { Preferences, Hackathons, Location, TimeZone } from './utils/utils';
-import { useForm } from './utils/action';
+import { useForm, Form } from './utils/action';
 
 function Hackathon() {
   const { CreateRecommendation } = useForm();
-  const [formData, setFormData] = useState({
-    preferences: [""],
+  const [formData, setFormData] = useState<Form>({
+    preferences: [],
     skills: "",
     location: "",
-    hackathons: [""],
+    hackathons: [],
     time_zone: "",
   });
 
@@ -54,7 +54,8 @@ function Hackathon() {
             </div>
           </div>
 
-          <div className='space-y-8'>
+          <div className='space-y-4'>
+          <h3>* What are your skills ?</h3>
             <input
               type="text"
               placeholder="Type your skill"

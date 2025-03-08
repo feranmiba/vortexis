@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-interface Form {
+export interface Form {
     preferences: string[];
     skills: string;
     location: string;

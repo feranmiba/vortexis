@@ -2,36 +2,36 @@
 
 export const Preferences = [
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'Designer',
+        label: 'Designer',
+    },
+    {
+        name: 'Full-stack developer',
+        label: 'Full-stack developer',
+    },
+    {
+        name: 'Back-end developer ',
+        label: 'Back-end developer ',
     },
     {
         name: 'Frontend Developer',
         label: 'Frontend Developer',
     },
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'Mobile developer',
+        label: 'Mobile developer',
     },
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'Data scientist',
+        label: 'Data scientist',
     },
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'Product manager',
+        label: 'Product manager',
     },
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
-    },
-    {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
-    },
-    {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'Business',
+        label: 'Business',
     },
     {
         name: 'Other',
@@ -89,28 +89,64 @@ export const Hackathons = [
         label: 'Quantum',
     },
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'Databases',
+        label: 'Databases',
     },
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'IoT',
+        label: 'IoT',
     },
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'Robotic Process Automation',
+        label: 'Robotic Process Automation',
     },
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'Design',
+        label: 'Design',
     },
     {
-        name: 'Frontend Developer',
-        label: 'Frontend Developer',
+        name: 'Lifehacks',
+        label: 'Lifehacks',
     },
     {
-        name: 'Other',
-        label: 'Other',
+        name: 'Social Good',
+        label: 'Social Good',
+    },
+    {
+        name: 'DevOps',
+        label: 'DevOps',
+    },
+    {
+        name: 'Low/No Code',
+        label: 'Low/No Code',
+    },
+    {
+        name: 'Voice skills',
+        label: 'Voice skills',
+    },
+    {
+        name: 'E-commerce/Retail',
+        label: 'E-commerce/Retail',
+    },
+    {
+        name: 'Machine Learning/AI',
+        label: 'Machine Learning/AI',
+    },
+    {
+        name: 'Web',
+        label: 'Web',
+    },
+    {
+        name: 'Education',
+        label: 'Education',
+    },
+    {
+        name: 'Mobile',
+        label: 'Mobile',
+    },
+    {
+        name: 'Blockchain',
+        label: 'Blockchain',
     }
 ]
 
