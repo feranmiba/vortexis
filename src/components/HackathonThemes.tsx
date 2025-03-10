@@ -1,8 +1,15 @@
-import React from 'react';
-import { Table, TableHead, TableBody, TableRow, TableHeader, TableCell } from '../components/ui/Table';
-import { Checkbox } from '../components/ui/Checkbox';
-import { MoreVertical } from 'lucide-react';
-
+import React from "react";
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeader,
+  TableCell,
+} from "../components/ui/Table";
+import { Checkbox } from "../components/ui/Checkbox";
+import { MoreVertical } from "lucide-react";
+import SearchForm from "./Search-form";
 interface ThemeData {
   theme: string;
   hackathons: number;
@@ -27,26 +34,31 @@ const defaultThemes: ThemeData[] = [
   { theme: "Productivity", hackathons: 9, totalPrizes: "$888,000" },
   { theme: "Fintech", hackathons: 8, totalPrizes: "$888,000" },
   { theme: "Enterprise", hackathons: 7, totalPrizes: "$69,000" },
-  { theme: "IoT", hackathons: 5, totalPrizes: "$55,000" }
+  { theme: "IoT", hackathons: 5, totalPrizes: "$55,000" },
 ];
 
-export const HackathonThemes: React.FC<ThemesTableProps> = ({ themes = defaultThemes }) => {
+export const HackathonThemes: React.FC<ThemesTableProps> = ({
+  themes = defaultThemes,
+}) => {
   return (
     <div className="py-12 bg-[#F5F7FA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#4D4D4D]">Top Hackathons Themes</h2>
+          <h2 className="text-3xl font-bold text-[#4D4D4D]">
+            Top Hackathons Themes
+          </h2>
         </div>
-        
+
         {themes.length > 0 ? (
-          <div className="bg-white rounded-md shadow overflow-hidden">
-            <Table>
+          <div className="bg-white rounded-md shadow overflow-hidden ">
+            <Table className="">
               <TableHead>
                 <TableRow>
                   <TableHeader></TableHeader>
                   <TableHeader>Theme</TableHeader>
                   <TableHeader>Hackathons</TableHeader>
                   <TableHeader>Total prizes</TableHeader>
+                  <TableHeader></TableHeader>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -59,7 +71,7 @@ export const HackathonThemes: React.FC<ThemesTableProps> = ({ themes = defaultTh
                     <TableCell>{theme.hackathons}</TableCell>
                     <TableCell>{theme.totalPrizes}</TableCell>
                     <TableCell>
-                      <button className="p-2 hover:bg-gray-100 rounded-full">
+                      <button className="p-2 lg:mr-[-4rem] hover:bg-gray-100 rounded-full">
                         <MoreVertical className="h-5 w-5 text-gray-500" />
                       </button>
                     </TableCell>
@@ -75,7 +87,14 @@ export const HackathonThemes: React.FC<ThemesTableProps> = ({ themes = defaultTh
         )}
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <h2 className="text-4xl font-bold text-center text-[#263238]">Hackathons are the news of innovation</h2>
+        <h2 className="lg:text-5xl text-2xl font-bold text-center text-[#263238]">
+          Hackathons are the news of
+          <br />
+          innovation
+        </h2>
+      </div>
+      <div className=" mt-10 px-4 ">
+        <SearchForm />
       </div>
     </div>
   );

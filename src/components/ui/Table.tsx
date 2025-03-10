@@ -30,14 +30,14 @@ export const TableRow: React.FC<{ children: React.ReactNode; className?: string 
   return <tr className={className}>{children}</tr>;
 };
 
-export const TableHeader: React.FC<{ children: React.ReactNode; className?: string }> = ({ 
+export const TableHeader: React.FC<{ children?: React.ReactNode; className?: string }> = ({ 
   children,
   className = ''
 }) => {
   return (
     <th 
       scope="col" 
-      className={`px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider ${className}`}
+      className={`px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider ${className}`}
     >
       {children}
     </th>

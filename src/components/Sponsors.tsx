@@ -21,7 +21,7 @@ export const Sponsors: React.FC<SponsorsSectionProps> = ({
   ],
 }) => {
   return (
-    <div className="bg-white py-12 md:py-20  flex flex-col items-center justify-center">
+    <div className="bg-white py-12 md:py-10  flex flex-col items-center justify-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-semibold text-[#4D4D4D]">

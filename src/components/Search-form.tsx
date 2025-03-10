@@ -19,7 +19,7 @@ export default function SearchForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2">
+    <form onSubmit={handleSubmit} className=" max-w-3xl  lg:ml-64 flex gap-3 ">
       <div className="relative flex-1">
         <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
           <Image src={Search} alt="Search" width={20} height={20} />

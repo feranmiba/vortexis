@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
               <span className="text-[#407BFF]">hackathons</span>
             </h1>
             <p className="mt-4 text-gray-600 max-w-lg">
-              Where organizations and developers come together to build,
+              Where organizations and developers come together <br/> to build,
               inspire, and innovate.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
