@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../components/ui/Button";
-import web3logo from "@/public/web3logo.png";
+import web3logo from "@/public/assets/web3logo.svg";
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -20,32 +20,32 @@ export const Header: React.FC = () => {
                 width={24}
                 height={24}
               />
-              <span className="ml-2 text-xl font-semibold text-gray-800">
+              <span className="ml-2 text-xl font-semibold text-[#4D4D4D]">
                 Web3 Lagos
               </span>
             </Link>
             <nav className="hidden md:ml-6 md:flex md:space-x-8">
               <Link
                 href="/"
-                className="px-3 py-2 text-sm font-medium text-gray-800 hover:text-gray-900"
+                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
               >
                 Home
               </Link>
               <Link
                 href="/hackathons"
-                className="px-3 py-2 text-sm font-medium text-gray-800 hover:text-gray-900"
+                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
               >
                 Join a hackathon
               </Link>
               <Link
                 href="/sponsors"
-                className="px-3 py-2 text-sm font-medium text-gray-800 hover:text-gray-900"
+                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
               >
                 Host a hackaton
               </Link>
               <Link
                 href="/about"
-                className="px-3 py-2 text-sm font-medium text-gray-800 hover:text-gray-900"
+                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
               >
                 Search
               </Link>
@@ -65,7 +65,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#4D4D4D] hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             >
               <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (
@@ -112,25 +112,25 @@ export const Header: React.FC = () => {
           <div className="pt-2 pb-3 space-y-1">
             <Link
               href="/"
-              className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-gray-900"
+              className="block px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
             >
               Home
             </Link>
             <Link
               href="/hackathons"
-              className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-gray-900"
+              className="block px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
             >
               Join a Hackathons
             </Link>
             <Link
               href="/sponsors"
-              className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-gray-900"
+              className="block px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
             >
               Host a hackaton
             </Link>
             <Link
               href="/about"
-              className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-gray-900"
+              className="block px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
             >
               Search
             </Link>
