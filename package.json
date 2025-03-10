@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "init": "^0.1.2",
+    "lucide-react": "^0.479.0",
     "next": "15.2.0",
     "npx": "^10.2.2",
     "react": "^19.0.0",
