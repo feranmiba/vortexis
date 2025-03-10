@@ -16,11 +16,11 @@ export const Table: React.FC<TableProps> = ({ children, className = '' }) => {
 };
 
 export const TableHead: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <thead className="bg-gray-50">{children}</thead>;
+  return <thead className="bg-white">{children}</thead>;
 };
 
 export const TableBody: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <tbody className="bg-white divide-y divide-gray-200">{children}</tbody>;
+  return <tbody className="bg-white">{children}</tbody>;
 };
 
 export const TableRow: React.FC<{ children: React.ReactNode; className?: string }> = ({ 
@@ -37,7 +37,7 @@ export const TableHeader: React.FC<{ children?: React.ReactNode; className?: str
   return (
     <th 
       scope="col" 
-      className={`px-6 py-3 text-left text-xs font-medium text-gray-800 uppercase tracking-wider ${className}`}
+      className={`px-6 py-3 text-left text-md font-medium text-gray-800  tracking-wider ${className}`}
     >
       {children}
     </th>

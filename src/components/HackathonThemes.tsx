@@ -41,62 +41,63 @@ export const HackathonThemes: React.FC<ThemesTableProps> = ({
   themes = defaultThemes,
 }) => {
   return (
-    <div className="py-12 bg-[#F5F7FA]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#4D4D4D]">
-            Top Hackathons Themes
-          </h2>
-        </div>
-
-        {themes.length > 0 ? (
-          <div className="bg-white rounded-md shadow overflow-hidden ">
-            <Table className="">
-              <TableHead>
-                <TableRow>
-                  <TableHeader></TableHeader>
-                  <TableHeader>Theme</TableHeader>
-                  <TableHeader>Hackathons</TableHeader>
-                  <TableHeader>Total prizes</TableHeader>
-                  <TableHeader></TableHeader>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {themes.map((theme, index) => (
-                  <TableRow key={index}>
-                    <TableCell>
-                      <Checkbox />
-                    </TableCell>
-                    <TableCell>{theme.theme}</TableCell>
-                    <TableCell>{theme.hackathons}</TableCell>
-                    <TableCell>{theme.totalPrizes}</TableCell>
-                    <TableCell>
-                      <button className="p-2 lg:mr-[-4rem] hover:bg-gray-100 rounded-full">
-                        <MoreVertical className="h-5 w-5 text-gray-500" />
-                      </button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        ) : (
-          <div className="text-center py-8 text-gray-500">
-            No theme data available
-          </div>
-        )}
-      </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <h2 className="lg:text-5xl text-2xl font-bold text-center text-[#263238]">
-          Hackathons are the news of
-          <br />
-          innovation
+    <>
+      <div className="text-center mb-6 bg-white ">
+        <h2 className="text-4xl font-bold text-[#4D4D4D]">
+          Top Hackathons Themes
         </h2>
       </div>
-      <div className=" mt-10 px-4 ">
-        <SearchForm />
+      <div className="py-12 bg-[#F5F7FA] ">
+        <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {themes.length > 0 ? (
+            <div className=" rounded-md shadow overflow-hidden ">
+              <Table className="">
+                <TableHead>
+                  <TableRow>
+                    <TableHeader></TableHeader>
+                    <TableHeader>Theme</TableHeader>
+                    <TableHeader>Hackathons</TableHeader>
+                    <TableHeader>Total prizes</TableHeader>
+                    <TableHeader></TableHeader>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {themes.map((theme, index) => (
+                    <TableRow key={index}>
+                      <TableCell>
+                        <Checkbox />
+                      </TableCell>
+                      <TableCell>{theme.theme}</TableCell>
+                      <TableCell>{theme.hackathons}</TableCell>
+                      <TableCell>{theme.totalPrizes}</TableCell>
+                      <TableCell>
+                        <button className="p-2 lg:mr-[-4rem] hover:bg-gray-100 rounded-full">
+                          <MoreVertical className="h-5 w-5 text-gray-500" />
+                        </button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          ) : (
+            <div className="text-center py-8 text-gray-500">
+              No theme data available
+            </div>
+          )}
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+          <h2 className="lg:text-5xl text-2xl font-bold text-center text-[#263238]">
+            Hackathons are the news of
+            <br />
+            innovation
+          </h2>
+        </div>
+        <div className=" mt-10 px-4 ">
+          <SearchForm />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
