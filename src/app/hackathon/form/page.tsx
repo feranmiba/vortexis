@@ -29,7 +29,7 @@ function Hackathon() {
     <>
       <section className='text-center flex flex-col gap-3.5'>
         <h1 className='text-[#4D4D4D] font-semibold text-2xl md:text-5xl lg:text-6xl'>Hackathon Recommendations</h1>
-        <p className='text-[#717171] font-normal text-sm md:text-2xl'>We'll use this to connect you with hackathons and more.</p>
+        <p className='text-[#717171] font-normal text-sm md:text-2xl'>{`We'll use this to connect you with hackathons and more.`}</p>
       </section>
 
       <section className='px-5 md:px-10 mt-10 pb-10'>
