@@ -1,30 +1,21 @@
+import type { Config } from "tailwindcss";
+
 const config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{ts,tsx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
+  prefix: "",
   theme: {
-    screens: {
-      xs: { max: "639px" },
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
-    },
     extend: {
       colors: {
-        try: "red",
-        primary: {
-          50: "#E1E8EF",
-        },
-        accent: {
-          50: "#FAF5F0",
-        },
+        bridgeRed: "#FA0101",
       },
     },
   },
   plugins: [],
-};
+} satisfies Config;
+
 export default config;

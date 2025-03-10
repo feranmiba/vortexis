@@ -110,7 +110,7 @@ export default function LoginForm() {
           Sign up
         </Link>
       </div>
-      <div className="bg-try">Heyyy</div>
+      <div className="bg-test">Hyyy</div>
     </form>
 
     //   </div>
