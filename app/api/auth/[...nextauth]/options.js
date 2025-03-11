@@ -46,9 +46,9 @@ export const options = {
       return session;
     },
   },
-  pages: {
-    signIn: "/login",
-  },
+  // pages: {
+  //   signIn: "/login",
+  // },
 };
 
-export const { auth, signIn, signOut } = NextAuth(options);
+// export const { auth, signIn, signOut } = NextAuth(options);

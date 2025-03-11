@@ -1,12 +1,14 @@
 "use client";
 
+// import { signIn, signOut } from "../api/auth/[...nextauth]/options";
+
 import { signIn, signOut } from "next-auth/react";
 
 export async function signInGoogleAction() {
-  await signIn("google", { redirectTo: "/account" });
+  await signIn("google", { callbackUrl: "/login" });
 }
 export async function signInGithubAction() {
-  await signIn("github", { redirectTo: "/account" });
+  await signIn("github", { callbackUrl: "/login" });
 }
 
 export async function signOutAction() {

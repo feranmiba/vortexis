@@ -112,6 +112,5 @@ export default function LoginForm() {
         </Link>
       </div>
     </form>
-
   );
 }
