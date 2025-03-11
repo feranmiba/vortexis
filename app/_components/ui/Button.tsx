@@ -4,9 +4,11 @@ export default function Button({
   children,
   type = "primary",
   className = "",
+  onClick = () => {},
 }: any) {
   return (
     <button
+      onClick={onClick}
       className={` ${
         type === "primary"
           ? "bg-btn-primary text-white"
