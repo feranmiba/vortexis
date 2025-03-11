@@ -16,3 +16,9 @@
 /* .bg-btn-secondary {
   background: #425583;
 } */
+
+@layer base {
+  h1 {
+    @apply text-2xl font-bold text-gray-900;
+  }
+}

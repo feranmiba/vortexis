@@ -30,13 +30,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex h-[95vh] flex-wrap content-center items-center justify-center py-5">
-          <div className="relative flex flex-wrap justify-between">
+          <div className="relative flex-wrap justify-between md:flex">
             <Image
               src={OTP}
               className="xs:p-0 object-contain p-16"
               alt="Logo"
             />
-            <div className="xs:background-red-500 relative md:min-w-[30rem]">
+            <div className="relative sm:min-w-full md:min-w-[30rem]">
               {children}
             </div>
           </div>
