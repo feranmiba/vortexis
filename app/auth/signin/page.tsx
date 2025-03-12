@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import LoginForm from "../_components/Form";
+import LoginForm from "../../_components/Form";
 
 export default async function Home() {
   return (

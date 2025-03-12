@@ -1,4 +1,4 @@
-import "@/app/globals.css";
+import "@/app/auth/globals.css";
 
 export default function Button({
   children,

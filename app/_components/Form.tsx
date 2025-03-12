@@ -72,7 +72,7 @@ export default function LoginForm({ type }: any) {
       {type === "signup" && (
         <div className="space-y-2">
           <label
-            htmlFor="password"
+            htmlFor="confirm-password"
             className="text-sm font-medium text-gray-700"
           >
             Confirm Password
@@ -82,7 +82,7 @@ export default function LoginForm({ type }: any) {
               <Lock className="h-4 w-4 text-gray-400" />
             </div>
             <Input
-              id="password"
+              id="confirm-password"
               type={showPassword ? "text" : "password"}
               placeholder="Confirm your password"
               icon="two"
@@ -159,13 +159,13 @@ export default function LoginForm({ type }: any) {
       <div className="text-center text-sm text-gray-500">
         Don't have an account?{" "}
         {type === "signup" ? (
-          <a href="/" className="font-medium text-[#009AFF]">
+          <Link href="/auth" className="font-medium text-[#009AFF]">
             Sign in
-          </a>
+          </Link>
         ) : (
-          <a href="/signin" className="font-medium text-[#009AFF]">
+          <Link href="/auth/signin" className="font-medium text-[#009AFF]">
             Sign up
-          </a>
+          </Link>
         )}
       </div>
     </form>
