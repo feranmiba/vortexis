@@ -2,12 +2,9 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import OTP from "../../public/OTP.jpg"; // Corrected the path to the image
+import OTP from "@/public/assets/amico.jpg"; 
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+
 
 export const metadata: Metadata = {
   title: "sign in",
@@ -19,13 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
-        <div className="flex h-[95vh] flex-wrap content-center items-center justify-center py-5">
+        <div className="flex md:h-[95vh] flex-wrap content-center items-center justify-center py-5">
           <div className="relative flex-wrap justify-between md:flex">
             <Image
               src={OTP}
-              className="xs:p-0 object-contain p-16"
+              className="object-contain p-6 md:p-16"
               alt="Logo"
             />
             <div className="relative sm:min-w-full md:min-w-[30rem]">
@@ -33,7 +28,5 @@ export default function RootLayout({
             </div>
           </div>
         </div>
-      </body>
-    </html>
   );
 }

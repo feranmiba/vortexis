@@ -3,10 +3,10 @@
 import { signIn, signOut } from "next-auth/react";
 
 export async function signInGoogleAction() {
-  await signIn("google", { callbackUrl: "/login" });
+  await signIn("google", { callbackUrl: "/auth/login" });
 }
 export async function signInGithubAction() {
-  await signIn("github", { callbackUrl: "/login" });
+  await signIn("github", { callbackUrl: "/auth/login" });
 }
 
 export async function signOutAction() {

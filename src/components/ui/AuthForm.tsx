@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Button from "./ui/Button";
 import { Mail, Lock, Eye, EyeOff, X, User } from "lucide-react";
 import Link from "next/link";
-import Input from "./ui/Input";
-import Divider from "./ui/Divider";
-import { signInGithubAction, signInGoogleAction } from "../_lib/actions";
+import { signInGithubAction, signInGoogleAction } from "@/lib/actions";
+import Input from "./AuthInput";
+import Button from "./AuthButton";
+import Divider from "./Divider";
 
 export default function LoginForm({ type }: any) {
   const [showPassword, setShowPassword] = useState(false);
@@ -122,7 +122,7 @@ export default function LoginForm({ type }: any) {
         </div>
       )}
 
-      <Button type="primary">Sign In</Button>
+      <Button type="primary">{type==="login"?"Sign In":"sign up"}</Button>
 
       <Divider>or</Divider>
 
@@ -163,7 +163,7 @@ export default function LoginForm({ type }: any) {
             Sign in
           </Link>
         ) : (
-          <Link href="/auth/signin" className="font-medium text-[#009AFF]">
+          <Link href="/auth/signup" className="font-medium text-[#009AFF]">
             Sign up
           </Link>
         )}

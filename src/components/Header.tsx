@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
                 Home
               </Link>
               <Link
-                href="/hackathons"
+                href="/hackathon"
                 className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
               >
                 Join a hackathon
@@ -56,10 +56,10 @@ export const Header: React.FC = () => {
               variant="outline"
               className="text-[#009AFF] border-[#009AFF]"
             >
-              <Link href="/login">Login</Link>
+              <Link href="/auth/login">Login</Link>
             </Button>
             <Button variant="primary">
-              <Link href="/signup">Sign up</Link>
+              <Link href="/auth/signup">Sign up</Link>
             </Button>
           </div>
           <div className="flex items-center md:hidden">
@@ -138,10 +138,12 @@ export const Header: React.FC = () => {
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="px-4 space-y-3">
               <Button variant="outline" className="w-full  border-[#009AFF]">
-                <Link href="/login">Log in</Link>
+                <Link href="/auth/login">Log in</Link>
               </Button>
               <Button variant="primary" className="w-full">
-                Sign up
+             <Link href="/auth/signup">
+              Sign up
+             </Link>
               </Button>
             </div>
           </div>
