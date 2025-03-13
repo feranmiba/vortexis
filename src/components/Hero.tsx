@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -6,29 +6,31 @@ import { Button } from "../components/ui/Button";
 import cuate from "@/public/assets/cuate.svg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// You'll need to add more images for your carousel
 const carouselItems = [
   {
     title: "The home for hackathons",
     titleHighlight: "hackathons",
-    description: "Where organizations and developers come together to build, inspire, and innovate.",
+    description:
+      "Where organizations and developers come together to build, inspire, and innovate.",
     image: cuate,
-    alt: "Hackathon illustration with developers and data visualization"
+    alt: "Hackathon illustration with developers and data visualization",
   },
   {
     title: "Build your future",
     titleHighlight: "future",
-    description: "Connect with like-minded developers and bring your ideas to life.",
+    description:
+      "Connect with like-minded developers and bring your ideas to life.",
     image: cuate, // Replace with different image
-    alt: "Developers collaborating on projects"
+    alt: "Developers collaborating on projects",
   },
   {
     title: "Showcase your talent",
     titleHighlight: "talent",
-    description: "Demonstrate your skills and creativity in a competitive environment.",
+    description:
+      "Demonstrate your skills and creativity in a competitive environment.",
     image: cuate, // Replace with different image
-    alt: "Developers presenting their projects"
-  }
+    alt: "Developers presenting their projects",
+  },
 ];
 
 export const Hero: React.FC = () => {
@@ -48,7 +50,9 @@ export const Hero: React.FC = () => {
   };
 
   const goToPrevSlide = () => {
-    setActiveIndex((current) => (current - 1 + carouselItems.length) % carouselItems.length);
+    setActiveIndex(
+      (current) => (current - 1 + carouselItems.length) % carouselItems.length
+    );
   };
 
   const goToNextSlide = () => {
@@ -64,11 +68,15 @@ export const Hero: React.FC = () => {
               <div
                 key={index}
                 className={`transition-all duration-500 absolute w-full ${
-                  index === activeIndex ? "opacity-100" : "opacity-0 pointer-events-none"
+                  index === activeIndex
+                    ? "opacity-100"
+                    : "opacity-0 pointer-events-none"
                 }`}
               >
                 <h1 className="text-4xl  md:text-5xl lg:text-6xl font-bold">
-                  <span className="text-gray-900">{item.title.replace(item.titleHighlight, "")}</span>
+                  <span className="text-gray-900">
+                    {item.title.replace(item.titleHighlight, "")}
+                  </span>
                   <br />
                   <span className="text-[#407BFF]">{item.titleHighlight}</span>
                 </h1>
@@ -83,9 +91,9 @@ export const Hero: React.FC = () => {
                   >
                     For Organizers
                   </Button>
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
+                  <Button
+                    variant="outline"
+                    size="lg"
                     className="px-6 py-3 text-lg"
                   >
                     For Participants
@@ -99,7 +107,9 @@ export const Hero: React.FC = () => {
               <div
                 key={index}
                 className={`transition-opacity duration-500 absolute w-full h-full ${
-                  index === activeIndex ? "opacity-100" : "opacity-0 pointer-events-none"
+                  index === activeIndex
+                    ? "opacity-100"
+                    : "opacity-0 pointer-events-none"
                 }`}
               >
                 <Image
@@ -149,6 +159,5 @@ export const Hero: React.FC = () => {
         ))}
       </div>
     </div>
-  ); 
-
+  );
 };
