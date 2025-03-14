@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -5,8 +6,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../components/ui/Button";
 import web3logo from "@/public/assets/web3logo.svg";
+import SearchForm from "@/components/Search-form";
+
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+
+  const toggleSearch = () => {
+    setShowSearch(!showSearch);
+  };
 
   return (
     <header className="bg-white shadow-sm">
@@ -43,12 +51,12 @@ export const Header: React.FC = () => {
               >
                 Host a hackaton
               </Link>
-              <Link
-                href="/about"
-                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
+              <button
+                onClick={toggleSearch}
+                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900 cursor-pointer"
               >
                 Search
-              </Link>
+              </button>
             </nav>
           </div>
           <div className="hidden md:flex items-center space-x-4">
@@ -106,6 +114,13 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
+    {/* Search container that shows when search is toggled */}
+  {showSearch && (
+        <div>
+            <SearchForm />
+        </div>
+      )}
+
       {/* Mobile menu, show/hide based on menu state */}
       {isMenuOpen && (
         <div className="md:hidden">
@@ -128,20 +143,22 @@ export const Header: React.FC = () => {
             >
               Host a hackaton
             </Link>
-            <Link
-              href="/about"
-              className="block px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
+            <button
+              onClick={toggleSearch}
+              className="block w-full text-left px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
             >
               Search
-            </Link>
+            </button>
           </div>
+  
+
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="px-4 space-y-3">
-              <Button variant="outline" className="w-full  border-[#009AFF]">
+              <Button variant="outline" className="w-full border-[#009AFF]">
                 <Link href="/login">Log in</Link>
               </Button>
               <Button variant="primary" className="w-full">
-                Sign up
+                <Link href="/signup">Sign up</Link>
               </Button>
             </div>
           </div>
