@@ -1,15 +1,23 @@
 import "@/app/auth/globals.css";
+import { ReactNode } from "react";
+
+interface ButtonProps {
+  children: ReactNode;
+  type?: string;
+  className?: string;
+  onClick?: () => void;
+}
 
 export default function Button({
   children,
   type = "primary",
   className = "",
   onClick = () => {},
-}: any) {
+}: ButtonProps) {
   return (
     <button
       onClick={onClick}
-      className={` ${
+      className={`${
         type === "primary"
           ? "bg-btn-primary text-white"
           : "text-btn-primary bg-white"

@@ -1,14 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Lock, Eye, EyeOff, X, User } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, User } from "lucide-react";
 import Link from "next/link";
 import { signInGithubAction, signInGoogleAction } from "@/lib/actions";
 import Input from "./AuthInput";
 import Button from "./AuthButton";
 import Divider from "./Divider";
 
-export default function LoginForm({ type }: any) {
+type AuthFormType = "login" | "signup";
+
+interface LoginFormProps {
+  type: AuthFormType;
+}
+
+export default function LoginForm({ type }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -122,7 +128,7 @@ export default function LoginForm({ type }: any) {
         </div>
       )}
 
-      <Button type="primary">{type==="login"?"Sign In":"sign up"}</Button>
+      <Button type="primary">{type === "login" ? "Sign In" : "sign up"}</Button>
 
       <Divider>or</Divider>
 
@@ -157,7 +163,7 @@ export default function LoginForm({ type }: any) {
       </Button>
 
       <div className="text-center text-sm text-gray-500">
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         {type === "signup" ? (
           <Link href="/auth" className="font-medium text-[#009AFF]">
             Sign in

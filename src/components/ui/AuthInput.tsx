@@ -1,9 +1,18 @@
+import React from "react";
+
+interface InputProps {
+  type?: string;
+  placeholder?: string;
+  id: string;
+  icon?: string;
+}
+
 export default function Input({
   type = "text",
   placeholder = "",
   id,
   icon = "one",
-}: any) {
+}: InputProps) {
   return (
     <input
       className={`${
