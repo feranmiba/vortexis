@@ -20,6 +20,7 @@ export default function RootLayout({
         <AuthProvider>
           <Header />
         </AuthProvider>
+
         {children}
         <Footer />
       </body>

@@ -171,8 +171,8 @@ export const Header: React.FC = () => {
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="px-4 space-y-3">
               {!user ? (
-                <>
-                  <Link href="/auth/login">
+                <div className="space-y-3">
+                  <Link href="/auth/login" className="block">
                     <Button
                       variant="outline"
                       className="w-full  border-[#009AFF]"
@@ -185,7 +185,7 @@ export const Header: React.FC = () => {
                       Sign up
                     </Button>
                   </Link>
-                </>
+                </div>
               ) : (
                 <Button variant="primary" className="w-full">
                   Logout
