@@ -19,10 +19,12 @@ function Hackathon() {
   useEffect(() => {
     const fetchCountries = async () => {
       const response = await getAllCountries();
-      setCountries(response);
+      if (response) {
+        setCountries(response);
+      }
     };
     fetchCountries();
-  }, []);
+  }, [getAllCountries]);
 
   const handlePreferenceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target;

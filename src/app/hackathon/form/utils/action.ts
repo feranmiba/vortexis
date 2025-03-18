@@ -8,6 +8,13 @@ export interface Form {
     time_zone: string;
 }
 
+interface Country {
+    name: {
+      common: string;
+    };
+  }
+  
+
 export const useForm  = () => {
     const CreateRecommendation = useCallback( async (form: Form) => {
         console.log(form)
@@ -44,19 +51,17 @@ export const useForm  = () => {
                 },
             })
 
-            const data = await response.json();
+            const data: Country[] = await response.json();
             if (response.ok) { 
                 console.log(data);
-                const countries = data.map((country: any) => country.name.common);
-                console.log(countries);
-                console.log("Countries fetched succeessfully")
-                return countries;
+                return data.map((country) => country.name.common);
             } else {
                 console.log("Countries failed to fetch")
             }
 
         } catch (error) {
             console.log("Countries failed to fetch")
+            console.error(error);
         }
      }, []);
      return {
