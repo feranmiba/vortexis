@@ -151,49 +151,6 @@ export const Hackathons = [
 ]
 
 
-export const Location = [
-    { id: 1, city: "Nigeria" },
-    { id: 2, city: "United States of America" },
-    { id: 3, city: "Algeria" },
-    { id: 4, city: "Kenya" },
-    { id: 5, city: "Ghana" },
-    { id: 6, city: "Germany" },
-    { id: 7, city: "United Kingdom" },
-    { id: 8, city: "Canada" },
-    { id: 9, city: "France" },
-    { id: 10, city: "Italy" },
-    { id: 11, city: "Brazil" },
-    { id: 12, city: "South Africa" },
-    { id: 13, city: "Egypt" },
-    { id: 14, city: "India" },
-    { id: 15, city: "China" },
-    { id: 16, city: "Japan" },
-    { id: 17, city: "Australia" },
-    { id: 18, city: "Mexico" },
-    { id: 19, city: "Russia" },
-    { id: 20, city: "Argentina" },
-    { id: 21, city: "Spain" },
-    { id: 22, city: "Netherlands" },
-    { id: 23, city: "Turkey" },
-    { id: 24, city: "Saudi Arabia" },
-    { id: 25, city: "South Korea" },
-    { id: 26, city: "Sweden" },
-    { id: 27, city: "Switzerland" },
-    { id: 28, city: "Pakistan" },
-    { id: 29, city: "Bangladesh" },
-    { id: 30, city: "Malaysia" },
-    { id: 31, city: "Thailand" },
-    { id: 32, city: "Indonesia" },
-    { id: 33, city: "Philippines" },
-    { id: 34, city: "New Zealand" },
-    { id: 35, city: "Vietnam" },
-    { id: 36, city: "UAE" },
-    { id: 37, city: "Portugal" },
-    { id: 38, city: "Norway" },
-    { id: 39, city: "Denmark" },
-    { id: 40, city: "Finland" }
-];
-
 
 export const TimeZone = [
     { id: 1, name: "GMT -12:00" },

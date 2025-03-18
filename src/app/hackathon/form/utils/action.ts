@@ -35,8 +35,33 @@ export const useForm  = () => {
         }
      }, []);
 
+     const getAllCountries = useCallback( async () => { 
+        try {
+            const response = await fetch("https://restcountries.com/v3.1/all", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+
+            const data = await response.json();
+            if (response.ok) { 
+                console.log(data);
+                const countries = data.map((country: any) => country.name.common);
+                console.log(countries);
+                console.log("Countries fetched succeessfully")
+                return countries;
+            } else {
+                console.log("Countries failed to fetch")
+            }
+
+        } catch (error) {
+            console.log("Countries failed to fetch")
+        }
+     }, []);
      return {
-        CreateRecommendation
+        CreateRecommendation,
+        getAllCountries
      }
 
 }

@@ -1,11 +1,12 @@
 "use client"
 
-import React, { useState } from 'react';
-import { Preferences, Hackathons, Location, TimeZone } from './utils/utils';
+import React, { useState, useEffect } from 'react';
+import { Preferences, Hackathons, TimeZone } from './utils/utils';
 import { useForm, Form } from './utils/action';
 
 function Hackathon() {
-  const { CreateRecommendation } = useForm();
+  const { CreateRecommendation, getAllCountries } = useForm();
+  const [Countries, setCountries] = useState<string[]>([]);
   const [formData, setFormData] = useState<Form>({
     preferences: [],
     skills: "",
@@ -13,6 +14,35 @@ function Hackathon() {
     hackathons: [],
     time_zone: "",
   });
+  const [error, setError] = useState<string>("");
+
+  useEffect(() => {
+    const fetchCountries = async () => {
+      const response = await getAllCountries();
+      setCountries(response);
+    };
+    fetchCountries();
+  }, []);
+
+  const handlePreferenceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target;
+    let updatedPreferences = [...formData.preferences];
+
+    if (checked) {
+      if (updatedPreferences.length < 4) {
+        updatedPreferences.push(value);
+        setError(""); // Clear error when within limit
+      } else {
+        setError("You can select up to 4 specialties only.");
+        return; // Prevent updating state beyond limit
+      }
+    } else {
+      updatedPreferences = updatedPreferences.filter(pref => pref !== value);
+      setError(""); // Clear error when deselecting
+    }
+
+    setFormData({ ...formData, preferences: updatedPreferences });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -45,17 +75,19 @@ function Hackathon() {
                     type="checkbox"
                     name="preferences"
                     value={pref.name}
-                    onChange={(e) => setFormData({...formData, preferences: [...formData.preferences, e.target.value]})}
+                    onChange={handlePreferenceChange}
+                    checked={formData.preferences.includes(pref.name)}
                     className="w-5 h-5 appearance-none border-2 border-gray-400 rounded-full checked:bg-blue-500 checked:border-blue-500 checked:ring-2 checked:ring-blue-300 transition-all duration-200"
                   />
                   <span>{pref.label}</span>
                 </label>
               ))}
             </div>
+            {error && <p className="text-red-500">{error}</p>}
           </div>
 
           <div className='space-y-4'>
-          <h3>* What are your skills ?</h3>
+            <h3>* What are your skills?</h3>
             <input
               type="text"
               placeholder="Type your skill"
@@ -95,8 +127,8 @@ function Hackathon() {
                 className="mt-2 w-full md:w-[50%] p-3 border border-gray-300 rounded-md focus:outline-none"
               >
                 <option value="" disabled>Select Location</option>
-                {Location.map((loc) => (
-                  <option key={loc.id} value={loc.city}>{loc.city}</option>
+                {Countries.map((loc) => (
+                  <option key={loc} value={loc}>{loc}</option>
                 ))}
               </select>
             </div>
