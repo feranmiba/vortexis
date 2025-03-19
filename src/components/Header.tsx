@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
                 Home
               </Link>
               <Link
-                href="/hackathons"
+                href="/hackathon"
                 className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
               >
                 Join a hackathon

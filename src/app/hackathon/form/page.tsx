@@ -107,11 +107,11 @@ function Hackathon() {
                   <input
                     type="checkbox"
                     name="hackathons"
-                    value={hack.name}
+                    value={hack}
                     onChange={(e) => setFormData({...formData, hackathons: [...formData.hackathons, e.target.value]})}
                     className="w-5 h-5 appearance-none border-2 border-gray-400 rounded-md checked:bg-blue-500 checked:border-blue-500 checked:ring-2 checked:ring-blue-300 transition-all duration-200"
                   />
-                  <span className="text-[#282828]">{hack.label}</span>
+                  <span className="text-[#282828]">{hack}</span>
                 </label>
               ))}
             </div>

@@ -40,114 +40,36 @@ export const Preferences = [
 ]
 
 export const Hackathons = [
-    {
-        name: 'AR/VR',
-        label: 'AR/VR',
-    },
-    {
-        name: 'Enterprise',
-        label: 'Enterprise',
-    },
-    {
-        name: 'Music/Art',
-        label: 'Music/Art',
-    },
-    {
-        name: 'Beginner Friendly',
-        label: 'Beginner Friendly',
-    },
-    {
-        name: 'Fintech',
-        label: 'Fintech',
-    },
-    {
-        name: 'Open Ended',
-        label: 'Open Ended',
-    },
-    {
-        name: 'Communication',
-        label: 'Communication',
-    },
-    {
-        name: 'Gaming',
-        label: 'Gaming',
-    },
-    {
-        name: 'Productivity',
-        label: 'Productivity',
-    },
-    {
-        name: 'Cybersecurity',
-        label: 'Cybersecurity',
-    },
-    {
-        name: 'Health',
-        label: 'Health',
-    },
-    {
-        name: 'Quantum',
-        label: 'Quantum',
-    },
-    {
-        name: 'Databases',
-        label: 'Databases',
-    },
-    {
-        name: 'IoT',
-        label: 'IoT',
-    },
-    {
-        name: 'Robotic Process Automation',
-        label: 'Robotic Process Automation',
-    },
-    {
-        name: 'Design',
-        label: 'Design',
-    },
-    {
-        name: 'Lifehacks',
-        label: 'Lifehacks',
-    },
-    {
-        name: 'Social Good',
-        label: 'Social Good',
-    },
-    {
-        name: 'DevOps',
-        label: 'DevOps',
-    },
-    {
-        name: 'Low/No Code',
-        label: 'Low/No Code',
-    },
-    {
-        name: 'Voice skills',
-        label: 'Voice skills',
-    },
-    {
-        name: 'E-commerce/Retail',
-        label: 'E-commerce/Retail',
-    },
-    {
-        name: 'Machine Learning/AI',
-        label: 'Machine Learning/AI',
-    },
-    {
-        name: 'Web',
-        label: 'Web',
-    },
-    {
-        name: 'Education',
-        label: 'Education',
-    },
-    {
-        name: 'Mobile',
-        label: 'Mobile',
-    },
-    {
-        name: 'Blockchain',
-        label: 'Blockchain',
-    }
+    'AR/VR',
+'Enterprise',
+ 'Music/Art',
+ 'Beginner Friendly',
+ 'Fintech',
+ 'Open Ended',
+'Communication',
+   'Gaming',
+'Productivity',
+'Cybersecurity',
+ 'Health',
+ 'Quantum',
+ 'Databases',
+ 'IoT',
+ 'Robotic Process Automation',
+   'Design',
+ 'Lifehacks',
+ 'Social Good',
+    'DevOps',
+'Low/No Code',
+       'Voice skills',
+   'E-commerce/Retail',
+ 'Machine Learning/AI',
+ 'Web',
+  'Education',
+
+   'Mobile',
+    
+   'Blockchain',
+  
 ]
 
 
