@@ -13,7 +13,7 @@ export default async function Home() {
 
       <div className="mt-0 px-8 md:mt-8 md:px-12">
         <h1>Get Started Now</h1>
-        <p className="text-secondary-50 text-sm">Let’s create your account</p>
+        <p className="text-secondary-50 text-sm">Let&apos;s create your account</p>
         <LoginForm type="signup" />
       </div>
     </div>
