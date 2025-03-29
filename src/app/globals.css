@@ -32,3 +32,19 @@ body {
 
 
 }
+
+/* For WebKit Browsers (Chrome, Safari, Edge) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+/* For Internet Explorer & Edge */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+

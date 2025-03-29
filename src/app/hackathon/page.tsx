@@ -102,18 +102,18 @@ const Page: React.FC = () => {
     <section>
       <HackathonHeaders title="Join the world's best online and in-person hackathons" />
 
-      <div className="py-10 flex justify-center">
-        <div className="flex gap-10 w-full justify-center">
-          <Input placeholder="Search by hackathon title or keywords" className="w-[30%]" />
+      <div className="py-10 flex justify-center ">
+        <div className="flex gap-4 md:gap-10 w-full justify-center flex-wrap md:flex-nowrap ">
+          <Input placeholder="Search by hackathon title or keywords" className="md:w-[30%] h-[50%] md:h-full" />
           <Button variant="primary" size="lg" className="px-6">
             Search Hackathons
           </Button>
         </div>
       </div>
 
-      <section className="flex justify-center px-10 gap-10 py-10">
+      <section className="flex justify-between px-5 lg:px-10 flex-wrap  lg:flex-nowrap gap-10 py-5 md:py-10">
         {/* Filter Section */}
-        <section className="w-[20%] space-y-10">
+        <section className="lg:w-[30%] lg:space-y-10 flex flex-wrap gap-2 lg:block md:gap-10">
           <FilterSection title="Location" options={locations} selectedOption={selectedLocation} onChange={setSelectedLocation} />
           <FilterSection title="Status" options={statuses} selectedOption={selectedStatus} onChange={setSelectedStatus} />
           <FilterSection title="Length" options={lengths} selectedOption={selectedLength} onChange={setSelectedLength} />
@@ -121,7 +121,7 @@ const Page: React.FC = () => {
         </section>
 
         {/* Hackathon Display Section */}
-        <section className="w-full">
+        <section className="w-full  lg:w-[70%] 2xl:w-[50%] h-[120vh] overflow-auto hide-scrollbar">
           {filteredHackathons.length > 0 ? (
             filteredHackathons.map((hackathon, index) => (
               <HackathonCard key={index} {...hackathon} />
