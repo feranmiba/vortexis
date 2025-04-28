@@ -101,3 +101,18 @@ export const TimeZone = [
     { id: 24, name: "GMT +11:00" },
     { id: 25, name: "GMT +12:00" }
 ];
+
+
+export const Question = [
+    'Working Solo',
+    'Looking for a team',
+    'Already have a team',
+]
+
+export const WhoToldYou = [
+    'Vortexis',
+    'Social Media',
+    'Friends',
+    'Website',
+    'Other'
+]
