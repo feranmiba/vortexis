@@ -1,62 +1,41 @@
-
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../components/ui/Button";
-import web3logo from "@/public/assets/web3logo.svg";
-import SearchForm from "@/components/Search-form";
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-
-  const toggleSearch = () => {
-    setShowSearch(!showSearch);
-  };
 
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-white shadow-sm fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <Image
-                src={web3logo}
-                alt="Hackathon Platform"
-                width={24}
-                height={24}
-              />
-              <span className="ml-2 text-xl font-semibold text-[#4D4D4D]">
-                Web3 Lagos
+              <span className="ml-2 text-xl font-semibold text-[#605DEC]">
+                VORTEXIS
               </span>
             </Link>
-            <nav className="hidden md:ml-6 md:flex md:space-x-8">
+            <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
               <Link
-                href="/"
-                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
+                href="/features"
+                className="px-3 py-2 text-sm font-medium text-[#212121] hover:text-gray-900"
               >
-                Home
+                Features
               </Link>
               <Link
                 href="/hackathons"
-                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
+                className="px-3 py-2 text-sm font-medium text-[#212121] hover:text-gray-900"
               >
-                Join a hackathon
+                Hackathons
               </Link>
               <Link
-                href="/sponsors"
-                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
+                href="/about"
+                className="px-3 py-2 text-sm font-medium text-[#212121] hover:text-gray-900"
               >
-                Host a hackaton
+                About
               </Link>
-              <button
-                onClick={toggleSearch}
-                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900 cursor-pointer"
-              >
-                Search
-              </button>
             </nav>
           </div>
           <div className="hidden md:flex items-center space-x-4">
@@ -114,13 +93,6 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-    {/* Search container that shows when search is toggled */}
-  {showSearch && (
-        <div>
-            <SearchForm />
-        </div>
-      )}
-
       {/* Mobile menu, show/hide based on menu state */}
       {isMenuOpen && (
         <div className="md:hidden">
@@ -143,14 +115,7 @@ export const Header: React.FC = () => {
             >
               Host a hackaton
             </Link>
-            <button
-              onClick={toggleSearch}
-              className="block w-full text-left px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
-            >
-              Search
-            </button>
           </div>
-  
 
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="px-4 space-y-3">

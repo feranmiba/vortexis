@@ -24,7 +24,11 @@ const HackathonListing: React.FC<HackathonCardProps> = ({
   return (
     <div>
       <div className=" w-full bg-[#F5F7FA] py-20 px-4">
-        <SearchForm />
+        <SearchForm
+          placeholder="Find your next hackathon"
+          buttonText="Search Hackathons"
+          className="max-w-3xl lg:ml-64"
+        />
       </div>
       <main className=" min-h-screen py-8 px-4 sm:px-6 lg:px-8">
         <div className=" max-w-7xl mx-auto ">

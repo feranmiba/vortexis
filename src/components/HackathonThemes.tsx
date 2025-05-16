@@ -62,21 +62,25 @@ export const HackathonThemes: React.FC<ThemesTableProps> = ({
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {themes.map((theme, index) => (
-                    <TableRow key={index}>
-                      <TableCell>
-                        <Checkbox />
-                      </TableCell>
-                      <TableCell>{theme.theme}</TableCell>
-                      <TableCell>{theme.hackathons}</TableCell>
-                      <TableCell>{theme.totalPrizes}</TableCell>
-                      <TableCell>
-                        <button className="p-2 lg:mr-[-4rem] hover:bg-gray-100 rounded-full">
-                          <MoreVertical className="h-5 w-5 text-gray-500" />
-                        </button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
+                  {themes.map((theme, index) => {
+                    const { theme: themeName, hackathons, totalPrizes } = theme;
+
+                    return (
+                      <TableRow key={index}>
+                        <TableCell>
+                          <Checkbox />
+                        </TableCell>
+                        <TableCell>{themeName}</TableCell>
+                        <TableCell>{hackathons}</TableCell>
+                        <TableCell>{totalPrizes}</TableCell>
+                        <TableCell>
+                          <button className="p-2 lg:mr-[-4rem] hover:bg-gray-100 rounded-full">
+                            <MoreVertical className="h-5 w-5 text-gray-500" />
+                          </button>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
                 </TableBody>
               </Table>
             </div>

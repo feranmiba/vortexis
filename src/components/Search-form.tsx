@@ -1,38 +1,58 @@
-"use client";
+"use client"
 
-import type React from "react";
+import type React from "react"
+import { useState } from "react"
+import { Input } from "@/components/ui/Input"
+import { Button } from "@/components/ui/Button"
+import { useRouter } from "next/navigation"
+import { Search } from "lucide-react"
 
-import { useState } from "react";
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
-import { useRouter } from "next/navigation";
-import Search from "@/public/assets/Search.svg";
-import Image from "next/image";
+interface SearchFormProps {
+  placeholder?: string
+  buttonText?: string
+  searchPath?: string
+  className?: string
+  onSearch?: (query: string) => void
+}
 
-export default function SearchForm() {
-  const [query, setQuery] = useState("");
-  const router = useRouter();
+export default function SearchForm({
+  placeholder = "Search...",
+  buttonText = "Search",
+  searchPath = "/search",
+  className = "",
+  onSearch,
+}: SearchFormProps) {
+  const [query, setQuery] = useState("")
+  const router = useRouter()
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    router.push(`/search?q=${encodeURIComponent(query)}`);
-  };
+    e.preventDefault()
+
+    if (onSearch) {
+      // Use custom search handler if provided
+      onSearch(query)
+    } else {
+      // Default behavior: navigate to search page
+      router.push(`${searchPath}?q=${encodeURIComponent(query)}`)
+    }
+  }
 
   return (
-    <form onSubmit={handleSubmit} className=" max-w-3xl  lg:ml-64 flex gap-3 ">
+    <form onSubmit={handleSubmit} className={`flex gap-3 ${className}`}>
       <div className="relative flex-1">
-        <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-          <Image src={Search} alt="Search" width={20} height={20} />
+        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground">
+          <Search size={20} />
         </div>
         <Input
           type="search"
-          placeholder="Find your next hackathon"
+          placeholder={placeholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="w-full pl-10 py-3 rounded-md"
         />
       </div>
-      <Button type="submit">Search Hackathons</Button>
+      <Button type="submit">{buttonText}</Button>
     </form>
-  );
+  )
 }
+
