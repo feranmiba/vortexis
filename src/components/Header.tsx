@@ -2,19 +2,12 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../components/ui/Button";
-import web3logo from "@/public/assets/web3logo.svg";
-import SearchForm from "@/components/Search-form";
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
 
-  const toggleSearch = () => {
-    setShowSearch(!showSearch);
-  };
 
   return (
     <header className="bg-white shadow-sm">
@@ -22,12 +15,7 @@ export const Header: React.FC = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
-              <Image
-                src={web3logo}
-                alt="Hackathon Platform"
-                width={24}
-                height={24}
-              />
+            
               <span className="ml-2 text-xl font-semibold text-[#4D4D4D]">
                 Web3 Lagos
               </span>
@@ -51,12 +39,7 @@ export const Header: React.FC = () => {
               >
                 Host a hackaton
               </Link>
-              <button
-                onClick={toggleSearch}
-                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900 cursor-pointer"
-              >
-                Search
-              </button>
+            
             </nav>
           </div>
           <div className="hidden md:flex items-center space-x-4">
@@ -114,13 +97,7 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-    {/* Search container that shows when search is toggled */}
-  {showSearch && (
-        <div>
-            <SearchForm />
-        </div>
-      )}
-
+  
       {/* Mobile menu, show/hide based on menu state */}
       {isMenuOpen && (
         <div className="md:hidden">
@@ -143,12 +120,7 @@ export const Header: React.FC = () => {
             >
               Host a hackaton
             </Link>
-            <button
-              onClick={toggleSearch}
-              className="block w-full text-left px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
-            >
-              Search
-            </button>
+          
           </div>
   
 
