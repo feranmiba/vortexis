@@ -36,7 +36,7 @@ function Hackathon() {
         <form className='bg-white px-4 md:px-14 py-5 space-y-14' onSubmit={handleSubmit}>
           <div className='space-y-7'>
             <h2 className='text-3xl'>Preference</h2>
-            <p>* What’s your specialty?</p>
+            <p>* {"What's your specialty?"}</p>
 
             <div className="flex flex-wrap gap-5">
               {Preferences.map((pref, index) => (

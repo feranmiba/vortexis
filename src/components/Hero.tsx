@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -26,7 +25,7 @@ export const Hero: React.FC = () => {
           and <span className="font-semibold">build innovative projects</span> —
           whether {`you're an `}
           <span className="font-bold">organizer</span>,{" "}
-          <span className="font-bold">participant</span>, 
+          <span className="font-bold">participant</span>,
           <span className="font-bold"> or judge</span>.
         </p>
 
@@ -36,14 +35,10 @@ export const Hero: React.FC = () => {
             size="lg"
             className="bg-[#605DEC] text-white px-6 py-3 text-lg"
           >
-            <Link href="/participants">
-            For Participants
-            </Link>
+            <Link href="/participants">For Participants</Link>
           </Button>
           <Button variant="outline" size="lg" className="px-6 py-3 text-lg">
-            <Link href="/organizers">
-            For Organizers
-            </Link>
+            <Link href="/organizers">For Organizers</Link>
           </Button>
         </div>
       </div>
