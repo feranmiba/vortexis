@@ -165,7 +165,7 @@ export async function handleGoogleCallback() {
 
     // Send the ID token to your backend
     const res = await fetch("http://localhost:8000/api/v1/auth/google", {
-      method: "POST",
+      method: "POSTh",
       headers: {
         "Content-Type": "application/json",
       },
