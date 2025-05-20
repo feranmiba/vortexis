@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -13,13 +15,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+
+  const isOrganizerRoute = pathname.includes("/organizer");
+
   return (
     <html lang="en">
       <body>
         <Header />
 
         {children}
-        <Footer />
+        {!isOrganizerRoute && <Footer />}
       </body>
     </html>
   );
