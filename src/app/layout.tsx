@@ -4,11 +4,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { usePathname } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "VORTEXIS",
-  description: "Vortexis by Web3bridge",
-};
+// export const metadata: Metadata = {
+//   title: "VORTEXIS",
+//   description: "Vortexis by Web3bridge",
+// };
 
 export default function RootLayout({
   children,

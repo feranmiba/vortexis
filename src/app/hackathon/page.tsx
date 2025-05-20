@@ -79,6 +79,8 @@ const Page: React.FC = () => {
   const statuses = ["Upcoming", "Open", "Ended"];
   const lengths = ["1-6 days", "1+ month"];
 
+  console.log("GitHub ID:", process.env.NEXT_PUBLIC_GITHUB_ID);
+
   useEffect(() => {
     let filtered = hackathonsData;
 
