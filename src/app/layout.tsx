@@ -19,14 +19,15 @@ export default function RootLayout({
   const pathname = usePathname();
 
   const isOrganizerRoute = pathname.includes("/organizer");
+  const isJudgesRoute = pathname.includes("/judges");
 
   return (
     <html lang="en">
       <body>
-        <Header />
+        {!isJudgesRoute && <Header />}
 
         {children}
-        {!isOrganizerRoute && <Footer />}
+        {!isOrganizerRoute && !isJudgesRoute && <Footer />}
       </body>
     </html>
   );
