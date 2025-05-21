@@ -1,5 +1,5 @@
-export { default } from "next-auth";
+// export { default } from "next-auth";
 
-export const config = {
-  matcher: ["/hackathon"],
-};
+// export const config = {
+//   matcher: ["/hackathon"],
+// };

@@ -1,13 +1,14 @@
-import { getServerSession } from "next-auth";
-import { options } from "@/app/api/auth/[...nextauth]/options";
+// import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function Login() {
-  const session = await getServerSession(options);
-  console.log(session);
-  const user = session?.user?.name;
+  // const session = await getServerSession(options);
+  // console.log(session);
+  // const user = session?.user?.name;
 
+  const session = null;
+  const user = null;
   if (!session) {
     redirect("/auth/signup?callbackUrl=/auth/login");
   }

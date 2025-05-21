@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex min-h-screen w-full items-center justify-center p-4 sm:p-6">
+    <div className="flex min-h-screen w-full items-center justify-center md:px-4 sm:py-6">
       <div className="w-full max-w-6xl">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="flex justify-center md:w-1/2 md:flex-shrink-0">

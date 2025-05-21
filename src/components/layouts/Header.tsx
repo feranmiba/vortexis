@@ -1,16 +1,16 @@
-'use client';
-import React, { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+"use client";
+import React, { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import Image from "next/image";
 // import LocationIcon from '../assets/icons/LocationIcon';
 // import NotificationIcon from '../assets/icons/NotificationIcon';
 // import ProfileIcon from '../assets/icons/ProfileIcon';
 // import Notification from '../Notifications/Notification';
 // import SearchIcon from '../assets/icons/SearchIcon';
-import { ChevronDownIcon, MenuIcon } from 'lucide-react';
-import Louise from '@/public/assets/icon/louise.svg'
-import Alarm from '@/public/assets/icon/iconoir_bell-notification-solid.svg'
-import SearchInput from '../ui/SearchInput';
+import { MenuIcon } from "lucide-react";
+import Louise from "@/public/assets/icon/louise.svg";
+import Alarm from "@/public/assets/icon/iconoir_bell-notification-solid.svg";
+import SearchInput from "../ui/SearchInput";
 // import Logo from '@/assests/Logo.png';
 // import Flag from '@/assests/Flag.png';
 
@@ -19,14 +19,13 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
-  const [showNotification, setShowNotification] = useState(false);
-
+  // const [showNotification, setShowNotification] = useState(false);
 
   const handleSearch = (query: string) => {
     console.log("Search for:", query);
   };
   return (
-    <header className="border-gray-200 sticky right-0 top-0 z-50 h-20 w-full border-b bg-white px-10 ">
+    <header className="border-gray-200 sticky right-0 top-0 z-50 h-20 w-full border-b bg-white mx-4 px-10 ">
       <div className="flex h-full items-center justify-between pr-4">
         <div className="flex items-center">
           {/* Mobile menu button */}
@@ -39,37 +38,25 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
 
           {/* Search Box */}
           <div className="p-6">
-      <SearchInput onSearch={handleSearch} />
-         </div>
-
-
-
-
-
-
+            <SearchInput onSearch={handleSearch} />
+          </div>
         </div>
 
-        <div className='flex items-center gap-10'>
-        <div>
-            <Image src={Alarm} alt='alarm' />
-         </div>
+        <div className="flex items-center gap-10">
+          <div>
+            <Image src={Alarm} alt="alarm" />
+          </div>
 
-
-         <div className='flex items-center gap-2'>
-            <Image src={Louise} alt='profile' />
+          <div className="flex items-center gap-2">
+            <Image src={Louise} alt="profile" />
             <div>
-            <p>Louise Thompson</p>
-            <p className='text-sm text-[#4F5B67]'>Organizer</p>
+              <p>Louise Thompson</p>
+              <p className="text-sm text-[#4F5B67]">Organizer</p>
             </div>
-           
-         </div>
-
-
+          </div>
         </div>
 
-       
-      
-{/* 
+        {/* 
         <Image
           src={Logo} // Replace with your logo
           alt="Logo"

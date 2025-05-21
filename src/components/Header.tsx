@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Button } from "../components/ui/Button";
 import web3logo from "@/public/assets/web3logo.svg";
 import SearchForm from "@/components/Search-form";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,8 +16,9 @@ export const Header: React.FC = () => {
     setShowSearch(!showSearch);
   };
 
-  const { data: session } = useSession();
-  const user = session?.user?.name;
+  // const { data: session } = useSession();
+  // const user = session?.user?.name;
+  const user = null;
 
   return (
     <header className="bg-white shadow-sm">
@@ -65,7 +66,7 @@ export const Header: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             {!user ? (
               <>
-                <Link href="/auth/login">
+                <Link href="/auth">
                   <Button
                     variant="outline"
                     className="w-full  border-[#009AFF]"
@@ -172,7 +173,7 @@ export const Header: React.FC = () => {
             <div className="px-4 space-y-3">
               {!user ? (
                 <div className="space-y-3">
-                  <Link href="/auth/login" className="block">
+                  <Link href="/auth" className="block">
                     <Button
                       variant="outline"
                       className="w-full  border-[#009AFF]"
