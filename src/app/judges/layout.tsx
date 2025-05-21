@@ -93,7 +93,7 @@ export default function DashboardLayout({
   //   }
 
   return (
-    <div className="flex h-full min-h-screen gap-6 bg-[#f5f5f5]">
+    <div className="flex h-full min-h-screen gap-6 bg-[#FFFFFF]">
       <DesktopSidebar
         sidebarExpanded={sidebarExpanded}
         sidebarItems={sidebarItems}
@@ -111,11 +111,11 @@ export default function DashboardLayout({
       <div
         className={`flex-1 ${
           !sidebarExpanded ? "lg:ml-[120px]" : "lg:ml-[280px]"
-        } transition-all duration-400 ease-in-out`}
+        } transition-all duration-400 ease-in-out shadow-xl`}
       >
         <Header toggleSidebar={toggleSidebar} />
 
-        <main className="min-h-[calc(100vh-64px)] overflow-y-auto p-4">
+        <main className="min-h-[calc(100vh-64px)] overflow-y-auto p-4 ">
           {children}
         </main>
       </div>
