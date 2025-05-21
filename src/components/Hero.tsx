@@ -5,11 +5,13 @@ import { Button } from "../components/ui/Button";
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-br from-[#E0D9FB] via-[#D8DBFF] to-[#F4F4FF] overflow-hidden">
+    <section className="relative w-full bg-gradient-to-br from-[#E0D9FB] via-[#D8DBFF] to-[#F4F4FF] overflow-hidden">
       {/* Gradient circles */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#B5A8F8] opacity-30 rounded-full blur-3xl z-0"></div>
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#9D8CFF] opacity-30 rounded-full blur-3xl z-0"></div>
-
+      <div className="w-full flex gap-0 flex-row justify-center items-center h-screen absolute top-0 bottom-0 left-0 right-0">
+        <div className=" w-[25em] h-[25em] bg-[#d2bcff] rounded-full opacity-50 z-0 mix-blend-multiply mt-[-5em] absolute left-[-1em]" />
+        <div className=" w-[40em] h-[40em] bg-[#ffffff] rounded-full opacity-50 z-0 mt-[16em] " />
+        <div className=" w-[30em] h-[30em] bg-[#c5c3ff] rounded-full opacity-50 z-0 mix-blend-multiply mt-[-3em] absolute right-[-1em]" />
+      </div>
       <div className="relative z-10 max-w-5xl mx-auto px-4 py-24 text-center">
         <h1 className="text-4xl sm:text-5xl font-bold text-[#212121] leading-tight mb-4">
           Run. Join. Win.

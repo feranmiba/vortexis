@@ -3,16 +3,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "../components/ui/Button";
-import web3logo from "@/public/assets/web3logo.svg";
-import SearchForm from "@/components/Search-form";
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
 
-  const toggleSearch = () => {
-    setShowSearch(!showSearch);
-  };
+  // const { data: session } = useSession();
+  // const user = session?.user?.name;
+  const user = null;
 
   return (
     <header className="bg-white shadow-sm fixed w-full z-50">
@@ -33,7 +30,7 @@ export const Header: React.FC = () => {
               </Link>
               <Link
                 href="/hackathons"
-                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
+                className="px-3 py-2 text-sm font-medium text-[#212121] hover:text-gray-900"
               >
                 Hackathons
               </Link>
@@ -113,13 +110,6 @@ export const Header: React.FC = () => {
           </div>
         </div>
       </div>
-
-    {/* Search container that shows when search is toggled */}
-  {showSearch && (
-        <div>
-            <SearchForm />
-        </div>
-      )}
 
       {/* Mobile menu, show/hide based on menu state */}
       {isMenuOpen && (
