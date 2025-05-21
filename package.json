@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
+    "framer-motion": "^12.12.1",
     "init": "^0.1.2",
     "lucide-react": "^0.479.0",
     "next": "15.2.0",
-    "npx": "^10.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",

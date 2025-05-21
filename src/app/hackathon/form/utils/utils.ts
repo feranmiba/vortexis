@@ -40,159 +40,38 @@ export const Preferences = [
 ]
 
 export const Hackathons = [
-    {
-        name: 'AR/VR',
-        label: 'AR/VR',
-    },
-    {
-        name: 'Enterprise',
-        label: 'Enterprise',
-    },
-    {
-        name: 'Music/Art',
-        label: 'Music/Art',
-    },
-    {
-        name: 'Beginner Friendly',
-        label: 'Beginner Friendly',
-    },
-    {
-        name: 'Fintech',
-        label: 'Fintech',
-    },
-    {
-        name: 'Open Ended',
-        label: 'Open Ended',
-    },
-    {
-        name: 'Communication',
-        label: 'Communication',
-    },
-    {
-        name: 'Gaming',
-        label: 'Gaming',
-    },
-    {
-        name: 'Productivity',
-        label: 'Productivity',
-    },
-    {
-        name: 'Cybersecurity',
-        label: 'Cybersecurity',
-    },
-    {
-        name: 'Health',
-        label: 'Health',
-    },
-    {
-        name: 'Quantum',
-        label: 'Quantum',
-    },
-    {
-        name: 'Databases',
-        label: 'Databases',
-    },
-    {
-        name: 'IoT',
-        label: 'IoT',
-    },
-    {
-        name: 'Robotic Process Automation',
-        label: 'Robotic Process Automation',
-    },
-    {
-        name: 'Design',
-        label: 'Design',
-    },
-    {
-        name: 'Lifehacks',
-        label: 'Lifehacks',
-    },
-    {
-        name: 'Social Good',
-        label: 'Social Good',
-    },
-    {
-        name: 'DevOps',
-        label: 'DevOps',
-    },
-    {
-        name: 'Low/No Code',
-        label: 'Low/No Code',
-    },
-    {
-        name: 'Voice skills',
-        label: 'Voice skills',
-    },
-    {
-        name: 'E-commerce/Retail',
-        label: 'E-commerce/Retail',
-    },
-    {
-        name: 'Machine Learning/AI',
-        label: 'Machine Learning/AI',
-    },
-    {
-        name: 'Web',
-        label: 'Web',
-    },
-    {
-        name: 'Education',
-        label: 'Education',
-    },
-    {
-        name: 'Mobile',
-        label: 'Mobile',
-    },
-    {
-        name: 'Blockchain',
-        label: 'Blockchain',
-    }
+    'AR/VR',
+'Enterprise',
+ 'Music/Art',
+ 'Beginner Friendly',
+ 'Fintech',
+ 'Open Ended',
+'Communication',
+   'Gaming',
+'Productivity',
+'Cybersecurity',
+ 'Health',
+ 'Quantum',
+ 'Databases',
+ 'IoT',
+ 'Robotic Process Automation',
+   'Design',
+ 'Lifehacks',
+ 'Social Good',
+    'DevOps',
+'Low/No Code',
+       'Voice skills',
+   'E-commerce/Retail',
+ 'Machine Learning/AI',
+ 'Web',
+  'Education',
+
+   'Mobile',
+    
+   'Blockchain',
+  
 ]
 
-
-export const Location = [
-    { id: 1, city: "Nigeria" },
-    { id: 2, city: "United States of America" },
-    { id: 3, city: "Algeria" },
-    { id: 4, city: "Kenya" },
-    { id: 5, city: "Ghana" },
-    { id: 6, city: "Germany" },
-    { id: 7, city: "United Kingdom" },
-    { id: 8, city: "Canada" },
-    { id: 9, city: "France" },
-    { id: 10, city: "Italy" },
-    { id: 11, city: "Brazil" },
-    { id: 12, city: "South Africa" },
-    { id: 13, city: "Egypt" },
-    { id: 14, city: "India" },
-    { id: 15, city: "China" },
-    { id: 16, city: "Japan" },
-    { id: 17, city: "Australia" },
-    { id: 18, city: "Mexico" },
-    { id: 19, city: "Russia" },
-    { id: 20, city: "Argentina" },
-    { id: 21, city: "Spain" },
-    { id: 22, city: "Netherlands" },
-    { id: 23, city: "Turkey" },
-    { id: 24, city: "Saudi Arabia" },
-    { id: 25, city: "South Korea" },
-    { id: 26, city: "Sweden" },
-    { id: 27, city: "Switzerland" },
-    { id: 28, city: "Pakistan" },
-    { id: 29, city: "Bangladesh" },
-    { id: 30, city: "Malaysia" },
-    { id: 31, city: "Thailand" },
-    { id: 32, city: "Indonesia" },
-    { id: 33, city: "Philippines" },
-    { id: 34, city: "New Zealand" },
-    { id: 35, city: "Vietnam" },
-    { id: 36, city: "UAE" },
-    { id: 37, city: "Portugal" },
-    { id: 38, city: "Norway" },
-    { id: 39, city: "Denmark" },
-    { id: 40, city: "Finland" }
-];
 
 
 export const TimeZone = [
@@ -222,3 +101,18 @@ export const TimeZone = [
     { id: 24, name: "GMT +11:00" },
     { id: 25, name: "GMT +12:00" }
 ];
+
+
+export const Question = [
+    'Working Solo',
+    'Looking for a team',
+    'Already have a team',
+]
+
+export const WhoToldYou = [
+    'Vortexis',
+    'Social Media',
+    'Friends',
+    'Website',
+    'Other'
+]

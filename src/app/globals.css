@@ -3,7 +3,6 @@
 
 @import "tailwindcss";
 
-/* @plugin "tailwindcss-animate"; */
 
 /* @custom-variant dark (&:is(.dark *)); */
 
@@ -29,6 +28,43 @@ body {
   color: var(--foreground);
   font-optical-sizing: auto;
   font-style: normal;
+  background-color: #F9F9F9;
+
+}
 
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+
+
+.custom-radio {
+  @apply w-5 h-5 appearance-none border-2 border-gray-400 rounded-full transition-all duration-200;
+}
+
+.custom-radio:checked {
+  @apply bg-blue-500 border-blue-500 ring-2 ring-blue-300;
+}
+
+.custom-radio:checked::after {
+  content: "";
+  display: block;
+  width: 50%; 
+  height: 50%;
+  background-color: white;
+  border-radius: 50%;
+ margin-top: 25%;
+  margin-left: 25%;
+  margin-bottom: 25%;
+  margin-right: 25%;
 }

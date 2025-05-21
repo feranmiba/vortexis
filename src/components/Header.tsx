@@ -3,9 +3,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "../components/ui/Button";
+import web3logo from "@/public/assets/web3logo.svg";
+import SearchForm from "@/components/Search-form";
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+
+  const toggleSearch = () => {
+    setShowSearch(!showSearch);
+  };
 
   return (
     <header className="bg-white shadow-sm fixed w-full z-50">
@@ -26,7 +33,7 @@ export const Header: React.FC = () => {
               </Link>
               <Link
                 href="/hackathons"
-                className="px-3 py-2 text-sm font-medium text-[#212121] hover:text-gray-900"
+                className="px-3 py-2 text-sm font-medium text-[#4D4D4D] hover:text-gray-900"
               >
                 Hackathons
               </Link>
@@ -39,15 +46,29 @@ export const Header: React.FC = () => {
             </nav>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <Button
-              variant="outline"
-              className="text-[#009AFF] border-[#009AFF]"
-            >
-              <Link href="/login">Login</Link>
-            </Button>
-            <Button variant="primary">
-              <Link href="/signup">Sign up</Link>
-            </Button>
+            {!user ? (
+              <>
+                <Link href="/auth">
+                  <Button
+                    variant="outline"
+                    className="w-full  border-[#009AFF]"
+                  >
+                    Log in
+                  </Button>
+                </Link>
+                <Link href="/auth/signup">
+                  <Button variant="primary" className="w-full">
+                    Sign up
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <Link href="/api/auth/signout?callbackUrl=/">
+                <Button variant="primary" className="w-full">
+                  Logout
+                </Button>
+              </Link>
+            )}
           </div>
           <div className="flex items-center md:hidden">
             <button
@@ -93,6 +114,13 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
+    {/* Search container that shows when search is toggled */}
+  {showSearch && (
+        <div>
+            <SearchForm />
+        </div>
+      )}
+
       {/* Mobile menu, show/hide based on menu state */}
       {isMenuOpen && (
         <div className="md:hidden">
@@ -119,12 +147,27 @@ export const Header: React.FC = () => {
 
           <div className="pt-4 pb-3 border-t border-gray-200">
             <div className="px-4 space-y-3">
-              <Button variant="outline" className="w-full border-[#009AFF]">
-                <Link href="/login">Log in</Link>
-              </Button>
-              <Button variant="primary" className="w-full">
-                <Link href="/signup">Sign up</Link>
-              </Button>
+              {!user ? (
+                <div className="space-y-3">
+                  <Link href="/auth" className="block">
+                    <Button
+                      variant="outline"
+                      className="w-full  border-[#009AFF]"
+                    >
+                      Log in
+                    </Button>
+                  </Link>
+                  <Link href="/auth/signup">
+                    <Button variant="primary" className="w-full">
+                      Sign up
+                    </Button>
+                  </Link>
+                </div>
+              ) : (
+                <Button variant="primary" className="w-full">
+                  Logout
+                </Button>
+              )}
             </div>
           </div>
         </div>
