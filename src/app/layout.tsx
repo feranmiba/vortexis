@@ -1,10 +1,9 @@
-"use client"
+"use client";
 
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import AuthProvider from "@/components/ui/AuthProvider";
 import { usePathname } from "next/navigation";
 
 // export const metadata: Metadata = {
@@ -20,18 +19,16 @@ export default function RootLayout({
   const pathname = usePathname();
 
   const isOrganizerRoute = pathname.includes("/organizer");
+  const isJudgesRoute = pathname.includes("/judges");
 
   return (
     <html lang="en">
       <body>
-        <AuthProvider>
-          {!isOrganizerRoute && <Header />}
-        </AuthProvider>
+        {!isJudgesRoute && <Header />}
 
         {children}
-        {!isOrganizerRoute && <Footer />}
+        {!isOrganizerRoute && !isJudgesRoute && <Footer />}
       </body>
     </html>
   );
 }
-

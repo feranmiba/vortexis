@@ -20,32 +20,32 @@ import Submit from "@/public/assets/icon/iconoir_submit-document.svg";
 import Champs from "@/public/assets/icon/tabler_flag-filled.svg";
 
 const sidebarItems = [
-  { icon: Dashboard, text: "Dashboard", href: "/organizer" },
+  { icon: Dashboard, text: "Dashboard", href: "" },
   {
     icon: Champs,
     text: "My Hackathons",
-    href: "/organizer/hackathon",
+    href: "",
   },
   {
     icon: Team,
     text: "Team Workspace",
-    href: "/organizer/workspaces",
+    href: "",
   },
 
   {
     icon: Resourcess,
     text: "Resources",
-    href: "/organizer/resources",
+    href: "",
   },
   {
     icon: Submit,
     text: "Submit Project",
-    href: "/organizer/project",
+    href: "",
   },
   {
     icon: Community,
     text: "Community",
-    href: "/organizer/community",
+    href: "",
   },
 ];
 
@@ -84,13 +84,13 @@ export default function DashboardLayout({
 
   const isAuthPage = pathname?.includes("/admin/auth/");
 
-  if (isAuthPage) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-[#f5f5f5]">
-        {children}
-      </div>
-    );
-  }
+  //   if (isAuthPage) {
+  //     return (
+  //       <div className="flex min-h-screen items-center justify-center bg-[#f5f5f5]">
+  //         {children}
+  //       </div>
+  //     );
+  //   }
 
   return (
     <div className="flex h-full min-h-screen gap-6 bg-[#f5f5f5]">
