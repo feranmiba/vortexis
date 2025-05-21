@@ -39,7 +39,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
     <motion.aside
       initial={false}
       animate={{ width: sidebarExpanded ? "250px" : "100px" }}
-      className="fixed left-0 top-0 z-10 hidden h-screen flex-col bg-white lg:flex"
+      className="fixed left-0 top-0 z-10 hidden h-screen flex-col bg-white w-20 lg:flex"
     >
       <button
         onClick={toggleSidebar}
@@ -62,7 +62,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
             <Link
               key={index}
               href={item.href}
-              className={`flex items-center py-4 pl-4  hover:bg-[#FFF5DD] ${
+              className={`flex items-center py-4 pl-4 hover:bg-[#FFF5DD] ${
                 pathname === item.href
                   ? "text-gray-900 rounded-l-md border-l-4 border-l-main bg-[#FFF5DD]"
                   : "text-gray-600"

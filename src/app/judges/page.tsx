@@ -1,10 +1,23 @@
-const SubmissionStatus = [
+interface SubmissionStatusItem {
+  number: number;
+  status: string;
+}
+
+interface HackathonJudged {
+  name: string;
+  status: string;
+  total_submission: string;
+  due_date: string;
+  reviews_completed: string;
+}
+
+const SubmissionStatus: SubmissionStatusItem[] = [
   { number: 12, status: "submission pending" },
   { number: 12, status: "submission pending" },
   { number: 12, status: "submission pending" },
 ];
 
-const hackathonsJudged = [
+const hackathonsJudged: HackathonJudged[] = [
   {
     name: "Judge Jane",
     status: "active",
@@ -28,7 +41,7 @@ const hackathonsJudged = [
   },
 ];
 
-function page() {
+function Page() {
   return (
     <div>
       <div>
@@ -80,7 +93,10 @@ function page() {
           <div className="flex flex-col gap-6 py-4">
             {hackathonsJudged.map((judge, i) => {
               return (
-                <div key={i} className="shadow py-8 px-4 space-y-3">
+                <div
+                  key={i}
+                  className="shadow-xl rounded-lg bg-white py-8 px-4 space-y-3"
+                >
                   <div className="flex justify-between">
                     <h2 className="text-xl font-semibold">
                       Welcome,{judge.name}!{" "}
@@ -121,4 +137,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

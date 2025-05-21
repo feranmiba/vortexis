@@ -108,7 +108,11 @@ export default function DashboardLayout({
         setMobileMenuOpen={setMobileMenuOpen}
       />
 
-      <div className="flex-1 lg:ml-[280px]">
+      <div
+        className={`flex-1 ${
+          !sidebarExpanded ? "lg:ml-[120px]" : "lg:ml-[280px]"
+        } transition-all duration-400 ease-in-out`}
+      >
         <Header toggleSidebar={toggleSidebar} />
 
         <main className="min-h-[calc(100vh-64px)] overflow-y-auto p-4">
