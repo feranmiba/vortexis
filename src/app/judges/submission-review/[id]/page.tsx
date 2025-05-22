@@ -1,5 +1,6 @@
 "use client";
 import Deliverables from "@/components/judgeReview/deliverables";
+import Evaluation from "@/components/judgeReview/evaluation";
 import Members from "@/components/judgeReview/members";
 import Vote from "@/components/judgeReview/vote";
 import { useState } from "react";
@@ -42,7 +43,7 @@ export default function SubmissionReviewPage({
       </div>
 
       <div className="bg-[#FFFFFF] my-5  shadow-md rounded-md border border-[#E4E4E4]">
-        <div className="md:w-[55%] px-3 py-8">
+        <div className="md:w-2/3 px-3 py-8">
           <div className="flex mb-6 -mt-1.5 cursor-pointer gap-4 ">
             {tabs.map((tab, i) => {
               return (
@@ -64,6 +65,7 @@ export default function SubmissionReviewPage({
           {activeTab === 1 && <Vote />}
           {activeTab === 2 && <Deliverables />}
           {activeTab === 3 && <Members />}
+          {activeTab === 4 && <Evaluation />}
         </div>
       </div>
     </div>
