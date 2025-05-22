@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface SubmissionStatusItem {
   number: number;
   status: string;
@@ -103,11 +105,13 @@ function Page() {
                     <h2 className="text-xl font-semibold">
                       Welcome,{judge.name}!{" "}
                     </h2>
-                    <p className="bg-[#605DEC] text-sm cursor-pointer rounded-md text-center px-2 py-1 text-white">
-                      Review submission
-                    </p>
+                    <Link href={`/judges/submission-review/${i}`}>
+                      <p className="bg-[#605DEC] text-sm cursor-pointer rounded-md text-center px-2 py-1 text-white">
+                        Review submission
+                      </p>
+                    </Link>
                   </div>
-                  <p className="bg-[#164E04] rounded-full text-white w-15 h-5 flex items-center justify-center gap-1">
+                  <p className="bg-[#164E04] pb-0.5 rounded-full text-white w-15 h-5 flex items-center justify-center gap-1">
                     <span className="w-2 h-2 bg-white rounded-full mt-0.5 inline-block"></span>
                     <span className="text-xs">{judge.status}</span>
                   </p>
