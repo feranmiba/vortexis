@@ -1,5 +1,6 @@
 "use client";
 import Deliverables from "@/components/judgeReview/deliverables";
+import Members from "@/components/judgeReview/members";
 import Vote from "@/components/judgeReview/vote";
 import { useState } from "react";
 
@@ -62,6 +63,7 @@ export default function SubmissionReviewPage({
 
           {activeTab === 1 && <Vote />}
           {activeTab === 2 && <Deliverables />}
+          {activeTab === 3 && <Members />}
         </div>
       </div>
     </div>
