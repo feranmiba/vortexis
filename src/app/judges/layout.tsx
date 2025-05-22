@@ -19,6 +19,21 @@ import Resourcess from "@/public/assets/icon/resource.svg";
 import Submit from "@/public/assets/icon/iconoir_submit-document.svg";
 import Champs from "@/public/assets/icon/tabler_flag-filled.svg";
 
+import { Nunito, Nunito_Sans } from "next/font/google";
+
+// import Hackathon_Navbar from "@/components/Navbar/hackathon-navbar";
+import "../globals.css";
+
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"],
+});
+
+const nunitoSan = Nunito_Sans({
+  variable: "--font-nunito-sans",
+  subsets: ["latin"],
+});
+
 const sidebarItems = [
   { icon: Dashboard, text: "Dashboard", href: "" },
   {
@@ -82,18 +97,10 @@ export default function DashboardLayout({
     }
   };
 
-  const isAuthPage = pathname?.includes("/admin/auth/");
-
-  //   if (isAuthPage) {
-  //     return (
-  //       <div className="flex min-h-screen items-center justify-center bg-[#f5f5f5]">
-  //         {children}
-  //       </div>
-  //     );
-  //   }
-
   return (
-    <div className="flex h-full min-h-screen gap-6 bg-[#FFFFFF]">
+    <div
+      className={`flex h-full min-h-screen gap-6 bg-[#FFFFFF] ${nunito.variable} ${nunitoSan.variable} antialiased`}
+    >
       <DesktopSidebar
         sidebarExpanded={sidebarExpanded}
         sidebarItems={sidebarItems}

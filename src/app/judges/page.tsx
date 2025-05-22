@@ -97,7 +97,7 @@ function Page() {
               return (
                 <div
                   key={i}
-                  className="shadow-md border border-[#E4E4E4] rounded-lg bg-white py-8 px-4 space-y-3"
+                  className="shadow-md border border-[#E4E4E4] rounded-lg bg-white py-8 px-4 space-y-1.5"
                 >
                   <div className="flex justify-between">
                     <h2 className="text-xl font-semibold">
@@ -107,7 +107,7 @@ function Page() {
                       Review submission
                     </p>
                   </div>
-                  <p className="bg-[#164E04] -mt-2 rounded-full text-white w-15 h-5 flex items-center justify-center gap-1">
+                  <p className="bg-[#164E04] rounded-full text-white w-15 h-5 flex items-center justify-center gap-1">
                     <span className="w-2 h-2 bg-white rounded-full mt-0.5 inline-block"></span>
                     <span className="text-xs">{judge.status}</span>
                   </p>
