@@ -34,7 +34,6 @@ export default function LoginForm({ type }: LoginFormProps) {
           </div>
         </div>
       )}
-
       <div className="space-y-2">
         <label htmlFor="email" className="text-sm font-medium text-gray-700">
           Email
@@ -46,7 +45,6 @@ export default function LoginForm({ type }: LoginFormProps) {
           <Input id="email" type="email" placeholder="donnalee@example.com" />
         </div>
       </div>
-
       <div className="space-y-2">
         <label htmlFor="password" className="text-sm font-medium text-gray-700">
           Password
@@ -74,7 +72,6 @@ export default function LoginForm({ type }: LoginFormProps) {
           </button>
         </div>
       </div>
-
       {type === "signup" && (
         <div className="space-y-2">
           <label
@@ -107,7 +104,6 @@ export default function LoginForm({ type }: LoginFormProps) {
           </div>
         </div>
       )}
-
       {type === "login" && (
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -127,11 +123,9 @@ export default function LoginForm({ type }: LoginFormProps) {
           </Link>
         </div>
       )}
-
       <Button type="primary">{type === "login" ? "Sign In" : "sign up"}</Button>
-
       <Divider>or</Divider>
-
+      {/* Custom Google Button */}
       <Button
         onClick={signInGoogleAction}
         type="secondary"
@@ -140,13 +134,13 @@ export default function LoginForm({ type }: LoginFormProps) {
         <img
           src="https://authjs.dev/img/providers/google.svg"
           className="absolute left-3 h-5 w-5"
-          alt="Google logo"
+          alt="google logo"
           height="24"
           width="24"
         />
         Sign in with Google
       </Button>
-
+      {/* Your existing GitHub button */}
       <Button
         onClick={signInGithubAction}
         type="secondary"
@@ -161,7 +155,6 @@ export default function LoginForm({ type }: LoginFormProps) {
         />
         Sign in with Github
       </Button>
-
       <div className="text-center text-sm text-gray-500">
         Don&apos;t have an account?{" "}
         {type === "signup" ? (
@@ -173,7 +166,7 @@ export default function LoginForm({ type }: LoginFormProps) {
             Sign up
           </Link>
         )}
-      </div>
+      </div>{" "}
     </form>
   );
 }

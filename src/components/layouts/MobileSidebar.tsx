@@ -1,11 +1,11 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Settings, LogOutIcon } from 'lucide-react';
+import { motion, AnimatePresence } from "framer-motion";
+// import Image from 'next/image';
+import Link from "next/link";
+import { Settings, LogOutIcon } from "lucide-react";
 
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft } from "lucide-react";
 // import Logo from '@/assests/Logo.png';
-import React from 'react';
+import React from "react";
 // import { usePathname } from 'next/navigation';
 
 // import HomeIcon from '../assets/icons/HomeIcon';
@@ -55,7 +55,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
             initial={{ x: -240 }}
             animate={{ x: 0 }}
             exit={{ x: -240 }}
-            transition={{ ease: 'easeOut' }}
+            transition={{ ease: "easeOut" }}
             className="border-gray-200 fixed left-0 top-0 z-50 h-full w-64 border-r bg-white px-4 md:hidden"
           >
             <div className="flex h-full flex-col">
@@ -84,15 +84,15 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
                     href={item.href}
                     className={`mb-1 flex items-center rounded-lg px-4 py-3 ${
                       pathname === item.href
-                        ? 'border-l-5 border-main bg-[#FFF5DD]'
-                        : 'hover:bg-[#FFF5DD]'
+                        ? "border-l-5 border-main bg-[#FFF5DD]"
+                        : "hover:bg-[#FFF5DD]"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <span className="text-gray-500">{item.icon}</span>
                     <span
                       className={` ml-3 whitespace-nowrap ${
-                        pathname === item.href ? 'text-main' : 'text-icon'
+                        pathname === item.href ? "text-main" : "text-icon"
                       }`}
                     >
                       {item.text}
@@ -105,9 +105,9 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({
                 <Link
                   href="/admin/settings"
                   className={`mb-1 flex items-center rounded-lg px-4 py-3 ${
-                    pathname === '/admin/settings'
-                      ? 'bg-gray-100'
-                      : 'hover:bg-gray-50'
+                    pathname === "/admin/settings"
+                      ? "bg-gray-100"
+                      : "hover:bg-gray-50"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >

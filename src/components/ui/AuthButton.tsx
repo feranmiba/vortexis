@@ -6,9 +6,11 @@ interface ButtonProps {
   type?: string;
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 export default function Button({
+  disabled = false,
   children,
   type = "primary",
   className = "",
@@ -16,6 +18,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={`${
         type === "primary"
