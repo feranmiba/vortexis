@@ -60,7 +60,7 @@ function OrganizerDiscussion() {
       <div className="space-y-8">
         {judgesRoom.map((room, i) => {
           return (
-            <div className="flex gap-8 px-2">
+            <div key={i} className="flex gap-8 px-2">
               <p className="flex flex-col justify-center text-center font-semibold h-12 rounded-full w-12 uppercase bg-[#53535335]">
                 {room.name
                   .split(" ")
