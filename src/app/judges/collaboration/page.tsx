@@ -32,28 +32,30 @@ function page() {
       </div>
 
       <div className="bg-[#FFFFFF] my-3 shadow-md rounded-md border p-3 border-[#E4E4E4]">
-        <div className="flex my-6 mt-1.5 cursor-pointer gap-4 ">
-          {tabs.map((tab, i) => {
-            return (
-              <div key={i} onClick={() => setActiveTab(tab.tab_no)}>
-                <p
-                  className={`text-center px-7 py-2 ${
-                    activeTab === i + 1
-                      ? "bg-[#605DEC] text-white"
-                      : "bg-[#F4F3FE] text-[#C5C0DB]"
-                  } transition-all duration-300 rounded-md `}
-                >
-                  {tab.name}
-                </p>
-              </div>
-            );
-          })}
+        <div>
+          <div className="flex my-6 mt-1.5 cursor-pointer gap-4 ">
+            {tabs.map((tab, i) => {
+              return (
+                <div key={i} onClick={() => setActiveTab(tab.tab_no)}>
+                  <p
+                    className={`text-center px-7 py-2 ${
+                      activeTab === i + 1
+                        ? "bg-[#605DEC] text-white"
+                        : "bg-[#F4F3FE] text-[#C5C0DB]"
+                    } transition-all duration-300 rounded-md `}
+                  >
+                    {tab.name}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      {activeTab === 1 && <JudgeOnlyRoom />}
-      {activeTab === 2 && <OrganizerDiscussion />}
-      {activeTab === 2 && <FinalDecision />}
+        {activeTab === 1 && <JudgeOnlyRoom />}
+        {activeTab === 2 && <OrganizerDiscussion />}
+        {activeTab === 3 && <FinalDecision />}
+      </div>
     </div>
   );
 }
