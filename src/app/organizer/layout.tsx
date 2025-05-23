@@ -18,9 +18,10 @@ import Community from "@/public/assets/icon/community.svg";
 import Resourcess from "@/public/assets/icon/resource.svg";
 import Submit from "@/public/assets/icon/iconoir_submit-document.svg";
 import Champs from "@/public/assets/icon/tabler_flag-filled.svg";
+import Dash from '@/public/assets/icon/material-symbols_dashboard.svg'
 
 const sidebarItems = [
-  { icon: Dashboard, text: "Dashboard", href: "/organizer" },
+  { icon: Dash, text: "Dashboard", href: "/organizer" },
   {
     icon: Champs,
     text: "My Hackathons",

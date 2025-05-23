@@ -18,7 +18,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   };
 
   return (
-    <div className="flex items-center gap-2 bg-gray-100 p-2 rounded-md ">
+    <div className="flex items-center gap-2 bg-gray-100 px-2 py-1 rounded-md ">
       <Image 
         src={Search} 
         alt="Search Icon" 

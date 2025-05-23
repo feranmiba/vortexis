@@ -62,9 +62,9 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
             <Link
               key={index}
               href={item.href}
-              className={`flex items-center py-4 pl-4 hover:bg-[#FFF5DD] ${
+              className={`flex items-center py-4 pl-4 hover:bg-[#F7F7FB] ${
                 pathname === item.href
-                  ? "text-gray-900 rounded-l-md border-l-4 border-l-main bg-[#FFF5DD]"
+                  ? "text-gray-900 rounded-l-md border-r-4 border-[#605DEC] bg-[#F7F7FB]"
                   : "text-gray-600"
               }`}
             >
