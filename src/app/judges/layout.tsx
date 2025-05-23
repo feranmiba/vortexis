@@ -19,33 +19,48 @@ import Resourcess from "@/public/assets/icon/resource.svg";
 import Submit from "@/public/assets/icon/iconoir_submit-document.svg";
 import Champs from "@/public/assets/icon/tabler_flag-filled.svg";
 
+import { Nunito, Nunito_Sans } from "next/font/google";
+
+// import Hackathon_Navbar from "@/components/Navbar/hackathon-navbar";
+import "../globals.css";
+
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"],
+});
+
+const nunitoSan = Nunito_Sans({
+  variable: "--font-nunito-sans",
+  subsets: ["latin"],
+});
+
 const sidebarItems = [
-  { icon: Dashboard, text: "Dashboard", href: "/organizer" },
+  { icon: Dashboard, text: "Dashboard", href: "" },
   {
     icon: Champs,
     text: "My Hackathons",
-    href: "/organizer/hackathon",
+    href: "",
   },
   {
     icon: Team,
     text: "Team Workspace",
-    href: "/organizer/workspaces",
+    href: "",
   },
 
   {
     icon: Resourcess,
     text: "Resources",
-    href: "/organizer/resources",
+    href: "",
   },
   {
     icon: Submit,
     text: "Submit Project",
-    href: "/organizer/project",
+    href: "",
   },
   {
     icon: Community,
     text: "Community",
-    href: "/organizer/community",
+    href: "",
   },
 ];
 
@@ -82,18 +97,10 @@ export default function DashboardLayout({
     }
   };
 
-  const isAuthPage = pathname?.includes("/admin/auth/");
-
-  if (isAuthPage) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-[#f5f5f5]">
-        {children}
-      </div>
-    );
-  }
-
   return (
-    <div className="flex h-full min-h-screen gap-6 bg-[#f5f5f5]">
+    <div
+      className={`flex h-full min-h-screen gap-6 bg-[#FFFFFF] ${nunito.variable} ${nunitoSan.variable} antialiased`}
+    >
       <DesktopSidebar
         sidebarExpanded={sidebarExpanded}
         sidebarItems={sidebarItems}
@@ -111,11 +118,11 @@ export default function DashboardLayout({
       <div
         className={`flex-1 ${
           !sidebarExpanded ? "lg:ml-[120px]" : "lg:ml-[280px]"
-        } transition-all duration-400 ease-in-out`}
+        } transition-all duration-400 ease-in-out shadow-xl`}
       >
         <Header toggleSidebar={toggleSidebar} />
 
-        <main className="min-h-[calc(100vh-64px)] overflow-y-auto p-4">
+        <main className="min-h-[calc(100vh-64px)] overflow-y-auto p-4 ">
           {children}
         </main>
       </div>
