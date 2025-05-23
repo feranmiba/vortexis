@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
           </button>
 
           {/* Search Box */}
-          <div className="p-6">
+          <div className="px-6">
             <SearchInput onSearch={handleSearch} />
           </div>
         </div>
