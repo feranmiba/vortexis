@@ -1,0 +1,122 @@
+import React, { useState } from 'react';
+
+function Team() {
+  const dropdownMinimumIndividual = [
+    "1 individual",
+    "2 Members",
+    "3 Members",
+    "4 Members",
+    "5 Members",
+    "6 Members",
+    "7 Members",
+  ];
+
+  const dropdownMaximum = [
+    "2 Members",
+    "3 Members",
+    "4 Members",
+    "5 Members",
+    "6 Members",
+    "7 Members",
+  ];
+
+  const initialNotifications = [
+    { label: "Allow Solo Participation", checked: true },
+  ]
+
+   const [notifications, setNotifications] = useState(initialNotifications);
+  
+    const handleToggle = (idx: number) => {
+      setNotifications((prev) =>
+        prev.map((notif, i) =>
+          i === idx ? { ...notif, checked: !notif.checked } : notif
+        )
+      );
+    };
+
+  return (
+    <>
+      <section className="p-6">
+        <div className="space-y-2 mb-6">
+          <h1 className="text-2xl font-bold">Team Configuration</h1>
+          <p className="text-gray-600">Set up team requirements for participants.</p>
+        </div>
+
+        <div className="flex gap-6 flex-wrap">
+          {/* Minimum Members Dropdown */}
+          <div className="w-full md:w-[45%]">
+            <label className="block mb-2 text-[#2F3036] font-bold">Minimum Team Members</label>
+            <select
+              className="w-full rounded-2xl border border-[#C5C6CC] px-4 py-3 outline-none"
+              name="minimum_members"
+            >
+              {dropdownMinimumIndividual.map((item, index) => (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Maximum Members Dropdown */}
+          <div className="w-full md:w-[45%]">
+            <label className="block mb-2 text-[#2F3036] font-bold">Maximum Team Members</label>
+            <select
+              className="w-full rounded-2xl border border-[#C5C6CC] px-4 py-3 outline-none"
+              name="maximum_members"
+            >
+              {dropdownMaximum.map((item, index) => (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+
+        <div className="mt-10">
+        <div className="space-y-4">
+          {notifications.map((notif, idx) => (
+            <div key={idx} className="flex items-center justify-between w-[25%] pb-3">
+              <span className="text-gray-800">{notif.label}</span>
+              <button
+                onClick={() => handleToggle(idx)}
+                type="button"
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                  notif.checked ? 'bg-blue-600' : 'bg-gray-300'
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    notif.checked ? 'translate-x-6' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className='mt-10 flex flex-col'>
+        <label className='text-lg text-[#2F3036]'>Team Formation Rules</label>
+        <textarea className='outline-none resize-none h-52 border-2 w-full border-[#C5C6CC] mt-3 rounded-2xl px-3 py-3' placeholder='Describe how teams should be formed or any special requirements...' name='rules'></textarea>
+        </div>
+
+
+        <div className="mt-10 flex justify-between">
+        <button className="border-[#0B40EE] border text-[#0B40EE] py-2 px-8 rounded">
+          Previous
+        </button>
+
+        <button className="bg-[#0B40EE] text-white py-2 px-8 rounded">
+          Next
+        </button>
+      </div>
+
+      </section>
+    </>
+  );
+}
+
+export default Team;
