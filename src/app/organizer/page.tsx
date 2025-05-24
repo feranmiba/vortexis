@@ -71,22 +71,22 @@ function Page() {
     {
       title: "Hackathon Joined",
       description: "You joined the AI Global Hackathon",
-      icon: "/assets/icons/join.svg",
+      icon: Document,
     },
     {
       title: "Submission Completed",
       description: "Submitted a project to the Open Innovation Challenge",
-      icon: "/assets/icons/submit.svg",
+      icon:  Document,
     },
     {
       title: "New Message",
       description: "Received a message from the event organizer",
-      icon: "/assets/icons/message.svg",
+      icon:  Document,
     },
     {
       title: "Hackathon Ended",
       description: "Global AI Agents League has concluded",
-      icon: "/assets/icons/end.svg",
+      icon:  Document,
     },
   ];
   
@@ -123,13 +123,12 @@ function Page() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <Button
-              type="primary"
+            <button
               onClick={handleClick}
-              className="px-8 py-4 text-[16px] font-normal"
+              className="px-7 py-4 bg-[#605DEC] text-white rounded-lg text-[16px] font-normal"
             >
               Create Hackathon
-            </Button>
+            </button>
           </motion.div>
         </motion.div>
 
@@ -218,6 +217,8 @@ function Page() {
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, ease: "easeOut" }}
   >
+    <div className="space-y-5 w-[60%]">
+
     <div className="flex justify-center">
       <Image src={Hacks} alt="hacks" />
     </div>
@@ -245,6 +246,9 @@ function Page() {
         </motion.div>
       ))}
     </div>
+
+    </div>
+
   </motion.div>
 
   {/* Recent Activities */}
@@ -256,14 +260,15 @@ function Page() {
   >
     <h1 className="text-lg font-semibold">Recent Activities</h1>
     <p>Latest updates across all hackathons</p>
-    <div className="space-y-4">
+    <div className="space-y-5">
       {recentActivities.map((activity, index) => (
         <motion.div
           key={index}
-          className="flex gap-3 items-center p-3 rounded-md bg-gray-50 shadow-sm"
+          className="flex gap-3 items-center p-3 rounded-md "
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         >
+          <div className="bg-[#00AC4F38] p-3 rounded-full flex items-center justify-center">
           <Image
             src={activity.icon}
             alt="activity icon"
@@ -271,9 +276,11 @@ function Page() {
             width={30}
             height={30}
           />
-          <div>
-            <h2 className="text-sm font-semibold">{activity.title}</h2>
-            <p className="text-gray-600 text-xs">{activity.description}</p>
+          </div>
+          <div className="space-y-2">
+            <h2 className="text-base font-bold text-[#212121]">{activity.title}</h2>
+            <p className="text-[#212121BD] text-sm">{activity.description}</p>
+            <p className="text-[#727272]">May 15, 2025 3:23 PM</p>
           </div>
         </motion.div>
       ))}
