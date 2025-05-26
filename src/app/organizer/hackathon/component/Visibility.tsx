@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { NavigationProps } from '@/components/Interface';
 
-function Visibility() {
+function Visibility( {onNext, onPrev} : NavigationProps ) {
     const initialNotifications = [
         { label: "Feature this hackathon on the homepage", checked: true },
     ]
@@ -15,6 +16,22 @@ function Visibility() {
         );
       };
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (onNext) {
+          onNext();
+        }
+        // Handle form submission logic here
+        console.log("Form submitted");
+      }
+    
+      const previousButton = () => {
+        if (onPrev) {
+          onPrev();
+        }
+        console.log("Going to previous step");
+      }  
+
 
   return (
     <>
@@ -24,7 +41,7 @@ function Visibility() {
         <p>Control who can see and participate in your hackathon.</p>
       </div>
 
-      <form>
+      <form onSubmit={handleSubmit}>
 
         <div className='flex justify-between'>
         <div className='space-y-3 shadow-2xl px-10 py-5 rounded-2xl border border-[#E4E4E4] w-[45%]'>
@@ -108,20 +125,20 @@ function Visibility() {
         </div>
       </div>
 
+      <div className="mt-10 flex justify-between">
+        <button className="border-[#0B40EE] border text-[#0B40EE] py-2 px-8 rounded cursor-pointer" onClick={previousButton}>
+          Previous
+        </button>
+
+        <button className="bg-[#0B40EE] text-white py-2 px-8 rounded cursor-pointer" type='submit'>
+          Next
+        </button>
+      </div>
 
       
 
       </form>
 
-      <div className="mt-10 flex justify-between">
-        <button className="border-[#0B40EE] border text-[#0B40EE] py-2 px-8 rounded">
-          Previous
-        </button>
-
-        <button className="bg-[#0B40EE] text-white py-2 px-8 rounded">
-          Next
-        </button>
-      </div>
 
     </section>
     </>

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
-function Team() {
+interface TeamProps {
+  onNext: () => void;
+  onPrev: () => void;
+}
+
+function Team({onNext, onPrev} : TeamProps ) {
   const dropdownMinimumIndividual = [
     "1 individual",
     "2 Members",
@@ -34,6 +39,19 @@ function Team() {
       );
     };
 
+      const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        onNext();
+        // Handle form submission logic here
+        console.log("Form submitted");
+      }
+    
+      const previousButton = () => {
+        onPrev();
+        console.log("Going to previous step");
+      }
+    
+
   return (
     <>
       <section className="p-6">
@@ -41,6 +59,8 @@ function Team() {
           <h1 className="text-2xl font-bold">Team Configuration</h1>
           <p className="text-gray-600">Set up team requirements for participants.</p>
         </div>
+
+        <form onSubmit={handleSubmit}>
 
         <div className="flex gap-6 flex-wrap">
           {/* Minimum Members Dropdown */}
@@ -105,14 +125,15 @@ function Team() {
 
 
         <div className="mt-10 flex justify-between">
-        <button className="border-[#0B40EE] border text-[#0B40EE] py-2 px-8 rounded">
+        <button className="border-[#0B40EE] border text-[#0B40EE] py-2 px-8 rounded cursor-pointer" onClick={previousButton}>
           Previous
         </button>
 
-        <button className="bg-[#0B40EE] text-white py-2 px-8 rounded">
+        <button className="bg-[#0B40EE] text-white py-2 px-8 rounded cursor-pointer" type='submit'>
           Next
         </button>
       </div>
+      </form>
 
       </section>
     </>

@@ -1,12 +1,30 @@
 import React from 'react'
+import { NavigationProps } from '@/components/Interface';
 
-function Invitation() {
+
+
+function Invitation( {onPrev} : NavigationProps ) {
 
     const role = [
         "Technology Role",
         "Aesthetic Role",
         "Financial Role"
     ]
+
+          const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+         
+            console.log("Form submitted");
+          }
+        
+          const previousButton = () => {
+            if (onPrev) {
+              onPrev();
+            }
+            console.log("Going to previous step");
+          }
+
+    
 
   return (
     <>
@@ -17,7 +35,7 @@ function Invitation() {
       </div>
 
 
-      <form>
+      <form onSubmit={handleSubmit}>
       <div>
             <label className='text-lg font-bold text-[#2F3036]'>Invite by Email</label>
             <input 
@@ -51,17 +69,19 @@ function Invitation() {
         <textarea className='outline-none resize-none h-24 border-2 w-full border-[#C5C6CC] mt-3 rounded-2xl px-3 py-3' placeholder='Enter any specific instructions or criteria for judges...' name='rules'></textarea>
         </div>
 
-      </form>
-
-      <div className="mt-10 flex justify-between">
-        <button className="border-[#0B40EE] border text-[#0B40EE] py-2 px-8 rounded">
+        <div className="mt-10 flex justify-between">
+        <button className="border-[#0B40EE] border text-[#0B40EE] py-2 px-8 rounded cursor-pointer" onClick={previousButton}>
           Previous
         </button>
 
-        <button className="bg-[#0B40EE] text-white py-2 px-8 rounded">
-          Next
+        <button className="bg-[#0B40EE] text-white py-2 px-8 rounded cursor-pointer" type='submit'>
+          Submit
         </button>
       </div>
+
+      </form>
+
+     
 
      </section>
     

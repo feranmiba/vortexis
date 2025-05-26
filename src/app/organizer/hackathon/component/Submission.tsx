@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { NavigationProps } from '@/components/Interface';
 
-function Submission() {
+
+function Submission({ onNext, onPrev }: NavigationProps) {
   const initialNotifications = [
     { label: "Project Description", checked: true },
     { label: "Demo Video", checked: false },
@@ -18,6 +20,18 @@ function Submission() {
     );
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onNext?.();
+    // Handle form submission logic here
+    console.log("Form submitted");
+  }
+
+  const previousButton = () => {
+    onPrev?.();
+    console.log("Going to previous step");
+  }
+
   return (
     <section className="p-4">
       <div className="space-y-3 mb-6">
@@ -25,7 +39,7 @@ function Submission() {
         <p>Configure how participants will submit their projects.</p>
       </div>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="flex justify-between mt-10 flex-wrap gap-6">
           <div className="w-full md:w-[45%]">
             <label className="text-lg text-[#2F3036]">Submission Deadline</label>
@@ -56,7 +70,7 @@ function Submission() {
             name="aditional"
           />
         </div>
-      </form>
+
 
       {/* Toggle Section */}
       <div className="mt-10">
@@ -83,15 +97,21 @@ function Submission() {
         </div>
       </div>
 
-      <div className="mt-10 flex justify-between">
-        <button className="border-[#0B40EE] border text-[#0B40EE] py-2 px-8 rounded">
+     
+
+
+
+        <div className="mt-10 flex justify-between">
+        <button className="border-[#0B40EE] border text-[#0B40EE] py-2 px-8 rounded cursor-pointer" onClick={previousButton}>
           Previous
         </button>
 
-        <button className="bg-[#0B40EE] text-white py-2 px-8 rounded">
+        <button className="bg-[#0B40EE] text-white py-2 px-8 rounded cursor-pointer" type='submit'>
           Next
         </button>
       </div>
+      </form>
+
     </section>
   );
 }
