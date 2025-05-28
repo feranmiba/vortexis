@@ -55,12 +55,12 @@ function Page() {
           hackathons and pending reviews.
         </p>
 
-        <div className="flex flex-wrap gap-4 mt-5">
+        <div className="flex justify-between flex-wrap gap-4 mt-5">
           {SubmissionStatus.map((status, i) => {
             return (
               <div
                 key={i}
-                className="w-60 my-5 bg-[#FFFFFF] h-40 flex flex-col border border-[#E4E4E4] justify-center pl-8 rounded-lg shadow-md"
+                className="w-[31%] my-5 bg-[#FFFFFF] h-40 flex flex-col border border-[#E4E4E4] justify-center pl-8 rounded-lg shadow-md"
               >
                 <div>
                   <p className="text-[#00AC4F] font-bold">{status.number}</p>
