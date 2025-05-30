@@ -36,13 +36,15 @@ function Members() {
               key={index}
               className="p-2 flex border-2 items-center border-[#605DEC] rounded-lg text-[#605DEC] gap-4"
             >
-              <img
-                src={`${member.img.src}`}
-                alt={`${member.name}`}
-                className="w-10 h-10 rounded-full"
+              <Image
+                src={member.img || "/placeholder.svg"}
+                alt={member.name}
+                width={40}
+                height={40}
+                className="w-10 h-10 object-cover border-0"
               />
               <div>
-                <p className="font-bold ">{member.name}</p>
+                <p className="font-bold">{member.name}</p>
                 <p className="text-sm">{member.role}</p>
               </div>
             </div>
