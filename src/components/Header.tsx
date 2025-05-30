@@ -116,22 +116,22 @@ export const Header: React.FC = () => {
         <div className="md:hidden">
           <div className="pt-2 pb-3 space-y-1">
             <Link
-              href="/"
+              href="/features"
               className="block px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
             >
-              Home
+              Features
             </Link>
             <Link
               href="/hackathons"
               className="block px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
             >
-              Join a Hackathons
+             Hackathons
             </Link>
             <Link
-              href="/sponsors"
+              href="/about"
               className="block px-3 py-2 text-base font-medium text-[#4D4D4D] hover:text-gray-900"
             >
-              Host a hackaton
+              About
             </Link>
           </div>
 

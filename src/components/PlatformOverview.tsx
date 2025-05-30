@@ -11,15 +11,14 @@ export default function PlatformOverview() {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
         {/* Participants Section */}
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="p-4">
             <Image
               src={overview1}
               alt="Person working on laptop with sticky notes"
-              className="w-full h-auto object-cover rounded"
+              className="w-full h-full p-4 object-cover rounded"
             />
-          </div>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6">
@@ -99,13 +98,11 @@ export default function PlatformOverview() {
         </div>
 
         <div className="bg-white rounded-lg shadow-md ">
-          <div className="p-4">
             <Image
               src={overview2}
               alt="Person gesturing during discussion with laptop"
-              className="w-full h-auto object-cover rounded"
+              className="w-full h-full  p-4 object-cover rounded"
             />
-          </div>
         </div>
       </div>
     </div>
