@@ -6,6 +6,7 @@ import Image from "next/image";
 import People from '@/public/assets/icon/people.svg'
 import Document from '@/public/assets/icon/basil_document-outline.svg'
 import Hacks from '@/public/assets/hackathon.svg'
+import RegistrationTrend from "./components/RegistrationTrend";
 
 function Page() {
   const handleClick = () => {
@@ -287,6 +288,9 @@ function Page() {
     </div>
   </motion.div>
 </motion.section>
+
+
+<RegistrationTrend />
 
 
         
