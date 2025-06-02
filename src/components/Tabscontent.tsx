@@ -29,10 +29,10 @@ function Tabscontent() {
 
   return (
     <div>
-      <div className="flex mb-6 -mt-1.5 cursor-pointer gap-4 ">
+      <div className="flex mb-6 -mt-1.5 w-[860px] cursor-pointer gap-4 ">
         {tabs.map((tab, i) => {
           return (
-            <div key={i} onClick={() => setActiveTab(tab.tab_no)}>
+            <div key={i}  className="w-[203px]" onClick={() => setActiveTab(tab.tab_no)}>
               <p
                 className={`text-center px-7 py-2 ${
                   activeTab === i + 1
