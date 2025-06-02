@@ -1,163 +1,155 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import Link from "next/link";
 import { Button } from "../components/ui/Button";
-import cuate from "@/public/assets/cuate.svg";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const carouselItems = [
-  {
-    title: "The home for hackathons",
-    titleHighlight: "hackathons",
-    description:
-      "Where organizations and developers come together to build, inspire, and innovate.",
-    image: cuate,
-    alt: "Hackathon illustration with developers and data visualization",
-  },
-  {
-    title: "Build your future",
-    titleHighlight: "future",
-    description:
-      "Connect with like-minded developers and bring your ideas to life.",
-    image: cuate, // Replace with different image
-    alt: "Developers collaborating on projects",
-  },
-  {
-    title: "Showcase your talent",
-    titleHighlight: "talent",
-    description:
-      "Demonstrate your skills and creativity in a competitive environment.",
-    image: cuate, // Replace with different image
-    alt: "Developers presenting their projects",
-  },
-];
 
 export const Hero: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // Auto-scroll functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % carouselItems.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const goToSlide = (index: number) => {
-    setActiveIndex(index);
-  };
-
-  const goToPrevSlide = () => {
-    setActiveIndex(
-      (current) => (current - 1 + carouselItems.length) % carouselItems.length
-    );
-  };
-
-  const goToNextSlide = () => {
-    setActiveIndex((current) => (current + 1) % carouselItems.length);
-  };
-
   return (
-    <div className="bg-[#F5F7FA] overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="py-12 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[550px]">
-          <div className="relative mt-20 md:mt-0 flex flex-col justify-center h-full lg:min-h-[450px]">
-            {carouselItems.map((item, index) => (
-              <div
-                key={index}
-                className={`transition-all duration-500 absolute w-full ${
-                  index === activeIndex
-                    ? "opacity-100"
-                    : "opacity-0 pointer-events-none"
-                }`}
-              >
-                <h1 className="text-4xl  md:text-5xl lg:text-6xl font-bold">
-                  <span className="text-gray-900">
-                    {item.title.replace(item.titleHighlight, "")}
-                  </span>
-                  <br />
-                  <span className="text-[#407BFF]">{item.titleHighlight}</span>
-                </h1>
-                <p className="mt-4 text-gray-600 text-lg max-w-lg">
-                  {item.description}
-                </p>
-                <div className="mt-8 lg:mt-12 flex flex-wrap gap-4">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    className="bg-blue-500 text-white px-6 py-3 text-lg"
-                  >
-                    For Organizers
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="px-6 py-3 text-lg"
-                  >
-                    For Participants
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="relative h-72 md:h-96 lg:h-[450px] w-full mt-30 md:mt-0">
-            {carouselItems.map((item, index) => (
-              <div
-                key={index}
-                className={`transition-opacity duration-500 absolute w-full h-full ${
-                  index === activeIndex
-                    ? "opacity-100"
-                    : "opacity-0 pointer-events-none"
-                }`}
-              >
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  layout="fill"
-                  className="object-contain"
-                  priority={index === 0}
-                />
-              </div>
-            ))}
-          </div>
+    <section className="relative w-full bg-gradient-to-br from-[#E0D9FB] via-[#D8DBFF] to-[#F4F4FF] overflow-hidden">
+      {/* Gradient circles - Responsive positioning */}
+      <div className="w-full flex gap-0 flex-row justify-center items-center h-screen absolute top-0 bottom-0 left-0 right-0">
+        {/* Left circle */}
+        <div className="
+          w-[12em] h-[12em] 
+          md:w-[15em] md:h-[15em] 
+          lg:w-[25em] lg:h-[25em] 
+          bg-[#d2bcff] rounded-full opacity-50 z-0 mix-blend-multiply 
+          absolute 
+          left-[-2em] mt-[-18em]
+          md:left-[-2em] md:mt-[-26em]
+          lg:left-[3em] lg:mt-[6em]
+        " />
+        
+        {/* Center circle */}
+        <div className="
+          w-[20em] h-[20em] 
+          md:w-[25em] md:h-[24em] 
+          lg:w-[35em] lg:h-[35em] 
+          bg-[#ffffff] rounded-full opacity-50 z-0 
+          mt-[-2em]
+          md:mt-[-12em]
+          lg:mt-[24em]
+        " />
+        
+        {/* Right circle */}
+        <div className="
+          w-[12em] h-[12em] 
+          md:w-[18em] md:h-[18em] 
+          lg:w-[35em] lg:h-[35em] 
+          bg-[#c5c3ff] rounded-full opacity-50 z-0 mix-blend-multiply 
+          absolute 
+          right-[-2em] mt-[15em]
+          md:right-[-2em] md:mt-[-16em]
+          lg:right-[-3em] lg:mt-[10em]
+        " />
+      </div>
+
+      <div className="
+        relative z-10 max-w-5xl mx-auto 
+        px-4 py-16
+        md:px-8 md:py-24
+        lg:px-4 lg:py-28
+        text-center
+      ">
+        <h1 className="
+          text-2xl leading-tight
+          md:text-4xl md:leading-tight
+          lg:text-5xl lg:leading-tight
+          xl:text-6xl xl:leading-tight
+          font-bold text-[#212121] mb-3
+          md:mb-4
+        ">
+          Run. Join. Win.
+        </h1>
+        
+        <h2 className="
+          text-xl
+          md:text-3xl
+          lg:text-4xl
+          xl:text-5xl
+          font-semibold text-[#212121] mb-4
+          md:mb-6
+          lg:mb-6
+        ">
+          Everything Hackathon, All In 
+        </h2>
+          <span className="  text-xl
+          md:text-3xl
+          lg:text-4xl
+          xl:text-5xl
+          font-semibold text-[#212121] mb-4
+          md:mb-6
+          lg:mb-8">One Place.</span> 
+
+        <p className="
+          text-sm leading-relaxed
+          md:text-lg md:leading-relaxed
+          lg:text-xl lg:leading-relaxed
+          text-[#212121] 
+          max-w-xs mx-auto
+          md:max-w-2xl
+          lg:max-w-3xl
+          mb-6
+          md:mb-8
+          lg:mb-10
+          lg:mt-2
+          font-medium 
+          px-2 
+          md:px-0
+        ">
+          Vortexis makes it easy to{" "}
+          <span className="font-semibold">host hackathons</span>,{" "}
+          <span className="font-semibold">collaborate with teammates</span>,
+          and <span className="font-semibold">build innovative projects</span> —
+          whether {`you're an `}
+          <span className="font-bold">organizer</span>,{" "}
+          <span className="font-bold">participant</span>, or{" "}
+          <span className="font-bold">judge</span>.
+        </p>
+
+        <div className="
+          flex flex-col gap-3
+          md:flex-row md:justify-center md:gap-6
+        ">
+          <Button
+            variant="primary"
+            size="lg"
+            className="
+              bg-[#605DEC] text-white 
+              px-6 py-3 text-base
+              md:text-lg md:px-8 md:py-4
+              lg:text-xl lg:px-10 lg:py-5
+              w-full 
+              md:w-auto md:min-w-[200px]
+              lg:min-w-[220px]
+              font-semibold
+              hover:bg-[#5048D9] transition-colors duration-200
+              shadow-lg hover:shadow-xl
+            "
+          >
+            <Link href="/participants">For Participants</Link>
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="
+              px-6 py-3 text-base
+              md:text-lg md:px-8 md:py-4
+              lg:text-xl lg:px-10 lg:py-5
+              w-full 
+              md:w-auto md:min-w-[200px]
+              lg:min-w-[220px]
+              font-semibold
+              border-2 border-[#605DEC] text-[#605DEC]
+              hover:bg-[#605DEC] hover:text-white 
+              transition-all duration-200
+              shadow-lg hover:shadow-xl
+            "
+          >
+            <Link href="/organizers">For Organizers</Link>
+          </Button>
         </div>
       </div>
-
-      {/* Navigation buttons */}
-      <div className="absolute inset-y-0 left-0  flex items-center">
-        <button
-          onClick={goToPrevSlide}
-          className="bg-white/30 hover:bg-white/50 rounded-full p-2 ml-4 shadow-md focus:outline-none"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="h-6 w-6 text-gray-800" />
-        </button>
-      </div>
-      <div className="absolute inset-y-0 right-0 flex items-center">
-        <button
-          onClick={goToNextSlide}
-          className="bg-white/30 hover:bg-white/50 rounded-full p-2 mr-4 shadow-md focus:outline-none"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="h-6 w-6 text-gray-800" />
-        </button>
-      </div>
-
-      {/* Slide indicators */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-        {carouselItems.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2 w-2 rounded-full ${
-              index === activeIndex ? "bg-[#407BFF] w-2" : "bg-gray-300"
-            } transition-all duration-300`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };

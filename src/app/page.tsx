@@ -1,14 +1,16 @@
 import { Hero } from "@/components/Hero";
-import { Sponsors } from "@/components/Sponsors";
-import HackathonListing from "@/components/HackathonList";
-import { HackathonThemes } from "@/components/HackathonThemes";
+import ExploreActiveHackathons from "@/components/ActiveHackatons";
+import PlatformOverview from "@/components/PlatformOverview";
+import HackathonCTA from "@/components/Hero2";
+import HowItWorks from "@/components/HowItWorks";
 export default function Home() {
   return (
     <div className="">
       <Hero />
-      <Sponsors />
-      <HackathonListing />
-      <HackathonThemes />
+      <PlatformOverview/>
+      <ExploreActiveHackathons/>
+      <HowItWorks/>
+      <HackathonCTA/>
     </div>
   );
 }

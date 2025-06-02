@@ -5,7 +5,6 @@ const HeroSection: React.FC = () => {
     <section className="relative w-full bg-gradient-to-br from-[#e0d3fc] to-[#d3e8fc] overflow-hidden">
       {/* Interlinked Circular Backgrounds in Inverted Triangle */}
       <div className="w-full flex gap-0 flex-row justify-center items-center h-screen absolute top-0 bottom-0 left-0 right-0">
-
       <div className=" w-[40em] h-[40em] bg-[#d2bcff] rounded-full opacity-50 z-0 mix-blend-multiply mt-[-12em] absolute left-10" />
       <div className=" w-[40em] h-[40em] bg-[#ffffff] rounded-full opacity-50 z-0 mt-[16em] " />
       <div className=" w-[40em] h-[40em] bg-[#c5c3ff] rounded-full opacity-50 z-0 mix-blend-multiply mt-[-12em] absolute right-20"  />
