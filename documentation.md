@@ -31,3 +31,19 @@
 - Codebase is more maintainable with clear type definitions.
 - UX is more intuitive with better visual and interactive feedback.
 
+## Analytics Chart Update Documentation
+
+### Description
+
+    This update implements a custom analytics chart component using Recharts and TypeScript (TSX) as part of the analytics dashboard. The chart is used to visualize registration trends over time.
+
+####      Changes Made
+
+- Created a dual-line chart with area fill using Recharts.
+-  Styled the chart with:
+- Thicker stroke lines for better visibility.
+- Solid blue horizontal grid lines (instead of default grey dotted ones).
+- Removed vertical grid lines for a cleaner look.
+- Customized tooltip to display participant count.
+- Blue vertical hover line (not dotted).
+
