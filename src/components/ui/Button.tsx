@@ -21,10 +21,10 @@ export const Button: React.FC<ButtonProps> = ({
     "rounded-md font-medium transition-colors focus:outline-none";
 
   const variantClasses = {
-    primary: "bg-[#009AFF] text-white hover:bg-blue-400",
+    primary: "bg-[#605DEC] text-white hover:bg-pupple-300",
     secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
     outline:
-      "bg-transparent border border-[#009AFF] text-[#009AFF] hover:bg-blue-50",
+      "bg-transparent border border-[#605DEC] text-[#605DEC] hover:bg-pupple-100",
     ghost: "hover:bg-accent hover:text-accent-foreground",
     link: "text-primary underline-offset-4 hover:underline",
   };
