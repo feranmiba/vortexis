@@ -29,7 +29,7 @@ const evaluations = [
 function Evaluation() {
   return (
     <div>
-      <div className="space-y-6">
+      <div className="space-y-6 w-[1060px]">
         {evaluations.map((evaluation, index) => {
           return (
             <div key={index}>

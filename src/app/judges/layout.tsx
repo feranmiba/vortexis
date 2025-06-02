@@ -122,7 +122,7 @@ export default function DashboardLayout({
       >
         <Header toggleSidebar={toggleSidebar} />
 
-        <main className="min-h-[calc(100vh-64px)] bg-white overflow-y-auto p-4 my-3 ">
+        <main className="min-h-[calc(100vh-64px)] bg-white overflow-y-auto p-4 mt-3  ">
           {children}
         </main>
       </div>

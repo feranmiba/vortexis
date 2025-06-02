@@ -39,13 +39,13 @@ export default function CollaborationPage() {
         <p>Collaborate with other judges and discuss submissions</p>
       </div>
 
-      <div className="bg-[#FFFFFF] my-3 shadow-md rounded-md border p-3 border-[#E4E4E4]">
+      <div className="bg-[#FFFFFF] my-3 shadow-md rounded-md border p-3 w-[1114px] border-[#E4E4E4]">
         <div>
-          <div className="flex my-6 mt-1.5 cursor-pointer gap-4">
+          <div className="flex my-6 mt-1.5 w-[645px] cursor-pointer gap-4">
             {tabs.map((tab, i) => (
-              <div key={i} onClick={() => setActiveTab(tab.tab_no)}>
+              <div key={i} className="w-[203px]" onClick={() => setActiveTab(tab.tab_no)}>
                 <p
-                  className={`text-center px-7 py-2 ${
+                  className={`text-center px-5 py-2 ${
                     activeTab === tab.tab_no
                       ? "bg-[#605DEC] text-white"
                       : "bg-[#F4F3FE] text-[#C5C0DB]"
@@ -57,6 +57,7 @@ export default function CollaborationPage() {
             ))}
           </div>
         </div>
+
 
         {activeTab === 1 && <JudgeOnlyRoom />}
         {activeTab === 2 && <OrganizerDiscussion />}
