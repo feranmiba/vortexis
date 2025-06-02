@@ -29,12 +29,12 @@ function Members() {
     <div>
       <p className="text-[#1C1D1D] text-xl font-medium">Team Members</p>
 
-      <div className="flex flex-col gap-4 mt-4">
+      <div className="flex flex-col w-[770px] gap-3 mt-4">
         {members.map((member, index) => {
           return (
             <div
               key={index}
-              className="p-2 flex border-2 items-center border-[#605DEC] rounded-lg text-[#605DEC] gap-4"
+              className="py-1 px-2 flex border-2 items-center border-[#605DEC] rounded-xl text-[#605DEC] gap-4"
             >
               <Image
                 src={member.img || "/placeholder.svg"}
