@@ -69,7 +69,7 @@ function OrganizerDiscussion() {
               </p>
               <div className="w-[60%] space-y-2">
                 <p className="text-xl font-medium">{room.name}</p>
-                <p>{room.decision}</p>
+                <p className="text-sm">{room.decision}</p>
               </div>
               <p className="ms-auto pe-2">{room.time} AM</p>
             </div>
