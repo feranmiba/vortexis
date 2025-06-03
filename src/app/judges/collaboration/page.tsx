@@ -1,8 +1,9 @@
 "use client";
+import { useSearchParams, useRouter } from "next/navigation";
 import FinalDecision from "@/components/collaborations/finalDecision";
 import JudgeOnlyRoom from "@/components/collaborations/judgeOnlyRoom";
 import OrganizerDiscussion from "@/components/collaborations/organizerDiscussion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const tabs = [
   {
@@ -27,6 +28,19 @@ const tabs = [
 export default function CollaborationPage() {
   const [activeTab, setActiveTab] = useState(1);
 
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const handleTabChange = (tabNo: number) => {
+    setActiveTab(tabNo);
+    router.replace(`?tab=${tabNo}`, { scroll: false });
+  };
+
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam) setActiveTab(Number(tabParam));
+  }, [searchParams]);
+
   // Use params.id to avoid unused params warning
   // console.log(params.id);
 
@@ -43,7 +57,11 @@ export default function CollaborationPage() {
         <div>
           <div className="flex my-6 mt-1.5 w-[645px] cursor-pointer gap-4">
             {tabs.map((tab, i) => (
-              <div key={i} className="w-[203px]" onClick={() => setActiveTab(tab.tab_no)}>
+              <div
+                key={i}
+                className="w-[203px]"
+                onClick={() => handleTabChange(tab.tab_no)}
+              >
                 <p
                   className={`text-center px-5 py-2 ${
                     activeTab === tab.tab_no
@@ -57,7 +75,6 @@ export default function CollaborationPage() {
             ))}
           </div>
         </div>
-
 
         {activeTab === 1 && <JudgeOnlyRoom />}
         {activeTab === 2 && <OrganizerDiscussion />}
