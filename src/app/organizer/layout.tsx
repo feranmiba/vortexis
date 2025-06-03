@@ -111,7 +111,7 @@ export default function DashboardLayout({
 
       <div
         className={`flex-1 ${
-          !sidebarExpanded ? "lg:ml-[120px]" : "lg:ml-[280px]"
+          !sidebarExpanded ? "lg:ml-[120px]" : "lg:ml-[270px]"
         } transition-all duration-400 ease-in-out`}
       >
         <Header toggleSidebar={toggleSidebar} />

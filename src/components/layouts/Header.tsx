@@ -25,8 +25,8 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
     console.log("Search for:", query);
   };
   return (
-    <header className="border-gray-200 sticky right-0 top-0 z-50 h-20 w-full border-b bg-white mx-4 px-10 ">
-      <div className="flex h-full items-center justify-between pr-4">
+<header className="border-gray-200 sticky right-0 top-0 z-50 h-20 w-full border-b bg-white ">
+<div className="flex h-full items-center justify-between pr-4">
         <div className="flex items-center">
           {/* Mobile menu button */}
           <button
