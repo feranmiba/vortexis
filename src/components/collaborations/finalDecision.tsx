@@ -3,7 +3,7 @@ import { Pin } from "lucide-react";
 function FinalDecision() {
   return (
     <div>
-      <div className="bg-[#DAE0DE3D] w-[1088px] px-4 py-2.5 mb-8 rounded-3xl border-l-24 pl-6 border-l-[#605DEC]">
+      <div className="bg-[#DAE0DE3D] w-[1088px] px-4 py-1.5 mb-8 rounded-3xl border-l-24 pl-6 border-l-[#605DEC]">
         <div className="flex justify-between mb-3 px-2">
           <div className="flex items-center gap-2">
             <Pin className="text-[#212121] h-6" />
@@ -19,7 +19,7 @@ function FinalDecision() {
       </div>
 
       <div className="w-[1083px] space-y-6">
-        <div className="shadow-md border border-[#E4E4E4] rounded-lg bg-white py-8 px-4 space-y-1.5">
+        <div className=" border border-[#E4E4E4] rounded-lg bg-white py-8 px-4 space-y-1.5">
           <div className="border-b-2 flex justify-between border-[#535353] pb-4">
             <div className="flex gap-4 items-center">
               <p className="bg-[#727272] px-1 h-6 text-center py-0.5 rounded-full text-xs">
@@ -40,7 +40,8 @@ function FinalDecision() {
               </div>
               <div className="flex justify-between w-[565px]">
                 {" "}
-                <p>Maria Rodriguez</p> <p>8.5</p>
+                <p className="-ms-10">Maria Rodriguez</p>{" "}
+                <p className="ms-auto">8.5</p>{" "}
               </div>
             </div>
             <div className="mb-2 flex items-center justify-between">
@@ -49,6 +50,7 @@ function FinalDecision() {
                 <p>Alex Smith</p> <p>8.4</p>
               </div>
             </div>
+
             <div className="mb-2 flex items-center justify-between">
               <div className="flex justify-between w-[408px]">
                 {" "}
@@ -65,7 +67,8 @@ function FinalDecision() {
             </div>
           </div>
         </div>
-        <div className="shadow-md border border-[#E4E4E4] rounded-lg bg-white py-8 px-4 space-y-1.5">
+
+        <div className=" border border-[#E4E4E4] rounded-lg bg-white py-8 px-4 space-y-1.5">
           <div className="border-b-2 flex justify-between border-[#535353] pb-4">
             <div className="flex gap-4 items-center">
               <p className="bg-[#727272] px-1 h-6 text-center py-0.5 rounded-full text-xs">
@@ -86,7 +89,8 @@ function FinalDecision() {
               </div>
               <div className="flex justify-between w-[565px]">
                 {" "}
-                <p>Maria Rodriguez</p> <p>8.5</p>
+                <p className="-ms-10">Maria Rodriguez</p>{" "}
+                <p className="ms-auto">8.5</p>
               </div>
             </div>
             <div className="mb-2 flex items-center justify-between">
