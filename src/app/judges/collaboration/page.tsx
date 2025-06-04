@@ -1,9 +1,9 @@
 "use client";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import FinalDecision from "@/components/collaborations/finalDecision";
 import JudgeOnlyRoom from "@/components/collaborations/judgeOnlyRoom";
 import OrganizerDiscussion from "@/components/collaborations/organizerDiscussion";
-import { useEffect, useState } from "react";
 
 const tabs = [
   {
@@ -20,12 +20,7 @@ const tabs = [
   },
 ];
 
-// interface PageProps {
-//   params: { id: string };
-//   searchParams?: Record<string, string | string[] | undefined>; // Add this
-// }
-
-export default function CollaborationPage() {
+function CollaborationPageContent() {
   const [activeTab, setActiveTab] = useState(1);
 
   const searchParams = useSearchParams();
@@ -40,9 +35,6 @@ export default function CollaborationPage() {
     const tabParam = searchParams.get("tab");
     if (tabParam) setActiveTab(Number(tabParam));
   }, [searchParams]);
-
-  // Use params.id to avoid unused params warning
-  // console.log(params.id);
 
   return (
     <div>
@@ -81,5 +73,13 @@ export default function CollaborationPage() {
         {activeTab === 3 && <FinalDecision />}
       </div>
     </div>
+  );
+}
+
+export default function CollaborationPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CollaborationPageContent />
+    </Suspense>
   );
 }
