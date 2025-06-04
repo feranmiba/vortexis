@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import React from "react";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/AuthButton";
@@ -7,11 +8,17 @@ import People from '@/public/assets/icon/people.svg'
 import Document from '@/public/assets/icon/basil_document-outline.svg'
 import Hacks from '@/public/assets/hackathon.svg'
 import RegistrationTrend from "./components/RegistrationTrend";
+import { useRouter } from "next/navigation";
 
 function Page() {
   const handleClick = () => {
     console.log("clicks");
   };
+  const router = useRouter();
+
+  const createHackathon = () => {
+    router.push("/organizer/create-hackathon");
+  }
 
 
   const ActiveHackathons = [
@@ -125,8 +132,8 @@ function Page() {
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <button
-              onClick={handleClick}
-              className="px-7 py-4 bg-[#605DEC] text-white rounded-lg text-[16px] font-normal"
+              onClick={createHackathon}
+              className="px-7 py-4 bg-[#605DEC] text-white rounded-lg text-[16px] font-normal cursor-pointer hover:bg-[#7a78e1]"
             >
               Create Hackathon
             </button>
@@ -166,7 +173,7 @@ function Page() {
     {ActiveHackathons.map((active, index) => (
       <motion.div
         key={index}
-        className="py-6 px-4 my-2 bg-white text-center border-2 border-[#E4E4E4]  space-y-5 rounded-2xl shadow-md w-[30%]"
+        className="py-6 px-4 my-2 bg-white text-center border-2 border-[#E4E4E4]  space-y-5 rounded-2xl shadow-md w-[33%]"
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },
@@ -213,7 +220,7 @@ function Page() {
 >
   {/* Hackathon Details */}
   <motion.div
-    className="w-1/2 bg-white border-2 border-[#E4E4E4] space-y-5 rounded-2xl shadow-md py-4 px-5"
+    className="w-1/2 bg-white border-2 border-[#E4E4E4] space-y-5 rounded-2xl shadow-md py-4 px-5 cursor-pointer"
     initial={{ opacity: 0, x: -50 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -254,7 +261,7 @@ function Page() {
 
   {/* Recent Activities */}
   <motion.div
-    className="w-1/2 bg-white py-4 px-5 border-2 border-[#E4E4E4] space-y-5 rounded-2xl shadow-md"
+    className="w-1/2 bg-white py-4 px-5 border-2 border-[#E4E4E4] space-y-5 rounded-2xl shadow-md "
     initial={{ opacity: 0, x: 50 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -265,7 +272,7 @@ function Page() {
       {recentActivities.map((activity, index) => (
         <motion.div
           key={index}
-          className="flex gap-3 items-center p-3 rounded-md "
+          className="flex gap-3 items-center p-3 rounded-md cursor-pointer "
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.3 }}
         >
