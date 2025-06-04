@@ -133,7 +133,7 @@ function Page() {
           >
             <button
               onClick={createHackathon}
-              className="px-7 py-4 bg-[#605DEC] text-white rounded-lg text-[16px] font-normal cursor-pointer"
+              className="px-7 py-4 bg-[#605DEC] text-white rounded-lg text-[16px] font-normal cursor-pointer hover:bg-[#7a78e1]"
             >
               Create Hackathon
             </button>
