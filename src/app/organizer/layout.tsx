@@ -29,23 +29,28 @@ const sidebarItems = [
   },
   {
     icon: Team,
-    text: "Team Workspace",
+    text: "Manage Hackathons",
     href: "/organizer/workspaces",
   },
 
   {
     icon: Resourcess,
-    text: "Resources",
+    text: "Participants",
     href: "/organizer/resources",
   },
   {
     icon: Submit,
-    text: "Submit Project",
-    href: "/organizer/project",
+    text: "Submissions",
+    href: "/organizer/submission",
   },
   {
     icon: Community,
-    text: "Community",
+    text: "Analytics",
+    href: "/organizer/community",
+  },
+  {
+    icon: Community,
+    text: "Judges",
     href: "/organizer/community",
   },
 ];
