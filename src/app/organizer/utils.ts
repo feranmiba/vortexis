@@ -136,3 +136,123 @@ export const Submission = [
     },
 
 ]
+
+export const ParticipantsData = [
+    {
+        id: 1,
+        title: "Jane Cooper",
+        phone_no: "(225) 555-0118",
+        email: "jane@microsoft.com",
+        team: "Code Wizards",
+        country: "United States",
+        status: "Active"
+    },
+    {
+        id: 2,
+        title: "Floyd Miles",
+        phone_no: "(205) 555-0100",
+        email: "floyd@yahoo.com",
+        team: "Byte Builders",
+        country: "Kiribati",
+        status: "Active"
+    },
+    {
+        id: 3,
+        title: "Ronald Richards",
+        phone_no: "(302) 555-0107",
+        email: "ronald@adobe.com",
+        team: "Algo Masters",
+        country: "Israel",
+        status: "Inactive"
+    },
+    {
+        id: 4,
+        title: "Marvin McKinney",
+        phone_no: "(252) 555-0126",
+        email: "marvin@tesla.com",
+        team: "Code Wizards",
+        country: "Iran",
+        status: "Inactive"
+    },   
+     {
+        id: 5,
+        title: "Jerome Bell",
+        phone_no: "(629) 555-0129",
+        email: "jerome@google.com",
+        team: "Byte Builders",
+        country: "Réunion",
+        status: "Active"
+    },
+    {
+        id: 6,
+        title: "Kathryn Murphy",
+        phone_no: "(406) 555-0120",
+        email: "kathryn@microsoft.com",
+        team: "Algo Masters",
+        country: "Curaçao",
+        status: "Inactive"
+    },
+    {
+        id: 7,
+        title: "Jacob Jones",
+        phone_no: "(208) 555-0112",
+        email: "jacob@yahoo.com",
+        team: "Byte Builders",
+        country: "Brazil",
+        status: "Active"
+    },
+    {
+        id: 8,
+        title: "Kristin Watson",
+        phone_no: "(252) 555-0126",
+        email: "marvin@tesla.com",
+        team: "Code Wizards",
+        country: "Iran",
+        status: "Inactive"
+    },  
+    {
+        id: 9,
+        title: "Jacob Jones",
+        phone_no: "(208) 555-0112",
+        email: "jacob@yahoo.com",
+        team: "Byte Builders",
+        country: "Brazil",
+        status: "Active"
+    },
+    {
+        id: 10,
+        title: "Kristin Watson",
+        phone_no: "(252) 555-0126",
+        email: "marvin@tesla.com",
+        team: "Code Wizards",
+        country: "Iran",
+        status: "Inactive"
+    }, 
+    {
+        id: 11,
+        title: "Floyd Miles",
+        phone_no: "(205) 555-0100",
+        email: "floyd@yahoo.com",
+        team: "Byte Builders",
+        country: "Kiribati",
+        status: "Active"
+    },
+    {
+        id: 12,
+        title: "Ronald Richards",
+        phone_no: "(302) 555-0107",
+        email: "ronald@adobe.com",
+        team: "Algo Masters",
+        country: "Israel",
+        status: "Inactive"
+    },
+    {
+        id: 13,
+        title: "Marvin McKinney",
+        phone_no: "(252) 555-0126",
+        email: "marvin@tesla.com",
+        team: "Code Wizards",
+        country: "Iran",
+        status: "Inactive"
+    },   
+]

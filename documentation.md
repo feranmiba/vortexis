@@ -46,4 +46,8 @@
 - Removed vertical grid lines for a cleaner look.
 - Customized tooltip to display participant count.
 - Blue vertical hover line (not dotted).
+- Added the new icons 
+- Worked on the padding and margin for both particpants and submission page
+- worked on the different icons 
+
 
