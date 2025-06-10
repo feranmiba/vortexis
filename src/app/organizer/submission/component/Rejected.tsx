@@ -118,7 +118,7 @@ function Rejected() {
                 setSortOrder(e.target.value)
                 setCurrentPage(1)
               }}
-              className="font-semibold text-sm"
+              className="font-semibold text-sm cursor-pointer outline-none"
             >
               <option value="newest">Newest</option>
               <option value="oldest">Oldest</option>

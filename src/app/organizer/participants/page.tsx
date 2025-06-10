@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ParticipantsData } from '../utils'
+import { getCountries, Country } from '@/app/api/country/getCountries'
 
 function Participants() {
   const SubmissionPerPage = 8
+  const [countries, setCountries] = useState<Country[]>([]);
   const [currentPage, setCurrentPage] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
-  const [sortOrder, setSortOrder] = useState('newest')
+  const [sortOrder, setSortOrder] = useState('')
   const [filteredParticpants, setFilteredParticpants] = useState<{
     id: number,
     title: string,
@@ -39,17 +41,34 @@ function Participants() {
   const handlePrev = () => {
     if (currentPage > 1) handlePageChange(currentPage - 1)
   }
-
   useEffect(() => {
-    const filtered = ParticipantsData.filter(sub =>
-      sub.title.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-
-    const startIndex = (currentPage - 1) * SubmissionPerPage
-    const endIndex = startIndex + SubmissionPerPage
-    setFilteredParticpants(filtered.slice(startIndex, endIndex))
-  }, [searchTerm, sortOrder, currentPage])
-
+    getCountries().then(setCountries).catch(console.error);
+  }, []);
+  useEffect(() => {
+    let filtered = ParticipantsData;
+  
+    // Search filter
+    if (searchTerm.trim() !== "") {
+      filtered = filtered.filter(sub =>
+        sub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        sub.team?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        sub.email?.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+  
+    // Country filter
+    if (sortOrder && sortOrder.trim() !== "") {
+      filtered = filtered.filter(sub =>
+        sub.country?.toLowerCase() === sortOrder.toLowerCase()
+      );
+    }
+  
+    const startIndex = (currentPage - 1) * SubmissionPerPage;
+    const endIndex = startIndex + SubmissionPerPage;
+    setFilteredParticpants(filtered.slice(startIndex, endIndex));
+  }, [searchTerm, sortOrder, currentPage, ParticipantsData]);
+  
+  
   return (
     <>
      <section className="bg-white px-10 rounded-2xl py-5 mb-10 shadow-lg">
@@ -74,7 +93,7 @@ function Participants() {
         </div>
 
         <div className="flex items-center justify-between gap-5">
-          <div className="flex items-center gap-3 rounded-lg px-3 py-2 bg-[#F9FBFF]">
+          <div className="flex items-center gap-3 rounded-lg px-3 py-2 bg-[#F9FBFF] w-[55%]">
             <svg
               width="24"
               height="24"
@@ -99,7 +118,7 @@ function Participants() {
             </svg>
             <input
               type="text"
-              placeholder="Search "
+              placeholder="Search by name, team or email"
               className="w-full max-w-md outline-none border-none bg-transparent text-sm text-gray-700 placeholder-gray-400"
               value={searchTerm}
               onChange={e => {
@@ -109,19 +128,23 @@ function Participants() {
             />
           </div>
 
-          <div className="flex items-center bg-[#F9FBFF] px-3 py-2 rounded-lg gap-1">
+          <div className="flex items-center bg-[#F9FBFF] px-3 py-2 rounded-lg gap-4 w-[40%]">
             <p className="text-[#7E7E7E] text-sm">Sort by :</p>
-            <select
-              value={sortOrder}
-              onChange={e => {
-                setSortOrder(e.target.value)
-                setCurrentPage(1)
-              }}
-              className="font-semibold text-sm"
-            >
-              <option value="newest">Newest</option>
-              <option value="oldest">Oldest</option>
-            </select>
+             <select
+          value={sortOrder}
+          onChange={e => {
+            setSortOrder(e.target.value);
+            setCurrentPage(1);
+          }}
+          className="font-semibold text-sm w-[70%] outline-none cursor-pointer"
+        >
+          <option value="">By country</option>
+          {countries.map((country, idx) => (
+            <option key={idx} value={country.name}>
+              {country.name}
+            </option>
+          ))}
+        </select>
           </div>
         </div>
       </div>
