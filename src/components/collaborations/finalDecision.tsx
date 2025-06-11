@@ -22,7 +22,7 @@ function FinalDecision() {
         <div className=" border border-[#E4E4E4] rounded-lg bg-white py-8 px-4 space-y-1.5">
           <div className="border-b-2 flex justify-between border-[#535353] pb-4">
             <div className="flex gap-4 items-center">
-              <p className="bg-[#727272] px-1 h-6 text-center py-0.5 rounded-full text-xs">
+              <p className="bg-[#727272] px-1 h-6 text-center py-1 rounded-full text-xs">
                 Rank#1
               </p>
               <p className="text-2xl font-bold">BlockChain Vote </p>
@@ -71,7 +71,7 @@ function FinalDecision() {
         <div className=" border border-[#E4E4E4] rounded-lg bg-white py-8 px-4 space-y-1.5">
           <div className="border-b-2 flex justify-between border-[#535353] pb-4">
             <div className="flex gap-4 items-center">
-              <p className="bg-[#727272] px-1 h-6 text-center py-0.5 rounded-full text-xs">
+              <p className="bg-[#727272] px-1 h-6 text-center py-1 rounded-full text-xs">
                 Rank#1
               </p>
               <p className="text-2xl font-bold">BlockChain Vote </p>
