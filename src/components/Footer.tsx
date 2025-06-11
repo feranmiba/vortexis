@@ -1,86 +1,54 @@
+import React from 'react';
+import { FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import Link from "next/link";
-import Image from "next/image";
-import web3logo from "@/public/assets/web3logo.svg";
-import send from "@/public/assets/send.svg";
-import x from "@/public/assets/x.svg";
-import { Button } from "../components/ui/Button";
-import { Input } from "./ui/Input";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#0099ff] text-[#263238] py-8 ">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div>
-            <div className="flex items-center mb-4">
-              <Image
-                src={web3logo}
-                alt="Web3Lagos Logo"
-                width={24}
-                height={24}
-              />
-              <span className="ml-2 text-xl font-semibold">Web3Lagos</span>
-            </div>
-            <p className="text-sm">Copyright © 2025 Web3Lagos.</p>
-            <p className="text-sm">All rights reserved</p>
-            <Link href="/web3bridge" className="">
-              <Image src={x} alt="X" width={24} height={24} className="mt-8" />
+    <footer className="text-white px-6 py-10 bg-[#4925D5]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+
+          <h2 className="text-2xl font-bold">VORTEXIS</h2>
+          <p className="mt-12  text-sm font-light">
+            The All-In-One Platform For Hackathons, Collaboration, And Innovation.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Quick Links</h3>
+          <ul className="space-y-1 text-lg">
+            <li><Link href="document">• Documentation</Link></li>
+            <li><Link href="api">• API</Link></li>
+            <li><Link href="support">• Support</Link></li>
+            <li><Link href="community">• Community</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Resources</h3>
+          <ul className="space-y-1 text-lg">
+            <li><Link href="/about">• About</Link></li>
+            <li><Link href="/features">• Features</Link></li>
+            <li><Link href="/hackathons">• Hackathons</Link></li>
+            <li><Link href="/faqs">• FAQs</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className=" text-xl font-semibold mb-2">Socials</h3>
+          <div className="flex flex-col space-y-4 mt-4 justify-center">
+            <Link href="#" aria-label="LinkedIn">
+              <FaLinkedin className="w-5 h-5" />
+            </Link>
+            <Link href="#" aria-label="X" >
+              <FaXTwitter className="w-5 h-5 " />
             </Link>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/about">About us</Link>
-              </li>
-              <li>
-                <Link href="/blog">Blog</Link>
-              </li>
-              <li>
-                <Link href="/contact">Contact us</Link>
-              </li>
-              <li>
-                <Link href="/pricing">Pricing</Link>
-              </li>
-              <li>
-                <Link href="/testimonials">Testimonials</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Hackathons</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/hackathons">Browse Hackathons</Link>
-              </li>
-              <li>
-                <Link href="/projects">Explore Projects</Link>
-              </li>
-              <li>
-                <Link href="/host-hackathon">Host A Hackathon</Link>
-              </li>
-              <li>
-                <Link href="/guides">Hackathon Guides</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-3 lg:col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Stay up to date</h3>
-            <div className="flex">
-              <div className="relative flex-grow">
-                <Input
-                  type="email"
-                  placeholder="Your email address"
-                  className="px-4 py-2 w-full rounded-xl bg-white text-black"
-                />
-                <Button className="absolute right-0 top-0 h-full bg-white p-2 rounded-xl cursor-pointer">
-                  <Image src={send} alt="Send" width={24} height={24} />
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
+      </div>
+
+      <div className="text-stert text-xs mt-10">
+        © 2025 Vortexis. All rights reserved.
       </div>
     </footer>
   );
