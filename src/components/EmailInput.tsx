@@ -52,6 +52,17 @@ const EmailInput: React.FC<EmailInputProps> = ({ emails, setEmails, limit }) => 
     const updated = emails.filter((_, i) => i !== index);
     setEmails(updated);
   };
+  const placeholderMessage = () => {
+    if(emails.length < limit) {
+      return `You can input ${limit - emails.length} more email`;
+    } else if (emails.length == limit) {
+     return `You have added the maximum amount of email to be sent`;
+    } else {
+      return  `You can enter up to ${limit} emails`;
+    }
+  }
+
+  console.log(emails.length)
 
   return (
     <div>
@@ -75,8 +86,9 @@ const EmailInput: React.FC<EmailInputProps> = ({ emails, setEmails, limit }) => 
           value={input}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          placeholder={`You can enter up to ${limit} emails`}
-          className="flex-grow outline-none p-2 h-7"
+          placeholder={placeholderMessage()}
+          className={emails.length == limit ? "cursor-not-allowed flex-grow outline-none p-2 h-7":  "flex-grow outline-none p-2 h-7"}
+          disabled={emails.length == limit}
         />
       </div>
       {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}

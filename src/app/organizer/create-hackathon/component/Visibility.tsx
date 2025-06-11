@@ -49,7 +49,7 @@ function Visibility( {onNext, onPrev} : NavigationProps ) {
       <form onSubmit={handleSubmit}>
 
         <div className='flex justify-between'>
-        <div className='space-y-3 shadow-2xl px-10 py-5 rounded-2xl border border-[#E4E4E4] w-[45%]'>
+        <div className='space-y-3 shadow-2xl px-5 xl:px-10 py-5 rounded-2xl border border-[#E4E4E4] w-[45%]'>
         <div className="flex items-center gap-5">
       {/* Public Checkbox */}
       <div className="flex items-center gap-2">
@@ -78,7 +78,7 @@ function Visibility( {onNext, onPrev} : NavigationProps ) {
         </div>
 
 
-        <div className='space-y-3 shadow-2xl px-10 py-5 rounded-2xl border border-[#E4E4E4] w-[45%]'>
+        <div className='space-y-3 shadow-2xl px-5 xl:px-10 py-5 rounded-2xl border border-[#E4E4E4] w-[45%]'>
                 <div className='flex items-center gap-3'>
                 <input
           type="checkbox"
@@ -120,7 +120,7 @@ function Visibility( {onNext, onPrev} : NavigationProps ) {
         <div className="mt-10">
         <div className="space-y-4">
           {notifications.map((notif, idx) => (
-            <div key={idx} className="flex items-center justify-between w-[25%] pb-3">
+            <div key={idx} className="flex items-center justify-between w-1/2 xl:w-[25%] pb-3">
               <span className="text-gray-800">{notif.label}</span>
               <button
                 onClick={() => handleToggle(idx)}

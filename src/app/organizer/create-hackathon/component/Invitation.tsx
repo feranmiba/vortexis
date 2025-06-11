@@ -6,7 +6,7 @@ import EmailInput from '@/components/EmailInput';
 
 function Invitation( {onPrev} : NavigationProps ) {
   const [emails, setEmails] = useState<string[]>([]);
-  const inviteLimit = 10; 
+  const inviteLimit = 3; 
 
 
     const role = [
