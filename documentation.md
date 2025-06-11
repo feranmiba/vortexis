@@ -40,3 +40,4 @@
 - UX is more intuitive with better visual and interactive feedback.
 - Sidebar updated
 - Ui bugs fixed
+- Framer motion added
