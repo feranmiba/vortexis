@@ -5,26 +5,48 @@ import { Submission } from '../../utils'
 
 function Rejected() { 
     const SubmissionPerPage = 8;
-
-    // 1. Filter the "pending" submissions first
-    const pendingSubmissions = Submission.filter(item => item.status === "Rejected");
+      const [searchTerm, setSearchTerm] = useState('')
+   const [sortOrder, setSortOrder] = useState('newest')
+  const [filteredSubmissions, setFilteredSubmissions] = useState<{
+   id: number
+   title: string
+   categoty: string
+   members: string
+   team: string
+   status: string
+   date: string
+ }[]>([])
+ 
+    const rejectedSubmissions = Submission.filter(item => item.status === "Rejected");
   
-    // 2. Setup pagination
-    const [currentPage, setCurrentPage] = useState(1);
-    const totalPages = Math.ceil(pendingSubmissions.length / SubmissionPerPage);
-  
-    const getCurrentPageData = (page: number) => {
-      const startIndex = (page - 1) * SubmissionPerPage;
-      const endIndex = startIndex + SubmissionPerPage;
-      return pendingSubmissions.slice(startIndex, endIndex);
-    };
-  
-    const [filteredSubmissions, setFilteredSubmissions] = useState(getCurrentPageData(1));
-  
-    const handlePageChange = (page: number) => {
-      setCurrentPage(page);
-      setFilteredSubmissions(getCurrentPageData(page));
-    };
+     const totalPages = Math.ceil(
+       rejectedSubmissions.filter(sub =>
+         sub.title.toLowerCase().includes(searchTerm.toLowerCase())
+       ).length / SubmissionPerPage
+     )
+     
+       const [currentPage, setCurrentPage] = useState(1);
+   
+      useEffect(() => {
+        const filtered = rejectedSubmissions.filter(sub =>
+          sub.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+    
+        const sorted = filtered.sort((a, b) => {
+          const dateA = new Date(a.date).getTime()
+          const dateB = new Date(b.date).getTime()
+          return sortOrder === 'newest' ? dateB - dateA : dateA - dateB
+        })
+    
+        const startIndex = (currentPage - 1) * SubmissionPerPage
+        const endIndex = startIndex + SubmissionPerPage
+        setFilteredSubmissions(sorted.slice(startIndex, endIndex))
+      }, [searchTerm, sortOrder, currentPage])
+    
+     
+      const handlePageChange = (page: number) => {
+       setCurrentPage(page)
+     }
   
     const handleNext = () => {
       if (currentPage < totalPages) {
@@ -39,7 +61,7 @@ function Rejected() {
     };
   
     const start = (currentPage - 1) * SubmissionPerPage + 1;
-    const end = Math.min(currentPage * SubmissionPerPage, pendingSubmissions.length);
+    const end = Math.min(currentPage * SubmissionPerPage, filteredSubmissions.length);
   return (
    <motion.div  initial={{ opacity: 0,  }}
    animate={{ opacity: 1,}}
@@ -52,25 +74,56 @@ function Rejected() {
             <p className='text-[#16C098] mt-2'>Active Participants</p>
         </div>
 
-        <div className='flex items-center justify-between gap-5'>
-            <div className='flex items-center gap-3  rounded-lg px-3 py-2 bg-[#F9FBFF]'>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M21 20.9984L16.65 16.6484" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div className="flex items-center justify-between gap-5">
+          <div className="flex items-center gap-3 rounded-lg px-3 py-2 bg-[#F9FBFF]">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                stroke="#7E7E7E"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M21 20.9984L16.65 16.6484"
+                stroke="#7E7E7E"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
-                <input
-                    type="text"
-                    placeholder="Search submission"
-                    className="w-full max-w-md outline-none border-none bg-transparent text-sm text-gray-700 placeholder-gray-400"
-                />
-            </div>
-            <div className='flex items-center bg-[#F9FBFF] px-3 py-2 rounded-lg gap-1 outline-none border-none'>
-                <p className='text-[#7E7E7E] text-sm'>Sort by :</p>
-                <select name="" id="" className='font-semibold text-sm'>
-                    <option value="newest">Newest</option>
-                    <option value="oldest">Oldest</option>
-                </select>
-            </div>
+            <input
+              type="text"
+              placeholder="Search submission"
+              className="w-full max-w-md outline-none border-none bg-transparent text-sm text-gray-700 placeholder-gray-400"
+              value={searchTerm}
+              onChange={e => {
+                setSearchTerm(e.target.value)
+                setCurrentPage(1)
+              }}
+            />
+          </div>
+
+          <div className="flex items-center bg-[#F9FBFF] px-3 py-2 rounded-lg gap-1">
+            <p className="text-[#7E7E7E] text-sm">Sort by :</p>
+            <select
+              value={sortOrder}
+              onChange={e => {
+                setSortOrder(e.target.value)
+                setCurrentPage(1)
+              }}
+              className="font-semibold text-sm cursor-pointer outline-none"
+            >
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
         </div>
 
     </div>
@@ -112,7 +165,7 @@ function Rejected() {
    </table>
 
    <div className='flex justify-between items-center mt-5 px-5'>
-    <p className='text-[#727272]'>Showing data {start} to {end}  of {Submission.length} entries</p>
+    <p className='text-[#727272]'>Showing data { end === 0 ? "0" : start } to {end}  of {filteredSubmissions.length} entries</p>
     <nav className="flex justify-center items-center gap-3 mt-5">
         <p onClick={handlePrev}    className='border px-4 rounded-lg cursor-pointer bg-[#F5F5F5] border-[#EEEEEE] py-2 text-[#404B52] font-semibold'  > {" < "} </p>
       <ul className="flex space-x-2">

@@ -6,37 +6,25 @@ import { usePathname } from "next/navigation";
 import DesktopSidebar from "@/components/layouts/DesktopSidebar";
 import Header from "@/components/layouts/Header";
 import MobileSidebar from "@/components/layouts/MobileSidebar";
-import {
-  HomeIcon,
-  ListOrderedIcon,
-  LayoutDashboard,
-  Trophy,
-} from "lucide-react";
 import Team from "@/public/assets/icon/team.svg";
-import Dashboard from "@/public/assets/icon/community.svg";
-import Community from "@/public/assets/icon/community.svg";
-import Resourcess from "@/public/assets/icon/resource.svg";
-import Submit from "@/public/assets/icon/iconoir_submit-document.svg";
-import Champs from "@/public/assets/icon/tabler_flag-filled.svg";
+import Judges from "@/public/assets/icon/tabler_hammer.svg";
+import Analytics from "@/public/assets/icon/Info.svg";
+import Submit from "@/public/assets/icon/Clock.svg";
+import Champs from "@/public/assets/icon/game-icons_trophy-cup.svg";
 import Dash from '@/public/assets/icon/material-symbols_dashboard.svg'
 
 const sidebarItems = [
   { icon: Dash, text: "Dashboard", href: "/organizer" },
   {
     icon: Champs,
-    text: "My Hackathons",
-    href: "/organizer/hackathon",
-  },
-  {
-    icon: Team,
     text: "Manage Hackathons",
     href: "/organizer/workspaces",
   },
 
   {
-    icon: Resourcess,
+    icon: Team,
     text: "Participants",
-    href: "/organizer/resources",
+    href: "/organizer/participants",
   },
   {
     icon: Submit,
@@ -44,14 +32,14 @@ const sidebarItems = [
     href: "/organizer/submission",
   },
   {
-    icon: Community,
+    icon: Analytics,
     text: "Analytics",
-    href: "/organizer/community",
+    href: "/organizer/analytics",
   },
   {
-    icon: Community,
+    icon: Judges,
     text: "Judges",
-    href: "/organizer/community",
+    href: "/organizer/judges",
   },
 ];
 

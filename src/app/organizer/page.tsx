@@ -9,6 +9,11 @@ import Document from '@/public/assets/icon/basil_document-outline.svg'
 import Hacks from '@/public/assets/hackathon.svg'
 import RegistrationTrend from "./components/RegistrationTrend";
 import { useRouter } from "next/navigation";
+import BlueTick from "@/public/assets/icon/blue_tick.svg"
+import Speaker from "@/public/assets/icon/speaker.svg"
+import New from "@/public/assets/icon/new.svg"
+
+
 
 function Page() {
   const handleClick = () => {
@@ -20,6 +25,18 @@ function Page() {
     router.push("/organizer/create-hackathon");
   }
 
+  const getIcon = (title: string) => {
+    switch (title) {
+      case 'New Registration':
+        return  Document
+      case 'Review Completed':
+        return BlueTick
+      case 'Announcement Posted':
+        return Speaker
+      case 'New Registration':
+        return New
+    }
+  };
 
   const ActiveHackathons = [
     {
@@ -77,26 +94,27 @@ function Page() {
 
   const recentActivities = [
     {
-      title: "Hackathon Joined",
+      title: "New Registration",
       description: "You joined the AI Global Hackathon",
       icon: Document,
     },
     {
-      title: "Submission Completed",
+      title: "Review Completed",
       description: "Submitted a project to the Open Innovation Challenge",
       icon:  Document,
     },
     {
-      title: "New Message",
+      title: "New Registration",
       description: "Received a message from the event organizer",
       icon:  Document,
     },
     {
-      title: "Hackathon Ended",
+      title: "Announcement Posted",
       description: "Global AI Agents League has concluded",
       icon:  Document,
     },
   ];
+
   
 
   return (
@@ -269,7 +287,10 @@ function Page() {
     <h1 className="text-lg font-semibold">Recent Activities</h1>
     <p>Latest updates across all hackathons</p>
     <div className="space-y-5">
-      {recentActivities.map((activity, index) => (
+      {recentActivities.map((activity, index) => {
+        const  icon  = getIcon(activity.title)
+
+        return (
         <motion.div
           key={index}
           className="flex gap-3 items-center p-3 rounded-md cursor-pointer "
@@ -277,8 +298,9 @@ function Page() {
           transition={{ duration: 0.3 }}
         >
           <div className="bg-[#00AC4F38] p-3 rounded-full flex items-center justify-center">
+
           <Image
-            src={activity.icon}
+            src={icon}
             alt="activity icon"
             className="w-6 h-6"
             width={30}
@@ -291,7 +313,7 @@ function Page() {
             <p className="text-[#727272]">May 15, 2025 3:23 PM</p>
           </div>
         </motion.div>
-      ))}
+)})}
     </div>
   </motion.div>
 </motion.section>
