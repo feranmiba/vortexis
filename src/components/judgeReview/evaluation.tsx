@@ -28,8 +28,8 @@ const evaluations = [
 
 function Evaluation() {
   return (
-    <div>
-      <div className="space-y-6 w-[1060px]">
+    <div className="flex items-stretch">
+      <div className="space-y-6 w-full">
         {evaluations.map((evaluation, index) => {
           return (
             <div key={index}>

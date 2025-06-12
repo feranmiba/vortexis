@@ -98,7 +98,7 @@ function Team({onNext, onPrev} : TeamProps ) {
         <div className="mt-10">
         <div className="space-y-4">
           {notifications.map((notif, idx) => (
-            <div key={idx} className="flex items-center justify-between w-2/5 xl:w-[25%] pb-3">
+            <div key={idx} className="flex items-center justify-between w-[25%] pb-3">
               <span className="text-gray-800">{notif.label}</span>
               <button
                 onClick={() => handleToggle(idx)}

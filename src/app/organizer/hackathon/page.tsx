@@ -55,7 +55,7 @@ function Hackathon() {
   };
 
   return (
-    <section className="bg-white px-10 rounded-2xl py-5 mb-5 shadow-xl">
+    <section className="bg-white px-10 rounded-2xl py-5">
 
       <div className='space-y-3'>
         <h1 className='text-3xl font-bold text-[#605DEC]'>{activeButton}</h1>

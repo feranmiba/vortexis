@@ -23,7 +23,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="no-scrollbar ">
+      <body>
         {!isJudgesRoute && !isOrganizerRoute && <Header />}
 
         {children}
