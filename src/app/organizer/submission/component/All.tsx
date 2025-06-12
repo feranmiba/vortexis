@@ -60,7 +60,7 @@ function All() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      <div className="flex justify-between items-center px-5">
+      <div className="flex justify-between items-center px-3 xl:px-5">
         <div>
           <h1 className="font-semibold text-2xl">All Participants</h1>
           <p className="text-[#16C098] mt-2">Active Participants</p>

@@ -119,7 +119,7 @@ function Page() {
 
   return (
     <>
-      <section className="bg-white px-10 rounded-2xl py-5">
+      <section className="bg-white px-10 rounded-2xl py-5 mb-5 shadow-xl">
         <motion.div
           className="flex justify-between items-center"
           initial={{ opacity: 0, y: -20 }}
@@ -175,7 +175,7 @@ function Page() {
           </motion.h1>
 
           <motion.div
-          className="flex gap-10 mt-5"
+          className="flex justify-between gap-2 mt-5"
             initial="hidden"
             animate="visible"
             variants={{
@@ -191,7 +191,7 @@ function Page() {
     {ActiveHackathons.map((active, index) => (
       <motion.div
         key={index}
-        className="py-6 px-4 my-2 bg-white text-center border-2 border-[#E4E4E4]  space-y-5 rounded-2xl shadow-md w-[33%]"
+        className="py-7 my-2 bg-white text-center border-2 border-[#E4E4E4]  space-y-5 rounded-2xl shadow-md w-[30%]"
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },
@@ -231,7 +231,7 @@ function Page() {
 
 
         <motion.section
-  className="flex justify-between gap-5 mt-10"
+  className="flex justify-between gap-3 mt-10"
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.5, ease: "easeOut" }}
@@ -243,9 +243,9 @@ function Page() {
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.6, ease: "easeOut" }}
   >
-    <div className="space-y-5 w-[60%]">
+    <div className="space-y-5 w-[90%]  px-2 xl:px-5">
 
-    <div className="flex justify-center">
+    <div className="flex justify-start">
       <Image src={Hacks} alt="hacks" />
     </div>
     <div className="flex gap-10 items-center">
@@ -264,8 +264,8 @@ function Page() {
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <h1 className="text-2xl font-bold">{det.number}</h1>
-          <div className="flex gap-2 items-center">
+          <h1 className="text-xl xl:text-2xl font-bold">{det.number}</h1>
+          <div className="flex gap-2 items-center flex-wrap xl:flex-nowrap justify-center">
             <Image src={det.icon} alt="icon" className="w-8 h-8" />
             <p>{det.type}</p>
           </div>
@@ -286,7 +286,7 @@ function Page() {
   >
     <h1 className="text-lg font-semibold">Recent Activities</h1>
     <p>Latest updates across all hackathons</p>
-    <div className="space-y-5">
+    <div className="space-y-3">
       {recentActivities.map((activity, index) => {
         const  icon  = getIcon(activity.title)
 
@@ -302,12 +302,12 @@ function Page() {
           <Image
             src={icon}
             alt="activity icon"
-            className="w-6 h-6"
+            className="w-8 h-8"
             width={30}
             height={30}
           />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-1">
             <h2 className="text-base font-bold text-[#212121]">{activity.title}</h2>
             <p className="text-[#212121BD] text-sm">{activity.description}</p>
             <p className="text-[#727272]">May 15, 2025 3:23 PM</p>

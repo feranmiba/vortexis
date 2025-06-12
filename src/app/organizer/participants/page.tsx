@@ -79,7 +79,7 @@ function Participants() {
       </div>
 
 
-      <div className="gap-3 mb-6  mt-16 px-10 mr-20">
+      <div className="mb-6  mt-16 xl:px-10 xl:mr-20">
 
     <motion.div
       initial={{ opacity: 0 }}
@@ -195,9 +195,6 @@ function Participants() {
                   >
                     {sub.status}
                   </span>
-                </td>
-                <td className="px-4 py-7">
-                  {/* You can add buttons/actions here */}
                 </td>
               </tr>
             ))}
