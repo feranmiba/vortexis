@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 # Pull from the remote repository (development branch)
 echo "Pulling from remote repository (development branch)..."
 git pull git@github.com:Bloceducare/blockeducare.git development --no-rebase
@@ -20,12 +17,6 @@ echo "Running build..."
 npm run build
 if [ $? -ne 0 ]; then
   echo "Error: Build failed. Please fix build errors before pushing."
-  exit 1
-fi
-
-# Ensure working directory is clean (no uncommitted changes after pull)
-if ! git diff --quiet || ! git diff --staged --quiet; then
-  echo "Error: Working directory is not clean. Please commit or stash changes before pushing."
   exit 1
 fi
 
