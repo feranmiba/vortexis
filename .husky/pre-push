@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Pull from the remote repository (development branch)
+echo "Pulling from remote repository (development branch)..."
+git pull git@github.com:Bloceducare/blockeducare.git development --no-rebase
+if [ $? -ne 0 ]; then
+  echo "Error: Failed to pull from remote repository."
+  exit 1
+fi
+
+# Check for merge conflicts
+if git status | grep -q "both modified"; then
+  echo "Error: Merge conflicts detected. Please resolve conflicts before pushing."
+  exit 1
+fi
+
+# Run the build command
+echo "Running build..."
+npm run build
+if [ $? -ne 0 ]; then
+  echo "Error: Build failed. Please fix build errors before pushing."
+  exit 1
+fi
+
+# Ensure working directory is clean (no uncommitted changes after pull)
+if ! git diff --quiet || ! git diff --staged --quiet; then
+  echo "Error: Working directory is not clean. Please commit or stash changes before pushing."
+  exit 1
+fi
+
+echo "Pre-push checks passed. Proceeding with push."
