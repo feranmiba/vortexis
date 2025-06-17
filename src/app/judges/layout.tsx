@@ -104,6 +104,7 @@ export default function DashboardLayout({
         sidebarExpanded={sidebarExpanded}
         sidebarItems={sidebarItems}
         toggleSidebar={toggleSidebar}
+        settingPage=""
         pathname={pathname}
       />
 

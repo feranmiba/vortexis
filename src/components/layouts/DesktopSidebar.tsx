@@ -27,7 +27,7 @@ interface DesktopSidebarProps {
   sidebarItems: SidebarItem[];
   sidebarExpanded: boolean;
   toggleSidebar: () => void;
-  settingPage: string;
+  settingPage?: string;
   pathname: string;
 }
 
@@ -80,7 +80,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
         </div>
 
         <div className="mt-auto flex flex-col gap-4 py-2">
-          <Link
+          {settingPage && <Link
             href={settingPage}
             className={`flex items-center py-4 pl-4 ${
               pathname === settingPage
@@ -93,7 +93,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
 
               {sidebarExpanded && <span>Settings</span>}
             </button>
-          </Link>
+          </Link>}
 
           <button className="text-gray-600 flex items-center gap-3 pl-10">
             <LogOutIcon />
