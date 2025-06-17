@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Button } from "../components/ui/Button";
+import { Button } from "./ui/button";
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,14 +54,14 @@ export const Header: React.FC = () => {
                   </Button>
                 </Link>
                 <Link href="/auth/signup">
-                  <Button variant="primary" className="w-full">
+                  <Button className="w-full">
                     Sign up
                   </Button>
                 </Link>
               </>
             ) : (
               <Link href="/api/auth/signout?callbackUrl=/">
-                <Button variant="primary" className="w-full">
+                <Button className="w-full">
                   Logout
                 </Button>
               </Link>
@@ -148,13 +148,13 @@ export const Header: React.FC = () => {
                     </Button>
                   </Link>
                   <Link href="/auth/signup">
-                    <Button variant="primary" className="w-full">
+                    <Button className="w-full">
                       Sign up
                     </Button>
                   </Link>
                 </div>
               ) : (
-                <Button variant="primary" className="w-full">
+                <Button className="w-full">
                   Logout
                 </Button>
               )}
