@@ -1,4 +1,4 @@
-interface Hackathon_details {
+export default interface Hackathon_details {
     title: string; 
     description: string; 
     venue: string; 
