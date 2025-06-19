@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import { NavigationProps } from '@/components/Interface';
 import EmailInput from '@/components/EmailInput';
 
+interface InvitationProps extends NavigationProps {
+  data: any;
+  setData: (data: any) => void;
+  onSubmit: () => void;
+}
 
-
-function Invitation( {onPrev} : NavigationProps ) {
+function Invitation({ onPrev, data, setData, onSubmit }: InvitationProps) {
   const [emails, setEmails] = useState<string[]>([]);
   const inviteLimit = 3; 
 
