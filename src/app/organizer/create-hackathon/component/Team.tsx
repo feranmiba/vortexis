@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { NavigationProps } from '@/components/Interface';
 
-interface TeamProps {
-  onNext: () => void;
-  onPrev: () => void;
-}
 
-function Team({onNext, onPrev} : TeamProps ) {
+
+function Team({ onNext, onPrev, data, setData }: NavigationProps ) {
+    const [localData, setLocalData] = useState(data || {});
+  
   const dropdownMinimumIndividual = [
     "1 individual",
     "2 Members",
@@ -41,13 +41,17 @@ function Team({onNext, onPrev} : TeamProps ) {
 
       const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        onNext();
+        if (onNext) {
+          onNext();
+        }
         // Handle form submission logic here
         console.log("Form submitted");
       }
     
       const previousButton = () => {
-        onPrev();
+        if (onPrev) {
+          onPrev();
+        }
         console.log("Going to previous step");
       }
     
@@ -68,7 +72,7 @@ function Team({onNext, onPrev} : TeamProps ) {
             <label className="block mb-2 text-[#2F3036] font-bold">Minimum Team Members</label>
             <select
               className="w-full rounded-2xl border border-[#C5C6CC] px-4 py-3 outline-none"
-              name="minimum_members"
+              name="min_team_size"
             >
               {dropdownMinimumIndividual.map((item, index) => (
                 <option key={index} value={item}>
@@ -83,7 +87,7 @@ function Team({onNext, onPrev} : TeamProps ) {
             <label className="block mb-2 text-[#2F3036] font-bold">Maximum Team Members</label>
             <select
               className="w-full rounded-2xl border border-[#C5C6CC] px-4 py-3 outline-none"
-              name="maximum_members"
+              name="max_team_size"
             >
               {dropdownMaximum.map((item, index) => (
                 <option key={index} value={item}>
