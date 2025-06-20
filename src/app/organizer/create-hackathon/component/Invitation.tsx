@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavigationProps } from '@/components/Interface';
+import EmailInput from '@/components/EmailInput';
 
+interface InvitationProps extends NavigationProps {
+  data: any;
+  setData: (data: any) => void;
+  onSubmit: () => void;
+}
 
+function Invitation({ onPrev, data, setData, onSubmit }: InvitationProps) {
+  const [emails, setEmails] = useState<string[]>([]);
+  const inviteLimit = 3; 
 
-function Invitation( {onPrev} : NavigationProps ) {
 
     const role = [
         "Technology Role",
@@ -38,13 +46,9 @@ function Invitation( {onPrev} : NavigationProps ) {
       <form onSubmit={handleSubmit}>
       <div>
             <label className='text-lg font-bold text-[#2F3036]'>Invite by Email</label>
-            <input 
-            type='text'
-            placeholder='Enter email address'
-            required
-            name='email'
-            className='w-full rounded-2xl py-3 px-3 border outline-none border-[#C5C6CC] mt-3'
-            />
+            <EmailInput emails={emails} setEmails={setEmails} limit={inviteLimit}/>
+
+         
         </div>
 
         <div className='mt-10'>
