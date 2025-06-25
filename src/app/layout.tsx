@@ -5,11 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import  {Footer}  from "@/components/Footer";
 import { usePathname } from "next/navigation";
-
-// export const metadata: Metadata = {
-//   title: "VORTEXIS",
-//   description: "Vortexis by Web3bridge",
-// };
+import { Provider } from "./provider";
 
 export default function RootLayout({
   children,
