@@ -3,7 +3,6 @@ import { FileImageIcon } from 'lucide-react'
 import { NavigationProps } from '@/components/Interface';
 import { toast } from 'react-toastify';
 import { useHackathonStore } from '@/store/useHackathonStore';
-import { useCallback } from 'react';
 import { useShallow } from 'zustand/shallow';
 
 
@@ -39,7 +38,7 @@ function Details({ onNext, data }: NavigationProps) {
       return;
     }
   
-    if (description?.trim()) {
+    if (description === "") {
       toast.error("Please enter a description", {
         position: "top-right",
         autoClose: 3000,
@@ -48,7 +47,7 @@ function Details({ onNext, data }: NavigationProps) {
       return;
     }
   
-    if (start_date?.trim()) {
+    if (start_date === "") {
       toast.error("Please enter a start date", {
         position: "top-right",
         autoClose: 3000,
@@ -57,7 +56,7 @@ function Details({ onNext, data }: NavigationProps) {
       return;
     }
   
-    if (end_date?.trim()) {
+    if (end_date === "") {
       toast.error("Please enter an ending date", {
         position: "top-right",
         autoClose: 3000,
