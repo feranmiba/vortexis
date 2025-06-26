@@ -55,7 +55,7 @@ function Hackathon() {
 
   const renderComponent = () => {
     if (Buttons[currentStep] === "Hackathon Details") {
-      return <Details onNext={handleNext} data={formData.details} setData={(data: any) => setFormData(prev => ({ ...prev, details: data }))} />;
+      return <Details onNext={handleNext} data={formData.details} />;
     }
     if (Buttons[currentStep] === "Submission") {
       return <Submission onNext={handleNext} onPrev={handlePrev} data={formData.submission} setData={(data: any) => setFormData(prev => ({ ...prev, submission: data }))}  />;
