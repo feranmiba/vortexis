@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { NavigationProps } from '@/components/Interface';
 import EmailInput from '@/components/EmailInput';
+import { useHackathonStore } from '@/store/useHackathonStore';
 
 interface InvitationProps extends NavigationProps {
   data: any;

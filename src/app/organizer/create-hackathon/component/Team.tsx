@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
 import { NavigationProps } from '@/components/Interface';
+import { toast } from 'react-toastify';
+import { useHackathonStore } from '@/store/useHackathonStore';
+import { useShallow } from 'zustand/shallow';
+
 
 
 
 function Team({ onNext, onPrev, data, setData }: NavigationProps ) {
-    const [localData, setLocalData] = useState(data || {});
+    
+      const hackathonSelector = useShallow((state: any) => ({
+        min_team_size: state.min_team_size,
+        max_team_size: state.max_team_size,
+        setField: state.setField,
+      }));
+
+      const { min_team_size, max_team_size, setField } = useHackathonStore(hackathonSelector);
   
   const dropdownMinimumIndividual = [
     "1 individual",
@@ -73,6 +84,8 @@ function Team({ onNext, onPrev, data, setData }: NavigationProps ) {
             <select
               className="w-full rounded-2xl border border-[#C5C6CC] px-4 py-3 outline-none"
               name="min_team_size"
+              value={min_team_size}
+              onChange={(e) => setField('min_team_size', e.target.value)}
             >
               {dropdownMinimumIndividual.map((item, index) => (
                 <option key={index} value={item}>
@@ -88,6 +101,8 @@ function Team({ onNext, onPrev, data, setData }: NavigationProps ) {
             <select
               className="w-full rounded-2xl border border-[#C5C6CC] px-4 py-3 outline-none"
               name="max_team_size"
+              value={max_team_size}
+              onChange={(e) => setField('max_team_size', e.target.value)}
             >
               {dropdownMaximum.map((item, index) => (
                 <option key={index} value={item}>

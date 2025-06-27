@@ -1,166 +1,109 @@
-import { useCallback } from "react";
-import Hackathon_details from "./interface";
+'use client';
 
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import Hackathon_details from './interface';
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
 
 export default function useOrganizer() {
+  const queryClient = useQueryClient();
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api";
-
-  const createHackathon = useCallback(async (data: Hackathon_details) => {
-    try {
-      const response = await fetch(`${apiUrl}/hackathon`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data), 
+ 
+  const createHackathonMutation = useMutation({
+    mutationFn: async (data: Hackathon_details) => {
+      const res = await fetch(`${apiUrl}/hackathon`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
-  
-      if (!response.ok) {
-        throw new Error("Failed to create hackathon");
-      }
-  
-      const result = await response.json();
-      console.log("Hackathon created:", result);
-      return result;
-    } catch (error: any) {
-      console.error("Error creating hackathon:", error.message || error);
-      throw error;
-    }
-  }, []);
 
-  const updateHackathon = useCallback(
-    async (id: string, data: Hackathon_details) => {
-      try {
-        const response = await fetch(`${apiUrl}/hackathon/${id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+      if (!res.ok) throw new Error('Failed to create hackathon');
+      return res.json();
+    },
+  });
 
-        if (!response.ok) {
-          throw new Error("Failed to update hackathon");
-        }
 
-        const result = await response.json();
-        console.log("Hackathon updated:", result);
-        return result;
-      } catch (error: any) {
-        console.error("Error updating hackathon:", error.message || error);
-        throw error;
-      }
-    }, []);
+  const updateHackathonMutation = useMutation({
+    mutationFn: async ({ id, data }: { id: string; data: Hackathon_details }) => {
+      const res = await fetch(`${apiUrl}/hackathon/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-    const inviteJudges = useCallback(
-      async (hackathonId: string, judgeEmails: string[]) => {
-        try {
-          const response = await fetch(`${apiUrl}/hackathon/${hackathonId}/invite-judge`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ emails: judgeEmails }),
-          });
+      if (!res.ok) throw new Error('Failed to update hackathon');
+      return res.json();
+    },
+  });
 
-          if (!response.ok) {
-            throw new Error("Failed to invite judges");
-          }
+  const inviteJudgesMutation = useMutation({
+    mutationFn: async ({ hackathonId, emails }: { hackathonId: string; emails: string[] }) => {
+      const res = await fetch(`${apiUrl}/hackathon/${hackathonId}/invite-judge`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ emails }),
+      });
 
-          const result = await response.json();
-          console.log("Judges invited:", result);
-          return result;
-        }
-        catch (error: any) {
-          console.error("Error inviting judges:", error.message || error);
-          throw error;
-        }
-      }
-    , []);
-        
-    
+      if (!res.ok) throw new Error('Failed to invite judges');
+      return res.json();
+    },
+  });
 
-    const getParticipants = useCallback(
-      async() => {
-      try {
-        const response = await fetch(`${apiUrl}/hackathon`, {
-            method: "GET"
-        })
 
-        if(!response.ok) {
-            alert("Unable to fech participants")
-        }
+  const useParticipants = () =>
+    useQuery({
+      queryKey: ['participants'],
+      queryFn: async () => {
+        const res = await fetch(`${apiUrl}/hackathon`);
+        if (!res.ok) throw new Error('Unable to fetch participants');
+        return res.json();
+      },
+    });
 
-        const data =  await response.json()
-        return data;
+ 
+  const useSubmissions = () =>
+    useQuery({
+      queryKey: ['submissions'],
+      queryFn: async () => {
+        const res = await fetch(`${apiUrl}/hackathon/submission`);
+        if (!res.ok) throw new Error('Unable to fetch submissions');
+        return res.json();
+      },
+    });
 
-      } catch (error) {
-        console.error("Network error")
-      } 
-    }, [], )
 
-    const getSubmission = useCallback(
-      async() => {
-      try {
-        const response = await fetch(`${apiUrl}/hackathon/submission`, {
-            method: "GET"
-        })
+  const useSubmissionById = (id: string) =>
+    useQuery({
+      queryKey: ['submission', id],
+      queryFn: async () => {
+        const res = await fetch(`${apiUrl}/hackathon/${id}/submission/`);
+        if (!res.ok) throw new Error('Unable to fetch submission');
+        return res.json();
+      },
+      enabled: !!id, 
+    });
 
-        if(!response.ok) {
-            alert("Unable to fetch submissions")
-        }
+  const deleteSubmissionMutation = useMutation({
+    mutationFn: async (id: string) => {
+      const res = await fetch(`${apiUrl}/hackathon/${id}/submission/`, {
+        method: 'DELETE',
+      });
 
-        const data = response.json()
-      } catch (error) {
-        console.error("Network error")
-      } 
-    }, [], )
+      if (!res.ok) throw new Error('Unable to delete submission');
+      return res.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['submissions'] });
+    },
+  });
 
-    const getSubmissionById = useCallback(
-      async (id: string) => {
-        try {
-          const response = await fetch(`${apiUrl}/hackathon/${id}/submission/`, {
-            method: "GET"
-          });
-
-          if (!response.ok) {
-            alert("Unable to fetch submission");
-          }
-
-          const data = await response.json();
-          return data;
-        } catch (error) {
-          console.error("Network error", error);
-        }
-      }, [], );
-
-      const deleteSubmission = useCallback(
-        async (id: string) => {
-          try {
-            const response = await fetch(`${apiUrl}/hackathon/${id}/submission/`, {
-              method: "DELETE"
-            });
-
-            if (!response.ok) {
-              alert("Unable to delete submission");
-            }
-
-            const data = await response.json();
-            return data;
-          } catch (error) {
-            console.error("Network error", error);
-          }
-        }, [], );
-
-    return { 
-        getParticipants,
-        createHackathon,
-        getSubmission,
-        getSubmissionById,
-        updateHackathon,
-        deleteSubmission,
-        inviteJudges
-    }
-    
+  return {
+    createHackathonMutation,
+    updateHackathonMutation,
+    inviteJudgesMutation,
+    useParticipants,
+    useSubmissions,
+    useSubmissionById,
+    deleteSubmissionMutation,
+  };
 }
