@@ -52,6 +52,25 @@ function Team({ onNext, onPrev, data, setData }: NavigationProps ) {
 
       const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+          if (!min_team_size) {
+              toast.error("Please enter a minimum team size", {
+                position: "top-right",
+                autoClose: 3000,
+                theme: "colored",
+              });
+              return;
+            }
+
+            if (!max_team_size) {
+              toast.error("Please enter a maximum team size", {
+                position: "top-right",
+                autoClose: 3000,
+                theme: "colored",
+              });
+              return;
+            }
+
         if (onNext) {
           onNext();
         }
