@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { NavigationProps } from '@/components/Interface';
 import EmailInput from '@/components/EmailInput';
 import { useHackathonStore } from '@/store/useHackathonStore';
+import useOrganizer from '@/app/api/utils/useOrganizer';
 
 interface InvitationProps extends NavigationProps {
   data: any;
@@ -12,6 +13,9 @@ interface InvitationProps extends NavigationProps {
 function Invitation({ onPrev, data, setData, onSubmit }: InvitationProps) {
   const [emails, setEmails] = useState<string[]>([]);
   const inviteLimit = 3; 
+  const { createHackathonMutation, updateHackathonMutation, inviteJudgesMutation } = useOrganizer();
+  const hackathon = useHackathonStore((state) => state.getHackathonData());
+
 
 
     const role = [
@@ -20,10 +24,13 @@ function Invitation({ onPrev, data, setData, onSubmit }: InvitationProps) {
         "Financial Role"
     ]
 
-          const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+          const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
-         
-            console.log("Form submitted");
+            try {
+               await createHackathonMutation.mutateAsync(hackathon)
+            } catch (error) {
+              
+            }
           }
         
           const previousButton = () => {
