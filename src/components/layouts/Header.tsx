@@ -30,8 +30,8 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         <div className="flex items-center">
           {/* Mobile menu button */}
           <button
-            title="Toggle sidebar"
             type="button"
+            title="Toggle mobile menu"
             onClick={toggleSidebar}
             className="hover:bg-gray-100 rounded-md p-2 focus:outline-none lg:hidden"
           >

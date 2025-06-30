@@ -3,8 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+// import { Label } from "@/components/ui/label";
 import { Upload, User } from "lucide-react";
 
 const ProfileTab = () => {
@@ -57,21 +56,21 @@ const ProfileTab = () => {
         <div className="space-y-4">
           <Label className="text-sm font-medium text-gray-700">Profile Photo</Label>
           <div className="flex items-center gap-4">
-            <Avatar className="w-16 h-16">
+            {/* <Avatar className="w-16 h-16">
               <AvatarImage src="" />
               <AvatarFallback className="bg-gray-200 text-gray-600">
                 <User className="w-8 h-8" />
               </AvatarFallback>
-            </Avatar>
+            </Avatar> */}
             <div className="flex gap-3">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={handleRemovePhoto}
                 className="text-gray-600"
               >
                 Remove
               </Button>
-              <Button 
+              <Button
                 onClick={handleUploadPhoto}
                 className="bg-blue-600 hover:bg-blue-700"
               >
@@ -145,7 +144,7 @@ const ProfileTab = () => {
             <Label className="text-sm font-medium text-gray-700">Skills</Label>
             <p className="text-sm text-gray-500 mt-1">Enter the technologies used in your project</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {profileData.skills.map((skill, index) => (
               <Input
@@ -175,7 +174,7 @@ const ProfileTab = () => {
 
         {/* Save Button */}
         <div className="flex justify-end pt-6">
-          <Button 
+          <Button
             onClick={handleSaveChanges}
             className="bg-blue-600 hover:bg-blue-700 px-8"
           >
