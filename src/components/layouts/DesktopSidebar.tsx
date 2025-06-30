@@ -7,7 +7,7 @@ import Link from "next/link";
 // import SettingsIcon from '@/public/assets/icon/Services.svg';
 // import SignoutIcon from '@/public/assets/icon/logout.svg';
 import { Settings, LogOutIcon } from "lucide-react";
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
 
 // import HomeIcon from '../assets/icons/HomeIcon';
 // import ProductIcon from '../assets/icons/ProductIcon';
@@ -44,12 +44,13 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
       animate={{ width: sidebarExpanded ? "250px" : "100px" }}
       className="fixed left-0 top-0 z-10 hidden h-screen flex-col bg-white w-20 lg:flex"
     >
-      <Button
+      <button type="button"
+        aria-label="Toggle Sidebar"
         onClick={toggleSidebar}
         className="border-gray-200 hover:bg-gray-100 absolute -right-4 top-5 text-blue-700 flex size-8 items-center justify-center rounded-full border bg-white"
       >
         <ChevronRight size={18} />
-      </Button>
+      </button>
 
       <div className="flex h-full flex-col gap-y-2">
         <div

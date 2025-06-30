@@ -1,8 +1,13 @@
-
+"use client";
 import { HackathonDetailCard } from "@/components/dashboard/HackathonDetailCard";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState } from "react";
+
+
+const TabMenu = ["active", "upcoming", "past"];
 
 const Hackathons = () => {
+  const [activeTab, setActiveTab] = useState<string>("active");
+
   const activeHackathons = [
     {
       title: "AI Innovation Challenge",
@@ -13,7 +18,7 @@ const Hackathons = () => {
     },
     {
       title: "AI Innovation Challenge",
-      description: "Build the next generation of AI tools for developers", 
+      description: "Build the next generation of AI tools for developers",
       status: "in progress" as const,
       deadline: "May 12, 2025",
       progress: 45
@@ -39,7 +44,7 @@ const Hackathons = () => {
       title: "Mobile App Innovation",
       description: "Design and build the next big mobile application",
       status: "upcoming" as const,
-      deadline: "July 20, 2025", 
+      deadline: "July 20, 2025",
       progress: 0
     }
   ];
@@ -68,31 +73,36 @@ const Hackathons = () => {
           <h1 className="text-4xl font-bold text-blue-600 mb-2">My Hackathons</h1>
         </div>
 
-        <Tabs defaultValue="active" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="active">Active</TabsTrigger>
-            <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-            <TabsTrigger value="past">Past</TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="active" className="space-y-4 mt-6">
-            {activeHackathons.map((hackathon, index) => (
-              <HackathonDetailCard key={index} {...hackathon} />
+        <div className="w-full">
+          <div className="grid w-full grid-cols-3">
+            {TabMenu.map((tab, index) => (
+              <button key={index} type="button" onClick={() => setActiveTab(tab)} value="active">{tab}</button>
             ))}
-          </TabsContent>
-          
-          <TabsContent value="upcoming" className="space-y-4 mt-6">
-            {upcomingHackathons.map((hackathon, index) => (
-              <HackathonDetailCard key={index} {...hackathon} />
-            ))}
-          </TabsContent>
-          
-          <TabsContent value="past" className="space-y-4 mt-6">
-            {pastHackathons.map((hackathon, index) => (
-              <HackathonDetailCard key={index} {...hackathon} />
-            ))}
-          </TabsContent>
-        </Tabs>
+          </div>
+
+          {activeTab === "active" &&
+            <div className="space-y-4 mt-6">
+              {activeHackathons.map((hackathon, index) => (
+                <HackathonDetailCard key={index} {...hackathon} />
+              ))}
+            </div>
+          }
+
+          {activeTab === "upcoming" &&
+            <div className="space-y-4 mt-6">
+              {upcomingHackathons.map((hackathon, index) => (
+                <HackathonDetailCard key={index} {...hackathon} />
+              ))}
+            </div>
+          }
+          {activeTab === "past" &&
+            <div className="space-y-4 mt-6">
+              {pastHackathons.map((hackathon, index) => (
+                <HackathonDetailCard key={index} {...hackathon} />
+              ))}
+            </div>
+          }
+        </div>
       </div>
     </div>
   );

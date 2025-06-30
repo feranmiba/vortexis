@@ -2,13 +2,13 @@
 
 
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import Card from "@/components/ui/card";
 import { Code, FileText, Link } from "lucide-react";
 
+const TabMenu = ["api-documentation", "design-assets", "mentors", "faqs"];
+
 const Resources = () => {
-  const [activeTab, setActiveTab] = useState("api-documentation");
+  const [activeTab, setActiveTab] = useState<string>("api-documentation");
 
   const apiDocumentationResources = [
     {
@@ -143,39 +143,26 @@ const Resources = () => {
         </div>
 
         {/* Tabs */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger 
-              value="api-documentation"
-              className="text-sm font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white"
-            >
-              API Documentation
-            </TabsTrigger>
-            <TabsTrigger 
-              value="design-assets"
-              className="text-sm font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white"
-            >
-              Design Assets
-            </TabsTrigger>
-            <TabsTrigger 
-              value="mentors"
-              className="text-sm font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white"
-            >
-              Mentors
-            </TabsTrigger>
-            <TabsTrigger 
-              value="faqs"
-              className="text-sm font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white"
-            >
-              FAQs
-            </TabsTrigger>
-          </TabsList>
+        <div className="w-full">
+          <div className="grid w-full grid-cols-4 mb-8">
+            {TabMenu.map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveTab(tab)}
+                type="button"
+                value="api-documentation"
+                className="text-sm font-medium data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
 
-          <TabsContent value={activeTab}>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {getResourcesForTab(activeTab).map((resource, index) => (
                 <Card key={index} className="border border-gray-200 hover:shadow-lg transition-shadow duration-200">
-                  <CardContent className="p-6">
+                  <div className="p-6">
                     <div className="flex flex-col h-full">
                       {/* Icon */}
                       <div className="mb-4">
@@ -198,20 +185,20 @@ const Resources = () => {
                       </p>
 
                       {/* Link */}
-                      <Button 
-                        variant="ghost" 
+                      <button 
+                        type="button"
                         className={`${resource.linkColor} hover:bg-gray-50 justify-start p-0 h-auto font-medium`}
                       >
                         <Link className="w-4 h-4 mr-2" />
                         {resource.linkText}
-                      </Button>
+                      </button>
                     </div>
-                  </CardContent>
+                  </div>
                 </Card>
               ))}
             </div>
-          </TabsContent>
-        </Tabs>
+          {/* </div> */}
+        </div>
       </div>
     </div>
   );

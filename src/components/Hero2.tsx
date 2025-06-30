@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "./ui/Button";
 export default function HackathonCTA() {
   return (
     <div className="max-w-6xl mx-auto p-6 text-white">

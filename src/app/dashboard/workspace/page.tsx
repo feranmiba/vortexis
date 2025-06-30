@@ -1,7 +1,6 @@
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/Button";
+import Card from "@/components/ui/card";
 import { Plus, Github, FileText, Book } from "lucide-react";
 
 const TeamWorkspace = () => {
@@ -12,13 +11,13 @@ const TeamWorkspace = () => {
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
     },
     {
-      name: "Sarah Chen", 
+      name: "Sarah Chen",
       role: "Backend Developer",
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah"
     },
     {
       name: "Mike Rodriguez",
-      role: "UI Designer", 
+      role: "UI Designer",
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mike"
     },
     {
@@ -48,13 +47,13 @@ const TeamWorkspace = () => {
       time: "Today, 3:30pm"
     },
     {
-      title: "Mentor Meeting", 
+      title: "Mentor Meeting",
       description: "Meeting with industry mentor to get feedback",
       time: "Tomorrow, 1:00pm"
     },
     {
       title: "Mentor Meeting",
-      description: "Meeting with industry mentor to get feedback", 
+      description: "Meeting with industry mentor to get feedback",
       time: "Tomorrow, 1:00pm"
     }
   ];
@@ -92,7 +91,7 @@ const TeamWorkspace = () => {
         <div>
           <h1 className="text-4xl font-bold text-blue-600 mb-2">Team Workspace</h1>
           <p className="text-gray-600 mb-6">Collaborate with your team members!</p>
-          
+
           {/* Hackathon Pills */}
           <div className="flex gap-3">
             <Button className="bg-blue-600 hover:bg-blue-700 text-white">
@@ -109,17 +108,17 @@ const TeamWorkspace = () => {
           <div className="lg:col-span-2 space-y-8">
             {/* Team Section */}
             <Card>
-              <CardContent className="p-6 space-y-6">
+              <div className="p-6 space-y-6">
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-1">Team: Innovation Squad</h2>
                   <p className="text-gray-600 mb-4">Working on AI Innovation Challenge</p>
-                  
+
                   <h3 className="text-lg font-medium text-blue-600 mb-4">Team Members</h3>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     {teamMembers.map((member, index) => (
                       <div key={index} className="flex items-center gap-3 p-3 border border-gray-200 rounded-lg">
-                        <img 
+                        <img
                           src={member.avatar}
                           alt={member.name}
                           className="w-10 h-10 rounded-full"
@@ -130,10 +129,10 @@ const TeamWorkspace = () => {
                         </div>
                       </div>
                     ))}
-                    
+
                     {/* Invite Member Button */}
-                    <Button 
-                      variant="outline" 
+                    <Button
+                      variant="outline"
                       className="flex items-center gap-2 p-3 h-auto border-dashed border-2 border-gray-300 hover:border-blue-400"
                     >
                       <Plus className="w-5 h-5 text-blue-600" />
@@ -146,16 +145,16 @@ const TeamWorkspace = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Project Details</h3>
                   <p className="text-gray-600">
-                    Our team is building an AI-powered code assistant that helps developers write clean, 
+                    Our team is building an AI-powered code assistant that helps developers write clean,
                     efficient code faster.
                   </p>
                 </div>
-              </CardContent>
+              </div>
             </Card>
 
             {/* Tasks Section */}
             <Card>
-              <CardContent className="p-6">
+              <div className="p-6">
                 <div className="mb-6">
                   <h2 className="text-2xl font-semibold text-green-600 mb-1">Tasks</h2>
                   <p className="text-gray-600">Track your team's progress</p>
@@ -167,7 +166,9 @@ const TeamWorkspace = () => {
                     {tasks.map((task) => (
                       <div key={task.id} className="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
                         <div className="flex items-center gap-3">
-                          <Checkbox 
+                          <input
+                            title={task.title}
+                            type="checkbox"
                             checked={task.status === "completed"}
                             disabled
                           />
@@ -180,7 +181,7 @@ const TeamWorkspace = () => {
                     ))}
                   </div>
                 </div>
-              </CardContent>
+              </div>
             </Card>
           </div>
 
@@ -188,37 +189,37 @@ const TeamWorkspace = () => {
           <div className="space-y-8">
             {/* Project Resources */}
             <Card>
-              <CardContent className="p-6">
+              <div className="p-6">
                 <h2 className="text-lg font-semibold text-blue-600 mb-4">Project Resources</h2>
                 <div className="space-y-3">
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start gap-3 h-12"
+                  <Button
+                    variant="outline"
+                    className="w-full flex justify-start gap-3 h-12"
                   >
                     <Github className="w-5 h-5" />
                     GitHub Repository
                   </Button>
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start gap-3 h-12"
+                  <Button
+                    variant="outline"
+                    className="w-full flex justify-start gap-3 h-12"
                   >
                     <FileText className="w-5 h-5" />
                     Project Docs
                   </Button>
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start gap-3 h-12"
+                  <Button
+                    variant="outline"
+                    className="w-full flex justify-start gap-3 h-12"
                   >
                     <Book className="w-5 h-5" />
                     API Documentation
                   </Button>
                 </div>
-              </CardContent>
+              </div>
             </Card>
 
             {/* Upcoming Meetings */}
             <Card>
-              <CardContent className="p-6">
+              <div className="p-6">
                 <h2 className="text-lg font-semibold text-green-600 mb-4">Upcoming Meetings</h2>
                 <div className="space-y-4">
                   {meetings.map((meeting, index) => (
@@ -232,7 +233,7 @@ const TeamWorkspace = () => {
                     </div>
                   ))}
                 </div>
-              </CardContent>
+              </div>
             </Card>
           </div>
         </div>

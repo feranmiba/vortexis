@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import HackathonHeaders from "@/components/HackathonHeaders";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import HackathonCard from "@/components/HackathonCard";
 import FilterSection from "@/components/FilterSection"; // Import the new component
 import Img1 from "@/public/assets/sponsors/sponsor1.svg";

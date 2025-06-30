@@ -1,9 +1,5 @@
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-// import { Label } from "@/components/ui/label";
 import { Upload, User } from "lucide-react";
 
 const ProfileTab = () => {
@@ -54,7 +50,7 @@ const ProfileTab = () => {
       <div className="space-y-6">
         {/* Profile Photo */}
         <div className="space-y-4">
-          <Label className="text-sm font-medium text-gray-700">Profile Photo</Label>
+          {/* <label className="text-sm font-medium text-gray-700">Profile Photo</label> */}
           <div className="flex items-center gap-4">
             {/* <Avatar className="w-16 h-16">
               <AvatarImage src="" />
@@ -63,19 +59,20 @@ const ProfileTab = () => {
               </AvatarFallback>
             </Avatar> */}
             <div className="flex gap-3">
-              <Button
-                variant="outline"
+              <button
+                type="button"
                 onClick={handleRemovePhoto}
                 className="text-gray-600"
               >
                 Remove
-              </Button>
-              <Button
+              </button>
+              <button
+                type="button"
                 onClick={handleUploadPhoto}
                 className="bg-blue-600 hover:bg-blue-700"
               >
                 Upload
-              </Button>
+              </button>
             </div>
           </div>
         </div>
@@ -83,10 +80,10 @@ const ProfileTab = () => {
         {/* Name Fields */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <Label htmlFor="firstName" className="text-sm font-medium text-gray-700">
+            <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
               First Name
-            </Label>
-            <Input
+            </label>
+            <input
               id="firstName"
               placeholder="Your first name"
               value={profileData.firstName}
@@ -96,14 +93,14 @@ const ProfileTab = () => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="lastName" className="text-sm font-medium text-gray-700">
+            <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
               Last Name
-            </Label>
-            <Input
+            </label>
+            <input
               id="lastName"
               placeholder="Your last name"
               value={profileData.lastName}
-              onChange={(e) => handleInputChange("lastName", e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("lastName", e.target.value)}
               className="w-full"
             />
           </div>
@@ -111,10 +108,10 @@ const ProfileTab = () => {
 
         {/* Email */}
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="text-sm font-medium text-gray-700">
             Email Address
-          </Label>
-          <Input
+          </label>
+          <input
             id="email"
             type="email"
             placeholder="Your email address"
@@ -126,10 +123,10 @@ const ProfileTab = () => {
 
         {/* Bio */}
         <div className="space-y-2">
-          <Label htmlFor="bio" className="text-sm font-medium text-gray-700">
+          <label htmlFor="bio" className="text-sm font-medium text-gray-700">
             Bio*
-          </Label>
-          <Textarea
+          </label>
+          <textarea
             id="bio"
             placeholder="Your bio"
             value={profileData.bio}
@@ -141,13 +138,13 @@ const ProfileTab = () => {
         {/* Skills */}
         <div className="space-y-4">
           <div>
-            <Label className="text-sm font-medium text-gray-700">Skills</Label>
+            <label className="text-sm font-medium text-gray-700">Skills</label>
             <p className="text-sm text-gray-500 mt-1">Enter the technologies used in your project</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {profileData.skills.map((skill, index) => (
-              <Input
+              <input
                 key={index}
                 placeholder={index === profileData.skills.length - 1 ? "And more....." : ""}
                 value={skill}
@@ -160,10 +157,10 @@ const ProfileTab = () => {
 
         {/* GitHub Username */}
         <div className="space-y-2">
-          <Label htmlFor="githubUsername" className="text-sm font-medium text-gray-700">
+          <label htmlFor="githubUsername" className="text-sm font-medium text-gray-700">
             GitHub Username
-          </Label>
-          <Input
+          </label>
+          <input
             id="githubUsername"
             placeholder=""
             value={profileData.githubUsername}
@@ -172,14 +169,15 @@ const ProfileTab = () => {
           />
         </div>
 
-        {/* Save Button */}
+        {/* Save button */}
         <div className="flex justify-end pt-6">
-          <Button
+          <button
+            type="button"
             onClick={handleSaveChanges}
             className="bg-blue-600 hover:bg-blue-700 px-8"
           >
             Save Changes
-          </Button>
+          </button>
         </div>
       </div>
     </div>

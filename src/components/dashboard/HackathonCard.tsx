@@ -1,6 +1,6 @@
 
 import { Clock } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import Card from "@/components/ui/card";
 
 interface HackathonCardProps {
   title: string;
@@ -12,7 +12,7 @@ interface HackathonCardProps {
 export function HackathonCard({ title, status, progress, daysLeft }: HackathonCardProps) {
   return (
     <Card className="transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
-      <CardContent className="p-6">
+      {/* <CardContent className="p-6"> */}
         <div className="space-y-4">
           <div>
             <h3 className="text-lg font-medium text-primary mb-2">{title}</h3>
@@ -39,7 +39,7 @@ export function HackathonCard({ title, status, progress, daysLeft }: HackathonCa
             <span className="text-sm font-medium">{daysLeft} days left</span>
           </div>
         </div>
-      </CardContent>
+      {/* </CardContent> */}
     </Card>
   );
 }

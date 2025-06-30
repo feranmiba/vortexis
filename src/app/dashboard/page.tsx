@@ -1,6 +1,6 @@
-
+'use client';
 import { Users, FileText, HelpCircle, Plus, AlertCircle } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Card from "@/components/ui/card";
 import { HackathonCard } from "@/components/dashboard/HackathonCard";
 import { DeadlineItem } from "@/components/dashboard/DeadlineItem";
 import { QuickActionButton } from "@/components/dashboard/QuickActionButton";
@@ -104,27 +104,27 @@ const Page = () => {
           {/* Upcoming Deadlines */}
           <div className="lg:col-span-1">
             <Card>
-              <CardHeader className="pb-4">
-                <CardTitle className="flex items-center gap-2 text-red-600 text-xl">
+              <header className="pb-4">
+                <h2 className="flex items-center gap-2 text-red-600 text-xl">
                   <AlertCircle className="w-5 h-5" />
                   Upcoming Deadlines
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
+                </h2>
+              </header>
+              <div className="space-y-2">
                 {deadlines.map((deadline, index) => (
                   <DeadlineItem key={index} {...deadline} />
                 ))}
-              </CardContent>
+              </div>
             </Card>
           </div>
 
           {/* Quick Actions */}
           <div>
             <Card>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-green-600 text-xl">Quick Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
+              <header className="pb-4">
+                <h2 className="text-green-600 text-xl">Quick Actions</h2>
+              </header>
+              <p className="space-y-3">
                 {quickActions.map((action, index) => (
                   <QuickActionButton 
                     key={index} 
@@ -133,7 +133,7 @@ const Page = () => {
                     onClick={() => console.log(`${action.label} clicked`)}
                   />
                 ))}
-              </CardContent>
+              </p>
             </Card>
           </div>
         </div>
