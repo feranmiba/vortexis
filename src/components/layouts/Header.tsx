@@ -30,6 +30,8 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
         <div className="flex items-center">
           {/* Mobile menu button */}
           <button
+            title="Toggle sidebar"
+            type="button"
             onClick={toggleSidebar}
             className="hover:bg-gray-100 rounded-md p-2 focus:outline-none lg:hidden"
           >
@@ -56,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
           </div>
         </div>
 
-        {/* 
+        {/*
         <Image
           src={Logo} // Replace with your logo
           alt="Logo"
