@@ -22,7 +22,7 @@ import StatusModal from "@/components/StatusModal";
 import { useUserHackathonsStore } from "@/store/useUserHackathons";
 import { useQueryClient } from "@tanstack/react-query";
 import { useHackathonStore } from "@/store/useHackathonStore";
-import { slugify } from "@/lib/utils";
+import { slugify, normalizeContent } from "@/lib/utils";
 import { useParams } from "next/navigation";
 
 function Hack() {
@@ -64,8 +64,9 @@ function Hack() {
   const { hackathons, addHackathon } = useUserHackathonsStore();
 
   const [isRegisteredState, setIsRegisteredState] = useState(
-    hackathons.some((h) => h?.id === Number(hackathonId)),
-  );
+  hackathons.some((h) => h?.id === Number(hackathonId))
+);
+
 
   function safeParseContent(content: string | null | undefined): string {
     if (!content) return "";
@@ -359,7 +360,7 @@ function Hack() {
                 Overview
               </h2>
               <div className="prose dark:prose-invert max-w-none">
-                <HtmlContent html={hackathonDetail.description} />
+                <HtmlContent html={hackathonDetail.description || ""} />
               </div>
             </div>
 
@@ -370,8 +371,8 @@ function Hack() {
                 Rules & Guidelines
               </h2>
               <div className="prose dark:prose-invert max-w-none">
-                <HtmlContent html={safeParseContent(hackathonDetail.rules)} />
-              </div>
+                  <HtmlContent html={normalizeContent(hackathonDetail.rules) || ""} />       
+                 </div>
             </div>
 
             {/* Prizes */}
@@ -381,8 +382,8 @@ function Hack() {
                 Prizes & Rewards
               </h2>
               <div className="prose dark:prose-invert max-w-none">
-                <HtmlContent html={safeParseContent(hackathonDetail.prizes)} />
-              </div>
+               <HtmlContent html={normalizeContent(hackathonDetail.prizes) || ""} />        
+                     </div>
             </div>
           </motion.div>
         </div>

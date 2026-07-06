@@ -5,6 +5,7 @@ export async function GET(request: Request) {
   try {
     const url = new URL(request.url);
     const code = url.searchParams.get("code");
+    const state = url.searchParams.get("state");
     const error = url.searchParams.get("error");
 
     if (error) {
@@ -13,6 +14,20 @@ export async function GET(request: Request) {
         { status: 400 },
       );
     }
+
+    // Verify state from cookie
+    const cookieStore = await cookies();
+    const savedState = cookieStore.get("githubOAuthState")?.value;
+
+    if (!state || !savedState || state !== savedState) {
+      return NextResponse.json(
+        { error: "Invalid state parameter" },
+        { status: 400 }
+      );
+    }
+
+    // Remove state cookie
+    cookieStore.delete("githubOAuthState");
 
     if (!code) {
       return NextResponse.json(
