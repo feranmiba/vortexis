@@ -162,7 +162,6 @@ export async function GET(request: Request) {
     }
 
     // Set secure HTTP-only cookies for tokens
-    const cookieStore = await cookies();
     const threeDaysInSeconds = 3 * 24 * 60 * 60;
 
     cookieStore.set("access_token", accessToken, {
