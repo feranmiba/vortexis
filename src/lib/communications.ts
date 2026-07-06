@@ -1,4 +1,5 @@
 // Communications API configuration and utilities
+import { useAuthStore } from "@/store/useAuthStore";
 
 export interface CommunicationsConfig {
   baseUrl: string;
@@ -241,7 +242,7 @@ export const getDefaultConfig = (): CommunicationsConfig => {
 
     // Fallback to localStorage
     if (!token) {
-      token = localStorage.getItem("access_token") || "";
+      token = useAuthStore.getState().getToken() || "";
       userId = parseInt(localStorage.getItem("user_id") || "0", 10);
     }
   }

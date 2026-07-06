@@ -41,8 +41,7 @@ export async function handleGithubCallback() {
     const setToken = useAuthStore.getState().setToken;
     setToken(data.access_token, threeDaysInSeconds);
 
-    // Store access token in localStorage
-    localStorage.setItem("access_token", data.access_token);
+
 
     // Fetch and store user profile (same as Google OAuth flow)
     try {
@@ -133,8 +132,7 @@ export async function handleGoogleCallback() {
     const setToken = useAuthStore.getState().setToken;
     setToken(data.access_token, threeDaysInSeconds);
 
-    // Store access token in localStorage
-    localStorage.setItem("access_token", data.access_token);
+
 
     // Backend doesn't return user data in OAuth response, so we need to fetch it
     if (!data.user) {

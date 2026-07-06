@@ -41,8 +41,6 @@ export function HackathonCard({ hackathon }: HackathonCardProps) {
   return `${daysLeft} days left`;
 };
 
-console.log("Deadline Raw Data:", hackathon?.submission_deadline);
-
   const status = getDeadlineStatus(hackathon?.submission_deadline ?? "");
 const isClosed = status === "Submission Closed";
 const isUrgent = status === "Closes Today!" || status === "1 day left";
@@ -62,19 +60,6 @@ const isUrgent = status === "Closes Today!" || status === "1 day left";
           </span>
         </div>
 
-        {/* <div className="space-y-2">
-            <div className="flex justify-between items-center text-sm">
-              <span className="text-muted-foreground">Progress</span>
-              <span className="font-medium text-primary">{progress}%</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div 
-                className="bg-blue-500 h-2 rounded-full transition-all duration-300"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-          </div> */}
-
         <div className="flex items-center gap-2 text-orange-600">
           <Clock className="w-4 h-4" />
        
@@ -86,7 +71,6 @@ const isUrgent = status === "Closes Today!" || status === "1 day left";
 </span>
         </div>
       </div>
-      {/* </CardContent> */}
     </Card>
   );
 }
